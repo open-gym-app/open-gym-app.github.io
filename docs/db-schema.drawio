@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ═══════════════════════════════ exercise ═══════════════════════════════ -->
+    <mxCell id="10" value="exercise" style="swimlane;startSize=30;fillColor=#1864ab;fontColor=#ffffff;strokeColor=#1864ab;fontStyle=1;align=center;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="40" y="40" width="300" height="160" as="geometry" />
+    </mxCell>
+    <mxCell id="11" value="🔑  id : INTEGER" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="10">
+      <mxGeometry y="30" width="300" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="12" value="    name : TEXT  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="10">
+      <mxGeometry y="56" width="300" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="13" value="    category : TEXT  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="10">
+      <mxGeometry y="82" width="300" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="14" value="    instructions : TEXT" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="10">
+      <mxGeometry y="108" width="300" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="15" value="    is_custom : INTEGER  DEFAULT 0" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="10">
+      <mxGeometry y="134" width="300" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════ muscle_group ═══════════════════════════ -->
+    <mxCell id="20" value="muscle_group" style="swimlane;startSize=30;fillColor=#1864ab;fontColor=#ffffff;strokeColor=#1864ab;fontStyle=1;align=center;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="40" y="270" width="260" height="82" as="geometry" />
+    </mxCell>
+    <mxCell id="21" value="🔑  id : INTEGER" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="20">
+      <mxGeometry y="30" width="260" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="22" value="    name : TEXT  NOT NULL  UNIQUE" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="20">
+      <mxGeometry y="56" width="260" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════ exercise_muscle_group ══════════════════════ -->
+    <mxCell id="30" value="exercise_muscle_group" style="swimlane;startSize=30;fillColor=#862e9c;fontColor=#ffffff;strokeColor=#862e9c;fontStyle=1;align=center;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="40" y="420" width="320" height="108" as="geometry" />
+    </mxCell>
+    <mxCell id="32" value="🔗  exercise_id : INTEGER  FK → exercise" style="text;strokeColor=#adb5bd;fillColor=#f3d9fa;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="30">
+      <mxGeometry y="30" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="33" value="🔗  muscle_group_id : INTEGER  FK → muscle_group" style="text;strokeColor=#adb5bd;fillColor=#f3d9fa;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="30">
+      <mxGeometry y="56" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="34" value="    PK (exercise_id, muscle_group_id)" style="text;strokeColor=#adb5bd;fillColor=#f8f0fc;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontStyle=2;fontSize=11;" vertex="1" parent="30">
+      <mxGeometry y="82" width="320" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════ workout_template ══════════════════════ -->
+    <mxCell id="40" value="workout_template" style="swimlane;startSize=30;fillColor=#2f9e44;fontColor=#ffffff;strokeColor=#2f9e44;fontStyle=1;align=center;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="450" y="40" width="300" height="134" as="geometry" />
+    </mxCell>
+    <mxCell id="41" value="🔑  id : INTEGER" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="40">
+      <mxGeometry y="30" width="300" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="42" value="    name : TEXT  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#ebfbee;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="40">
+      <mxGeometry y="56" width="300" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="43" value="    created_at : INTEGER  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#ebfbee;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="40">
+      <mxGeometry y="82" width="300" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="44" value="    updated_at : INTEGER  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#ebfbee;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="40">
+      <mxGeometry y="108" width="300" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ template_exercise ══════════════════════ -->
+    <mxCell id="50" value="template_exercise" style="swimlane;startSize=30;fillColor=#2f9e44;fontColor=#ffffff;strokeColor=#2f9e44;fontStyle=1;align=center;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="450" y="250" width="320" height="212" as="geometry" />
+    </mxCell>
+    <mxCell id="51" value="🔑  id : INTEGER" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="50">
+      <mxGeometry y="30" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="52" value="🔗  template_id : INTEGER  FK → workout_template" style="text;strokeColor=#adb5bd;fillColor=#d3f9d8;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="50">
+      <mxGeometry y="56" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="53" value="🔗  exercise_id : INTEGER  FK → exercise" style="text;strokeColor=#adb5bd;fillColor=#d3f9d8;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="50">
+      <mxGeometry y="82" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="54" value="    position : INTEGER  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#ebfbee;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="50">
+      <mxGeometry y="108" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="55" value="    default_sets : INTEGER" style="text;strokeColor=#adb5bd;fillColor=#ebfbee;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="50">
+      <mxGeometry y="134" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="56" value="    default_reps : INTEGER" style="text;strokeColor=#adb5bd;fillColor=#ebfbee;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="50">
+      <mxGeometry y="160" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="57" value="    default_weight_kg : REAL" style="text;strokeColor=#adb5bd;fillColor=#ebfbee;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="50">
+      <mxGeometry y="186" width="320" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════ workout_session ═══════════════════════ -->
+    <mxCell id="60" value="workout_session" style="swimlane;startSize=30;fillColor=#e67700;fontColor=#ffffff;strokeColor=#e67700;fontStyle=1;align=center;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="870" y="40" width="320" height="186" as="geometry" />
+    </mxCell>
+    <mxCell id="61" value="🔑  id : INTEGER" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="60">
+      <mxGeometry y="30" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="62" value="🔗  template_id : INTEGER  FK?  → workout_template" style="text;strokeColor=#adb5bd;fillColor=#ffe8cc;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="60">
+      <mxGeometry y="56" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="63" value="    started_at : INTEGER  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#fff9db;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="60">
+      <mxGeometry y="82" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="64" value="    completed_at : INTEGER  nullable" style="text;strokeColor=#adb5bd;fillColor=#fff9db;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="60">
+      <mxGeometry y="108" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="65" value="    is_in_progress : INTEGER  DEFAULT 1" style="text;strokeColor=#adb5bd;fillColor=#fff9db;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="60">
+      <mxGeometry y="134" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="66" value="    notes : TEXT" style="text;strokeColor=#adb5bd;fillColor=#fff9db;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="60">
+      <mxGeometry y="160" width="320" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ session_exercise ════════════════════════ -->
+    <mxCell id="70" value="session_exercise" style="swimlane;startSize=30;fillColor=#e67700;fontColor=#ffffff;strokeColor=#e67700;fontStyle=1;align=center;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="870" y="306" width="300" height="134" as="geometry" />
+    </mxCell>
+    <mxCell id="71" value="🔑  id : INTEGER" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="70">
+      <mxGeometry y="30" width="300" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="72" value="🔗  session_id : INTEGER  FK → workout_session" style="text;strokeColor=#adb5bd;fillColor=#ffe8cc;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="70">
+      <mxGeometry y="56" width="300" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="73" value="🔗  exercise_id : INTEGER  FK → exercise" style="text;strokeColor=#adb5bd;fillColor=#ffe8cc;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="70">
+      <mxGeometry y="82" width="300" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="74" value="    position : INTEGER  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#fff9db;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="70">
+      <mxGeometry y="108" width="300" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ════════════════════════════════ workout_set ═══════════════════════════ -->
+    <mxCell id="80" value="workout_set" style="swimlane;startSize=30;fillColor=#c92a2a;fontColor=#ffffff;strokeColor=#c92a2a;fontStyle=1;align=center;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="870" y="520" width="320" height="238" as="geometry" />
+    </mxCell>
+    <mxCell id="81" value="🔑  id : INTEGER" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="80">
+      <mxGeometry y="30" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="82" value="🔗  session_exercise_id : INTEGER  FK → session_exercise" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="80">
+      <mxGeometry y="56" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="83" value="    set_number : INTEGER  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#fff5f5;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="80">
+      <mxGeometry y="82" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="84" value="    reps : INTEGER" style="text;strokeColor=#adb5bd;fillColor=#fff5f5;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="80">
+      <mxGeometry y="108" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="85" value="    weight_kg : REAL" style="text;strokeColor=#adb5bd;fillColor=#fff5f5;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="80">
+      <mxGeometry y="134" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="86" value="    rpe : REAL  (1.0–10.0  nullable)" style="text;strokeColor=#adb5bd;fillColor=#fff5f5;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="80">
+      <mxGeometry y="160" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="87" value="    set_type : TEXT  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#fff5f5;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="80">
+      <mxGeometry y="186" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="88" value="    completed_at : INTEGER  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#fff5f5;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="80">
+      <mxGeometry y="212" width="320" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ personal_record ════════════════════════ -->
+    <mxCell id="90" value="personal_record" style="swimlane;startSize=30;fillColor=#5f3dc4;fontColor=#ffffff;strokeColor=#5f3dc4;fontStyle=1;align=center;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="450" y="560" width="320" height="186" as="geometry" />
+    </mxCell>
+    <mxCell id="91" value="🔑  id : INTEGER" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="90">
+      <mxGeometry y="30" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="92" value="🔗  exercise_id : INTEGER  FK → exercise" style="text;strokeColor=#adb5bd;fillColor=#e5dbff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="90">
+      <mxGeometry y="56" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="93" value="🔗  workout_set_id : INTEGER  FK → workout_set" style="text;strokeColor=#adb5bd;fillColor=#e5dbff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="90">
+      <mxGeometry y="82" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="94" value="    weight_kg : REAL  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#f3f0ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="90">
+      <mxGeometry y="108" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="95" value="    reps : INTEGER  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#f3f0ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="90">
+      <mxGeometry y="134" width="320" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="96" value="    achieved_at : INTEGER  NOT NULL" style="text;strokeColor=#adb5bd;fillColor=#f3f0ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="90">
+      <mxGeometry y="160" width="320" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════ RELATIONS ════════════════════════════ -->
+
+    <!-- exercise.id → exercise_muscle_group.exercise_id -->
+    <mxCell id="200" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#1864ab;" edge="1" source="11" target="32" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- muscle_group.id → exercise_muscle_group.muscle_group_id -->
+    <mxCell id="201" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#862e9c;" edge="1" source="21" target="33" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- exercise.id → template_exercise.exercise_id -->
+    <mxCell id="202" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#2f9e44;" edge="1" source="11" target="53" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- workout_template.id → template_exercise.template_id -->
+    <mxCell id="203" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#2f9e44;" edge="1" source="41" target="52" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- workout_template.id → workout_session.template_id (optional) -->
+    <mxCell id="204" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;endFill=0;startArrow=ERzeroToOne;startFill=0;strokeWidth=2;strokeColor=#e67700;dashed=1;" edge="1" source="41" target="62" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- workout_session.id → session_exercise.session_id -->
+    <mxCell id="205" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#e67700;" edge="1" source="61" target="72" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- exercise.id → session_exercise.exercise_id -->
+    <mxCell id="206" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#e67700;" edge="1" source="11" target="73" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- session_exercise.id → workout_set.session_exercise_id -->
+    <mxCell id="207" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#c92a2a;" edge="1" source="71" target="82" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- exercise.id → personal_record.exercise_id -->
+    <mxCell id="208" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#5f3dc4;" edge="1" source="11" target="92" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- workout_set.id → personal_record.workout_set_id -->
+    <mxCell id="209" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToOne;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;strokeColor=#5f3dc4;" edge="1" source="81" target="93" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
