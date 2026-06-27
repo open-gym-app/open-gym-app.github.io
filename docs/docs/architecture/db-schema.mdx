@@ -1,0 +1,87 @@
+---
+sidebar_position: 1
+---
+
+import Drawio from '@theme/Drawio';
+import diagram from '!!raw-loader!../../static/diagrams/db-schema.drawio';
+
+# Database Schema
+
+OpenGym uses SQLite via Room (Android Jetpack). The schema is fully normalized and enforces foreign keys throughout.
+
+<Drawio content={diagram} />
+
+## Tables
+
+### Core
+
+| Table | Purpose |
+|---|---|
+| `user_profile` | Single-row profile: name, goals, fitness level, preferred unit system |
+| `body_measurement` | Time-series body weight, body fat %, and per-body-part measurements |
+
+### Exercise library
+
+| Table | Purpose |
+|---|---|
+| `exercise` | Master list of exercises: name, type, primary/secondary muscles, media URL |
+| `muscle` | Muscle reference table used for body-map highlights |
+| `exercise_muscle` | Many-to-many join: exercise ↔ muscle (with `is_primary` flag) |
+
+### Workout sessions
+
+| Table | Purpose |
+|---|---|
+| `session` | A single workout: start/end timestamps, notes, `resume_token` for mid-session persistence |
+| `session_exercise` | Ordered exercises within a session |
+| `exercise_set` | Individual set: reps, weight, duration, distance, rest duration, notes |
+
+### Plans & templates
+
+| Table | Purpose |
+|---|---|
+| `workout_plan` | Named plan (Beginner / Intermediate / Advanced / custom) |
+| `plan_day` | A day within a plan |
+| `plan_day_exercise` | Exercises assigned to a plan day |
+| `session_template` | Saved session layout for one-click re-use |
+| `template_exercise` | Exercises within a template |
+
+### Performance & records
+
+| Table | Purpose |
+|---|---|
+| `personal_record` | One row per PR type per exercise: max weight, max reps, 1RM estimate, real 1RM |
+| `performance_history` | Raw per-set history used to compute progression graphs |
+
+### Gamification
+
+| Table | Purpose |
+|---|---|
+| `xp_event` | Append-only log of XP-earning events |
+| `achievement` | Catalogue of achievable milestones |
+| `user_achievement` | Unlocked achievements with unlock timestamp |
+| `loot_item` | Catalogue of loot: titles, pet eggs, pets, mounts |
+| `user_loot` | Loot owned by the user |
+
+### Marketplace
+
+| Table | Purpose |
+|---|---|
+| `product` | Aggregated product listings with shop, price, affiliate flag |
+| `product_review` | Community reviews: 1–5 star rating + written body |
+| `user_wishlist` | Products saved to the user's wishlist/shopping list |
+
+### Gym map
+
+| Table | Purpose |
+|---|---|
+| `gym` | Discovered gyms: name, coordinates, visit count |
+| `gym_review` | Advice, comments, and star rating per gym |
+
+## Key design decisions
+
+- **Foreign keys** are enforced (`PRAGMA foreign_keys = ON` at connection open).
+- **Indexes** exist on all frequently queried columns: `session.started_at`, `exercise_set.session_exercise_id`, `performance_history.exercise_id`, and `xp_event.created_at`.
+- **`resume_token`** on `session` stores a lightweight JSON snapshot so an in-progress workout survives process death.
+- **Single-user model** — no `user_id` scattered across tables; `user_profile` is always a single row.
+- **Append-only XP log** — `xp_event` is never mutated; total XP is always computed from the sum of the log.
