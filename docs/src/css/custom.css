@@ -233,6 +233,9 @@ pre code {
   background: transparent;
   padding: 0;
 }
+.theme-code-block code {
+  padding: var(--ifm-pre-padding);
+}
 
 /* Footer */
 .footer {
