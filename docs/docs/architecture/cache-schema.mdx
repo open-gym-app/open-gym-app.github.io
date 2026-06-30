@@ -1,0 +1,89 @@
+---
+sidebar_position: 2
+---
+
+import Drawio from '@theme/Drawio';
+import diagram from '!!raw-loader!../../static/diagrams/cache-schema.drawio';
+
+# Cache Schema
+
+On-device data in [Room/SQLite](./db-schema.mdx) is the source of truth for a single user.
+Once a workout is synced to the backend, leaderboards, trending exercises, and other
+cross-user aggregates are served from an **in-memory key-value cache** sitting in front of the
+backend's relational store. The cache holds hot, frequently-read data with short TTLs; SQL stays
+the durable system of record.
+
+<Drawio content={diagram} />
+
+## Data flow
+
+```text
+Android (SQLite / Room) → REST API (backend) → in-memory cache → leaderboards / global stats
+```
+
+Sync is triggered on session complete, on a new PR, and on app open (background refresh).
+
+## Key structures
+
+### Sorted sets — leaderboards
+
+| Key | Score | Member | TTL | Notes |
+|---|---|---|---|---|
+| `pr:exercise:{exercise_id}:1rm` | `estimated_1rm` (kg) | `user_id` | 3600s | Refreshed on new PR; top 10 via reverse range |
+| `pr:exercise:{exercise_id}:volume` | `total_volume_kg` for the session | `user_id` | 86400s | Daily refresh |
+| `pr:exercise:{exercise_id}:distance` | `distance_meters` | `user_id` | 3600s | ENDURANCE exercises; higher is better |
+| `pr:exercise:{exercise_id}:pace` | `pace_seconds_per_km` | `user_id` | 3600s | ENDURANCE exercises; **lower** is better — ranked ascending |
+| `exercises:trending` | `use_count` (global) | `exercise_id` | 86400s | Daily rebuild; top 20 via reverse range |
+
+### Hashes — cached stats
+
+| Key | Fields | TTL | Notes |
+|---|---|---|---|
+| `user:{user_id}:stats` | `total_sessions`, `total_volume_kg`, `streak_days`, `last_workout_at` | 3600s | 1-hour cache of expensive aggregates |
+| `session:{session_id}:progress` | `completed_sets`, `total_sets`, `current_exercise_id` | 86400s | Auto-expires 24h after the session starts |
+
+### Strings — counters
+
+| Key | Value | TTL | Notes |
+|---|---|---|---|
+| `exercise:{exercise_id}:use_count` | Total uses across all users | none | Persistent; incremented on every `session_exercise` insert |
+| `user:{user_id}:streak` | Consecutive training days | 172800s | Resets if no activity for 48h |
+
+## Sync strategy (SQL → cache)
+
+| Trigger | Action |
+|---|---|
+| `workout_session` completed | Push volume score · update `user:{id}:stats` · check streak |
+| Strength PR inserted | Update `pr:exercise:{id}:1rm` and `pr:exercise:{id}:volume` |
+| Endurance PR inserted | Update `pr:exercise:{id}:distance` and `pr:exercise:{id}:pace` |
+| `session_exercise` inserted | Increment `exercise:{id}:use_count` · bump `exercises:trending` |
+| App opens (background) | Refresh `user:{id}:stats` if its TTL has expired |
+
+`pace_seconds_per_km` is computed as `duration_seconds / (distance_meters / 1000)` before being
+written. All cache writes are fire-and-forget — the relational store is the source of truth, and a
+failed cache write never blocks the request.
+
+## Backend SQL tables
+
+These server-side tables feed the cache; they don't exist in the on-device schema:
+
+| Table | Key columns |
+|---|---|
+| `user` | `id` · `email` · `username` · `created_at` · `last_sync_at` |
+| `sync_log` | `user_id` · `entity` · `entity_id` · `synced_at` · `checksum` |
+| `global_exercise` | `id` · `name` · `category` · `is_canonical` (official catalogue) |
+| `global_pr` | `user_id` · `exercise_id` · `pr_type` · `value` · `achieved_at` |
+| `global_volume` | `user_id` · `exercise_id` · `week_start` · `total_volume_kg` |
+
+## Key design decisions
+
+- **Cache-aside, not cache-through** — reads hit the cache first; on a miss (expired TTL) they fall
+  back to SQL and re-populate the cache. The cache never holds data SQL doesn't also have.
+- **Every key has a TTL except the persistent counters** (`exercise:{id}:use_count`), so a cold
+  cache always self-heals from SQL without manual invalidation.
+- **Pace is ranked ascending, everything else descending** — leaderboard reads need to know this
+  per key, since a lower pace is a better result.
+- **One sorted set per exercise** for leaderboards, rather than one global structure, keeps
+  per-exercise ranking queries O(log n) instead of requiring a filtered scan.
+- **Writes are fire-and-forget** — the cache layer is an optimization for read-heavy endpoints
+  (leaderboards, trending), not a dependency for write correctness.

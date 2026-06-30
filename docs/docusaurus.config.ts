@@ -84,6 +84,7 @@ const config: Config = {
           items: [
             {label: 'Introduction', to: '/docs/intro'},
             {label: 'DB Schema', to: '/docs/architecture/db-schema'},
+            {label: 'Cache Schema', to: '/docs/architecture/cache-schema'},
           ],
         },
         {
