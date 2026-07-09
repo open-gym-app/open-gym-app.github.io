@@ -33,7 +33,7 @@
         <mxCell id="12" parent="11" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="TYPE      ZSET" vertex="1">
           <mxGeometry height="26" width="370" y="30" as="geometry" />
         </mxCell>
-        <mxCell id="13" parent="11" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="SCORE     estimated_1rm  (REAL  kg)" vertex="1">
+        <mxCell id="13" parent="11" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="SCORE     estimated_1rm  (INTEGER)" vertex="1">
           <mxGeometry height="26" width="370" y="56" as="geometry" />
         </mxCell>
         <mxCell id="14" parent="11" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="MEMBER    user_id  (INTEGER)" vertex="1">
@@ -53,7 +53,7 @@
         <mxCell id="18" parent="17" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="TYPE      ZSET" vertex="1">
           <mxGeometry height="26" width="370" y="30" as="geometry" />
         </mxCell>
-        <mxCell id="19" parent="17" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="SCORE     total_volume_kg  session (REAL)" vertex="1">
+        <mxCell id="19" parent="17" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="SCORE     total_volume  session (INTEGER)" vertex="1">
           <mxGeometry height="26" width="370" y="56" as="geometry" />
         </mxCell>
         <mxCell id="20" parent="17" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="MEMBER    user_id  (INTEGER)" vertex="1">
@@ -93,7 +93,7 @@
         <mxCell id="91" parent="90" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="TYPE      ZSET  (ENDURANCE)" vertex="1">
           <mxGeometry height="26" width="370" y="30" as="geometry" />
         </mxCell>
-        <mxCell id="92" parent="90" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="SCORE     distance_meters  (REAL)" vertex="1">
+        <mxCell id="92" parent="90" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="SCORE     distance  (INTEGER)" vertex="1">
           <mxGeometry height="26" width="370" y="56" as="geometry" />
         </mxCell>
         <mxCell id="93" parent="90" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="MEMBER    user_id  (INTEGER)" vertex="1">
@@ -113,7 +113,7 @@
         <mxCell id="97" parent="96" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="TYPE      ZSET  (ENDURANCE  ⚠ lower = better)" vertex="1">
           <mxGeometry height="26" width="370" y="30" as="geometry" />
         </mxCell>
-        <mxCell id="98" parent="96" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="SCORE     pace_seconds_per_km  (INTEGER)" vertex="1">
+        <mxCell id="98" parent="96" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="SCORE     pace_per_km  (INTEGER)" vertex="1">
           <mxGeometry height="26" width="370" y="56" as="geometry" />
         </mxCell>
         <mxCell id="99" parent="96" style="text;strokeColor=#adb5bd;fillColor=#ffc9c9;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="MEMBER    user_id  (INTEGER)" vertex="1">
@@ -141,7 +141,7 @@
         <mxCell id="33" parent="31" style="text;strokeColor=#adb5bd;fillColor=#d3f9d8;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="total_sessions  INTEGER" vertex="1">
           <mxGeometry height="26" width="370" y="56" as="geometry" />
         </mxCell>
-        <mxCell id="34" parent="31" style="text;strokeColor=#adb5bd;fillColor=#ebfbee;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="total_volume_kg REAL" vertex="1">
+        <mxCell id="34" parent="31" style="text;strokeColor=#adb5bd;fillColor=#ebfbee;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="total_volume INTEGER" vertex="1">
           <mxGeometry height="26" width="370" y="82" as="geometry" />
         </mxCell>
         <mxCell id="35" parent="31" style="text;strokeColor=#adb5bd;fillColor=#d3f9d8;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;fontSize=12;" value="streak_days     INTEGER" vertex="1">
@@ -244,7 +244,7 @@
         <mxCell id="76" parent="70" style="text;strokeColor=#adb5bd;fillColor=#e5dbff;align=left;verticalAlign=middle;spacingLeft=8;fontSize=11;fontStyle=2;" value="⚠  pace : ZRANGE (lower = better)  —  All writes fire-and-forget  —  SQLite = source of truth" vertex="1">
           <mxGeometry height="26" width="760" y="186" as="geometry" />
         </mxCell>
-        <mxCell id="103" parent="70" style="text;strokeColor=#adb5bd;fillColor=#f3f0ff;align=left;verticalAlign=middle;spacingLeft=8;fontSize=11;fontStyle=2;" value="pace_seconds_per_km = duration_seconds / (distance_meters / 1000)  (calculé avant ZADD)" vertex="1">
+        <mxCell id="103" parent="70" style="text;strokeColor=#adb5bd;fillColor=#f3f0ff;align=left;verticalAlign=middle;spacingLeft=8;fontSize=11;fontStyle=2;" value="pace_per_km = duration / (distance / 1000)  (calculé avant ZADD)" vertex="1">
           <mxGeometry height="26" width="760" y="212" as="geometry" />
         </mxCell>
 
@@ -267,7 +267,7 @@
         <mxCell id="85" parent="80" style="text;strokeColor=#adb5bd;fillColor=#f8f9fa;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="global_pr          user_id · exercise_id · pr_type · value · achieved_at" vertex="1">
           <mxGeometry height="26" width="760" y="134" as="geometry" />
         </mxCell>
-        <mxCell id="86" parent="80" style="text;strokeColor=#adb5bd;fillColor=#f1f3f5;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="global_volume      user_id · exercise_id · week_start · total_volume_kg" vertex="1">
+        <mxCell id="86" parent="80" style="text;strokeColor=#adb5bd;fillColor=#f1f3f5;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="global_volume      user_id · exercise_id · week_start · total_volume" vertex="1">
           <mxGeometry height="26" width="760" y="160" as="geometry" />
         </mxCell>
         <mxCell id="87" parent="80" style="text;strokeColor=#adb5bd;fillColor=#f8f9fa;align=left;verticalAlign=middle;spacingLeft=8;fontSize=11;fontStyle=2;" value="Ces tables alimentent Valkey — Valkey sert le cache chaud · les API lisent Valkey en priorité" vertex="1">

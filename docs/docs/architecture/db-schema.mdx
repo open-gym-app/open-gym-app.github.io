@@ -11,6 +11,31 @@ OpenGym uses SQLite via Room (Android Jetpack). The schema is fully normalized a
 
 <Drawio content={diagram} />
 
+:::info Diagram scope
+The diagram above covers the **phase 1 schema only** — the tables actually implemented today.
+The tables listed below describe the full long-term data model: most of them (gamification,
+marketplace, gym map, plans…) are not implemented yet, and names may differ between the two
+(e.g. `session` → `workout_session`, `exercise_set` → `workout_set`,
+`exercise_muscle` → `exercise_muscle_group`). When in doubt, the diagram is authoritative
+for what exists today.
+:::
+
+## Storage conventions
+
+No floating-point columns anywhere — every measure is a 64-bit integer (`INTEGER` is stored
+on 8 bytes in SQLite; map to `Long` in Room). Column names never carry units.
+
+| Measure | Columns | Stored as |
+|---|---|---|
+| Weight | `weight`, `default_weight`, `estimated_1rm` | milligrams |
+| Distance | `distance` | centimeters |
+| Time spans | `duration`, `rest_after`, `rest_duration`, `default_rest`, `pace` | seconds |
+| RPE | `rpe` | value × 10 (`65` = RPE 6.5), range 10–100 |
+| Timestamps | `*_at` | Unix epoch milliseconds; date-only fields (`created_at (date)`) store the day at midnight UTC |
+
+All unit conversions — including imperial ↔ metric display — happen in the frontend; the
+database only ever sees these canonical units.
+
 ## Tables
 
 ### Core

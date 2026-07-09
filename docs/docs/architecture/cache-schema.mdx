@@ -13,6 +13,13 @@ cross-user aggregates are served from an **in-memory key-value cache** sitting i
 backend's relational store. The cache holds hot, frequently-read data with short TTLs; SQL stays
 the durable system of record.
 
+:::note Server-side — future backend phase
+Everything on this page lives **server-side** and belongs to a future backend phase:
+leaderboards and cross-user stats require a central Valkey instance fed through a sync API
+that is not defined yet. The on-device database ([DB schema](./db-schema.mdx)) remains local
+and single-user until that phase ships.
+:::
+
 <Drawio content={diagram} />
 
 ## Data flow
@@ -29,17 +36,17 @@ Sync is triggered on session complete, on a new PR, and on app open (background 
 
 | Key | Score | Member | TTL | Notes |
 |---|---|---|---|---|
-| `pr:exercise:{exercise_id}:1rm` | `estimated_1rm` (kg) | `user_id` | 3600s | Refreshed on new PR; top 10 via reverse range |
-| `pr:exercise:{exercise_id}:volume` | `total_volume_kg` for the session | `user_id` | 86400s | Daily refresh |
-| `pr:exercise:{exercise_id}:distance` | `distance_meters` | `user_id` | 3600s | ENDURANCE exercises; higher is better |
-| `pr:exercise:{exercise_id}:pace` | `pace_seconds_per_km` | `user_id` | 3600s | ENDURANCE exercises; **lower** is better — ranked ascending |
+| `pr:exercise:{exercise_id}:1rm` | `estimated_1rm` | `user_id` | 3600s | Refreshed on new PR; top 10 via reverse range |
+| `pr:exercise:{exercise_id}:volume` | `total_volume` for the session | `user_id` | 86400s | Daily refresh |
+| `pr:exercise:{exercise_id}:distance` | `distance` | `user_id` | 3600s | ENDURANCE exercises; higher is better |
+| `pr:exercise:{exercise_id}:pace` | `pace_per_km` | `user_id` | 3600s | ENDURANCE exercises; **lower** is better — ranked ascending |
 | `exercises:trending` | `use_count` (global) | `exercise_id` | 86400s | Daily rebuild; top 20 via reverse range |
 
 ### Hashes — cached stats
 
 | Key | Fields | TTL | Notes |
 |---|---|---|---|
-| `user:{user_id}:stats` | `total_sessions`, `total_volume_kg`, `streak_days`, `last_workout_at` | 3600s | 1-hour cache of expensive aggregates |
+| `user:{user_id}:stats` | `total_sessions`, `total_volume`, `streak_days`, `last_workout_at` | 3600s | 1-hour cache of expensive aggregates |
 | `session:{session_id}:progress` | `completed_sets`, `total_sets`, `current_exercise_id` | 86400s | Auto-expires 24h after the session starts |
 
 ### Strings — counters
@@ -59,7 +66,8 @@ Sync is triggered on session complete, on a new PR, and on app open (background 
 | `session_exercise` inserted | Increment `exercise:{id}:use_count` · bump `exercises:trending` |
 | App opens (background) | Refresh `user:{id}:stats` if its TTL has expired |
 
-`pace_seconds_per_km` is computed as `duration_seconds / (distance_meters / 1000)` before being
+`pace_per_km` is computed as `duration / (distance / 100000)` — distance is stored in
+centimeters (see [storage conventions](./db-schema.mdx#storage-conventions)) — before being
 written. All cache writes are fire-and-forget — the relational store is the source of truth, and a
 failed cache write never blocks the request.
 
@@ -73,7 +81,7 @@ These server-side tables feed the cache; they don't exist in the on-device schem
 | `sync_log` | `user_id` · `entity` · `entity_id` · `synced_at` · `checksum` |
 | `global_exercise` | `id` · `name` · `category` · `is_canonical` (official catalogue) |
 | `global_pr` | `user_id` · `exercise_id` · `pr_type` · `value` · `achieved_at` |
-| `global_volume` | `user_id` · `exercise_id` · `week_start` · `total_volume_kg` |
+| `global_volume` | `user_id` · `exercise_id` · `week_start` · `total_volume` |
 
 ## Key design decisions
 
