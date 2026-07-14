@@ -5,7 +5,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="10" parent="1" style="swimlane;startSize=30;fillColor=#1864ab;fontColor=#ffffff;strokeColor=#1864ab;fontStyle=1;align=center;fontSize=13;" value="exercise" vertex="1">
-          <mxGeometry height="368" width="310" x="40" y="40" as="geometry" />
+          <mxGeometry height="342" width="310" x="40" y="40" as="geometry" />
         </mxCell>
         <mxCell id="11" parent="10" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="🔑  id : INTEGER" vertex="1">
           <mxGeometry height="26" width="310" y="30" as="geometry" />
@@ -14,36 +14,33 @@
           <mxGeometry height="26" width="310" y="56" as="geometry" />
         </mxCell>
         <mxCell id="500" parent="10" style="text;strokeColor=#adb5bd;fillColor=#dbe4ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    exercise_type : VARCHAR(256)  NOT NULL  DEFAULT 'STRENGTH'" vertex="1">
-          <mxGeometry height="26" width="310" y="108" as="geometry" />
-        </mxCell>
-        <mxCell id="13" parent="10" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    category : VARCHAR(256)  NOT NULL" vertex="1">
-          <mxGeometry height="26" width="310" y="134" as="geometry" />
+          <mxGeometry height="26" width="310" y="82" as="geometry" />
         </mxCell>
         <mxCell id="501" parent="10" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    equipment_type : VARCHAR(256)" vertex="1">
-          <mxGeometry height="26" width="310" y="160" as="geometry" />
+          <mxGeometry height="26" width="310" y="108" as="geometry" />
         </mxCell>
         <mxCell id="502" parent="10" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    mechanic_type : VARCHAR(256)" vertex="1">
-          <mxGeometry height="26" width="310" y="186" as="geometry" />
+          <mxGeometry height="26" width="310" y="134" as="geometry" />
         </mxCell>
         <mxCell id="504" parent="10" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    difficulty_level : VARCHAR(256)" vertex="1">
-          <mxGeometry height="26" width="310" y="212" as="geometry" />
+          <mxGeometry height="26" width="310" y="160" as="geometry" />
         </mxCell>
         <mxCell id="402" parent="10" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    is_unilateral : INTEGER  DEFAULT 0" vertex="1">
-          <mxGeometry height="26" width="310" y="238" as="geometry" />
+          <mxGeometry height="26" width="310" y="186" as="geometry" />
         </mxCell>
         <mxCell id="505" parent="10" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    default_rest : INTEGER" vertex="1">
-          <mxGeometry height="26" width="310" y="264" as="geometry" />
+          <mxGeometry height="26" width="310" y="212" as="geometry" />
         </mxCell>
         <mxCell id="520" parent="10" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    description : TEXT" vertex="1">
-          <mxGeometry height="26" width="310" y="290" as="geometry" />
+          <mxGeometry height="26" width="310" y="238" as="geometry" />
         </mxCell>
         <mxCell id="14" parent="10" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    instructions : TEXT" vertex="1">
-          <mxGeometry height="26" width="310" y="316" as="geometry" />
+          <mxGeometry height="26" width="310" y="264" as="geometry" />
         </mxCell>
         <mxCell id="15" parent="10" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    is_custom : INTEGER  DEFAULT 0" vertex="1">
-          <mxGeometry height="26" width="310" y="342" as="geometry" />
+          <mxGeometry height="26" width="310" y="290" as="geometry" />
         </mxCell>
-        <mxCell id="900" parent="10" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    icon : VARCHAR(256)" vertex="1"><mxGeometry height="26" width="310" as="geometry" y="82" /></mxCell><mxCell id="20" parent="1" style="swimlane;startSize=30;fillColor=#1864ab;fontColor=#ffffff;strokeColor=#1864ab;fontStyle=1;align=center;fontSize=13;" value="muscle_group" vertex="1">
+        <mxCell id="900" parent="10" style="text;strokeColor=#adb5bd;fillColor=#e7f5ff;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="    icon : VARCHAR(256)" vertex="1"><mxGeometry height="26" width="310" as="geometry" y="316" /></mxCell><mxCell id="20" parent="1" style="swimlane;startSize=30;fillColor=#1864ab;fontColor=#ffffff;strokeColor=#1864ab;fontStyle=1;align=center;fontSize=13;" value="muscle_group" vertex="1">
           <mxGeometry height="108" width="260" x="40" y="470" as="geometry" />
         </mxCell>
         <mxCell id="21" parent="20" style="text;strokeColor=#adb5bd;fillColor=#fff3bf;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" value="🔑  id : INTEGER" vertex="1">
@@ -337,7 +334,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="310" parent="1" style="swimlane;startSize=30;fillColor=#343a40;fontColor=#ffffff;strokeColor=#343a40;fontStyle=1;align=center;fontSize=13;" value="📇  INDEXES" vertex="1">
-          <mxGeometry height="446" width="400" x="1290" y="40" as="geometry" />
+          <mxGeometry height="472" width="400" x="1290" y="40" as="geometry" />
         </mxCell>
         <mxCell id="311" parent="310" style="text;strokeColor=none;fillColor=#f8f9fa;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="workout_session (is_in_progress)" vertex="1">
           <mxGeometry height="26" width="400" y="30" as="geometry" />
@@ -372,7 +369,7 @@
         <mxCell id="317" parent="310" style="text;strokeColor=none;fillColor=#f8f9fa;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="exercise_muscle_group (exercise_id)" vertex="1">
           <mxGeometry height="26" width="400" y="290" as="geometry" />
         </mxCell>
-        <mxCell id="318" parent="310" style="text;strokeColor=none;fillColor=#f1f3f5;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="exercise (category)  — seed filtering" vertex="1">
+        <mxCell id="318" parent="310" style="text;strokeColor=none;fillColor=#f1f3f5;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="exercise (equipment_type)  — filtrer par équipement" vertex="1">
           <mxGeometry height="26" width="400" y="316" as="geometry" />
         </mxCell>
         <mxCell id="424" parent="310" style="text;strokeColor=none;fillColor=#f8f9fa;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="exercise (name)  — search" vertex="1">
@@ -386,6 +383,9 @@
         </mxCell>
         <mxCell id="427" parent="310" style="text;strokeColor=none;fillColor=#f1f3f5;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="exercise_tag (tag_id)" vertex="1">
           <mxGeometry height="26" width="400" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="428" parent="310" style="text;strokeColor=none;fillColor=#f8f9fa;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="body_weight_log (created_at)" vertex="1">
+          <mxGeometry height="26" width="400" y="446" as="geometry" />
         </mxCell>
         <mxCell id="320" parent="1" style="swimlane;startSize=30;fillColor=#0b7285;fontColor=#ffffff;strokeColor=#0b7285;fontStyle=1;align=center;fontSize=13;" value="📊  ANALYTICS  (local SQLite)" vertex="1">
           <mxGeometry height="194" width="400" x="1290" y="520" as="geometry" />
@@ -417,7 +417,7 @@
         <mxCell id="512" parent="330" style="text;strokeColor=none;fillColor=#d3f9d8;align=left;verticalAlign=middle;spacingLeft=16;fontSize=11;fontStyle=2;" value="STRENGTH · ENDURANCE · ISOMETRIC" vertex="1">
           <mxGeometry height="26" width="400" y="56" as="geometry" />
         </mxCell>
-        <mxCell id="332" parent="330" style="text;strokeColor=none;fillColor=#ebfbee;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;fontStyle=1;" value="exercise.category  (equipment)" vertex="1">
+        <mxCell id="332" parent="330" style="text;strokeColor=none;fillColor=#ebfbee;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;fontStyle=1;" value="exercise.equipment_type  (equipment)" vertex="1">
           <mxGeometry height="26" width="400" y="86" as="geometry" />
         </mxCell>
         <mxCell id="513" parent="330" style="text;strokeColor=none;fillColor=#d3f9d8;align=left;verticalAlign=middle;spacingLeft=16;fontSize=11;fontStyle=2;" value="BARBELL · DUMBBELL · MACHINE · BODYWEIGHT · CABLE · KETTLEBELL · BAND" vertex="1">
