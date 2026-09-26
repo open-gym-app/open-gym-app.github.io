@@ -1,0 +1,64 @@
+---
+title: Contributing
+description: Build the app, run the checks, and send a pull request.
+---
+
+# Contributing
+
+Contributions of every size are welcome: a fixed typo, a translation, a bug report with a
+screenshot, or a feature. By sending a pull request you agree to license your contribution
+under the project's GPL v3. The full conventions are in <RepoLink path="CONTRIBUTING.md" />.
+
+## Build the app
+
+You need Android Studio (or the Android SDK on its own) and JDK 17.
+
+<CloneCommand />
+
+The debug build installs next to a release one, as <AndroidPackage suffix=".debug" />.
+
+## Run the checks
+
+| Command | Runs |
+| --- | --- |
+| `make test` | Unit tests, screen tests, and a comparison of every screenshot against its reference |
+| `make lint` | detekt and Android lint |
+| `./gradlew checkArchitecture` | The module dependency rules |
+| `./gradlew :core:domain:check` | Domain tests and the coverage floor (95% of lines) |
+| `make translations-check` | Missing or stray translations |
+| `make screenshots` | Re-record screenshot references after an intended visual change |
+
+CI runs all of them on every pull request.
+
+## Before you start
+
+- **Open an issue first** for anything bigger than a small fix, so the approach can be agreed
+  before you spend time on it.
+- **One concern per pull request.** Small diffs get reviewed quickly.
+- **Strings go in resources.** Add the English string with a comment explaining it; a
+  translation can follow.
+- **A screen change comes with its screenshots.** Re-record them and commit the images.
+- **A schema change comes with a migration and a test** that seeds the old version. See
+  [Data model](data-model#migrations).
+- **Nothing may send data off the device.** No analytics, crash reporting or network
+  libraries. A change to what the app stores or which permissions it needs is also a change
+  to the [privacy policy](/privacy).
+
+## Branches and commits
+
+Branches are named `<type>/<short-description>`, and commits follow
+[Conventional Commits](https://www.conventionalcommits.org/):
+
+```text
+feat(session): show the previous set inline
+fix(data): keep the rest timer across a reboot
+docs: explain the export format
+```
+
+The description is lowercase with no final period. Pull requests are squash-merged, so the
+pull request title becomes the commit on `main` and follows the same format.
+
+## This website
+
+This site lives in its own repository and is built with Docusaurus. Every page has an **Edit
+this page** link at the bottom. See that repository's README to run it locally.

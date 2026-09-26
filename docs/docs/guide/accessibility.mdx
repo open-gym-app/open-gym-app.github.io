@@ -1,0 +1,52 @@
+---
+title: Accessibility and languages
+description: TalkBack, large text, touch targets, and the four languages the app speaks.
+---
+
+# Accessibility and languages
+
+A training log is used one-handed, between sets, with sweaty hands and a racing pulse. That is
+reason enough to build it for everyone, and <AppName /> is checked against these promises on
+every build, not once before a release.
+
+<Screens>
+  <Screen name="session-active-dark" alt="A workout in progress in dark mode." caption="A workout in dark mode." />
+  <Screen name="stats-dark" alt="The stats screen in dark mode." caption="Stats in dark mode." />
+</Screens>
+
+## What you can count on
+
+- **TalkBack reads everything.** Every control has a name, and it contains the words drawn on
+  it, so Voice Access users can say what they see. Charts and the body diagram are read as one
+  sentence each, not point by point.
+- **Things that change are announced.** The rest countdown, the set counter and export
+  progress are spoken as they change, without talking over you.
+- **Large text works.** Every screen is checked at twice the default font size.
+- **Controls are big enough.** Everything you can tap is at least 48 × 48 dp.
+- **Contrast.** Both themes meet WCAG AA contrast, checked automatically.
+
+If something in the app does not hold up to this, it is a bug: please
+<NewIssueLink>report it</NewIssueLink>.
+
+## Languages
+
+The app is available in:
+
+- English
+- French
+- Spanish
+- Brazilian Portuguese
+
+It follows your phone's language. On Android 13 and newer you can choose a language for
+<AppName /> alone in Android's settings. Numbers, dates and units are written the way your
+language writes them: `1 234,5 kg` in French, `1,234.5 kg` in English.
+
+Translations use the words people say at the gym, not a dictionary's: *série* and *séance* in
+French, *serie* and *plantilla* in Spanish, *treino* and *carga* in Portuguese. Portuguese
+speakers in Portugal get the Brazilian translation for now. If you would like to help with
+another language, see [Translating](../developers/translating).
+
+## Units and themes
+
+Pick kilograms or pounds, light or dark or automatic, in [Settings](settings). Switching units
+never changes a logged set: every weight is stored exactly and only displayed differently.

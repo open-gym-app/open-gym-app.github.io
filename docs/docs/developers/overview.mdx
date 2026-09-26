@@ -1,0 +1,41 @@
+---
+title: Overview
+description: What the app is built with, and where its reference documentation lives.
+---
+
+# Working on the app
+
+<AppName /> is a native Android app written in Kotlin, with the UI in Jetpack Compose and
+everything stored in a local Room database. It has no backend, no network code and no
+analytics, which keeps the codebase small enough to read end to end.
+
+The source is at <RepoLink />, under the GNU GPL v3.
+
+## The stack
+
+| Layer | Choice |
+| --- | --- |
+| Language | Kotlin, JVM 17 toolchain |
+| UI | Jetpack Compose, Material 3, a design system of its own in `:core:ui` |
+| Architecture | MVVM over Clean Architecture: domain, data and presentation modules |
+| Persistence | Room (SQLite) and Preferences DataStore |
+| Dependency injection | Hilt |
+| Async | Coroutines and Flow |
+| Background work | WorkManager (weekly backup), `AlarmManager` (reminders, rest timer) |
+| Navigation | Navigation Compose with type-safe `@Serializable` routes |
+| Tests | JUnit, Robolectric, Compose UI tests, Roborazzi screenshot tests with the Accessibility Test Framework, Macrobenchmark |
+| Android | min SDK 26 (Android 8.0), target and compile SDK 36 |
+
+## Where to read next
+
+This section is a summary. The reference documentation is kept next to the code, so it
+changes in the same pull request as the thing it describes:
+
+| Document | What it covers |
+| --- | --- |
+| <RepoLink path="docs/ARCHITECTURE.md" /> | Modules, the dependency rules and how they are enforced, navigation, dependency injection. Summarised in [Architecture](architecture). |
+| <RepoLink path="docs/PERSISTENCE.md" /> | The schema, migrations, seed data, and every assumption a backup or an analytics query may rely on. Summarised in [Data model](data-model). |
+| <RepoLink path="docs/export-schema.md" /> | The backup file format, as a specification. Summarised in [Export format](export-format). |
+| <RepoLink path="docs/ACCESSIBILITY.md" /> | What the app promises TalkBack, large fonts and a thumb, and how every build checks it. |
+| <RepoLink path="docs/TRANSLATION.md" /> | The four shipped languages, the translation check and each language's glossary. Summarised in [Translating](translating). |
+| <RepoLink path="CONTRIBUTING.md" /> | Conventions for code, strings, screens and tests. Summarised in [Contributing](contributing). |

@@ -1,0 +1,66 @@
+---
+title: Backup and restore
+description: Export everything to a file, back up weekly on your own, and move to a new phone.
+---
+
+# Backup and restore
+
+Your training history lives on your phone and nowhere else. That keeps it private, and it
+also means a lost phone is a lost log, unless you keep a backup. <kbd>Settings</kbd> ›
+<kbd>Backup & restore</kbd> has everything you need.
+
+<Screen name="backup" alt="Backup and restore: 184 sessions and 2,140 sets on this device, export, weekly auto-backup and restore." caption="Settings › Backup & restore." />
+
+## Export a backup
+
+**Export a backup** writes every workout, template, custom exercise, record, measurement,
+reward and setting to one JSON file. When it is done, you choose what happens to it:
+
+- **Save a copy…** to a folder of your choice: your Downloads, an SD card, or a cloud drive
+  app you already use;
+- **Share** it to another app, such as email or a messenger, to keep it somewhere else.
+
+The file is plain JSON in an [open, documented format](../developers/export-format), so your
+data is never locked into the app.
+
+:::caution[The file is not encrypted]
+A backup holds your whole log, body measurements included. Keep it somewhere you trust. Once
+you share it, it is in the hands of whatever you shared it with.
+:::
+
+## Automatic backup
+
+Switch on **Weekly auto-backup** and the app writes a backup once a week, while the phone is
+charging and not being used, typically overnight. It keeps the three most recent and deletes
+older ones.
+
+These backups are kept in the app's own storage on the phone, so **uninstalling the app
+deletes them**. They protect you from mistakes, not from losing the phone. For that, export a
+backup and save a copy somewhere else now and then.
+
+## Restore
+
+**Choose a backup file** replaces everything on the phone with the contents of the file.
+
+- It **replaces, it does not merge**. Whatever is on the phone now, including anything you
+  logged since the backup was made, is deleted. The confirmation spells out what will go and
+  asks you to type **RESTORE**.
+- It checks the file first. A damaged file, a file from something else, or a backup from a
+  newer version of the app is refused, and nothing on the phone is changed.
+- Your notification switches and reminder schedule are not in the file: they belong to the
+  phone. Set them again after a restore.
+
+## Moving to a new phone
+
+1. On the old phone, **Export a backup** and **Save a copy…** somewhere the new phone can
+   reach, or **Share** it to yourself.
+2. Install <AppName /> on the new phone.
+3. Open <kbd>Settings</kbd> › <kbd>Backup & restore</kbd> › **Choose a backup file**, and pick
+   the file.
+
+## Why not Google backup?
+
+Android can back apps up to Google Drive on its own. <AppName /> opts out of that on purpose:
+it would copy your health and training data to a server without you choosing to, and restore
+it silently on reinstall. With <AppName />, your data leaves the phone only as a file you
+exported yourself.

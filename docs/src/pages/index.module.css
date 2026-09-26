@@ -1,24 +1,592 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+/*
+ * The landing page. Its one loud moment is the hero: the iron band of the app's live-session
+ * header, a condensed headline, and a set log that fills in and adds up. Everything below it
+ * is quiet on purpose — chalk ground, text beside real screens, no cards.
  */
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero {
+  --row: 0.7s; /* the time between two sets being logged */
+  --start: 0.5s; /* the first set appears */
+  --tick: 0.35s; /* a set is ticked this long after it appears */
+
   position: relative;
   overflow: hidden;
+  background: var(--og-iron);
+  color: var(--og-on-iron);
+  padding: clamp(3rem, 7vw, 5.5rem) 0 0;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+[data-theme='dark'] .hero {
+  background: #0f0f13;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: end;
+}
+
+.heroCopy {
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.heroTitle {
+  margin: 0 0 1.5rem;
+  max-width: 16ch;
+  color: var(--og-on-iron);
+  font-size: clamp(3.4rem, 7.4vw, 6.4rem);
+  font-weight: 860;
+  font-stretch: 62%;
+  line-height: 0.9;
+  letter-spacing: 0;
+  word-spacing: 0.06em;
+  text-wrap: balance;
+}
+
+.heroLead {
+  max-width: 33rem;
+  margin: 0 0 2rem;
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--og-on-iron-dim);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-top: 2rem;
+}
+
+.heroFacts {
+  margin: 1.25rem 0 0;
+  font-size: 0.95rem;
+  color: var(--og-on-iron-dim);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--og-on-iron);
+  border: 1px solid rgba(243, 242, 238, 0.32);
+}
+
+.ghost:hover {
+  color: var(--og-on-iron);
+  background: rgba(243, 242, 238, 0.08);
+  border-color: rgba(243, 242, 238, 0.5);
+  text-decoration: none;
+}
+
+.soon {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0 1.4rem;
+  border-radius: 999px;
+  border: 1px dashed rgba(255, 138, 100, 0.7);
+  color: #ffb49c;
+  font-weight: 650;
+  font-size: 1.05rem;
+}
+
+/* The phones rise out of the bottom edge of the band. */
+.heroPhones {
+  position: relative;
+  height: clamp(500px, 48vw, 640px);
+}
+
+.heroPhones > * {
+  position: absolute;
+}
+
+.heroPhoneFront {
+  z-index: 1;
+  width: clamp(260px, 24vw, 320px);
+  right: clamp(5.5rem, 11vw, 11.5rem);
+  top: 3.5rem;
+}
+
+/* Behind and above: the dashboard the workout was started from. */
+.heroPhoneBack {
+  width: clamp(240px, 21vw, 290px);
+  right: 0;
+  top: 0;
+}
+
+/* ── The set log ─────────────────────────────────────────────────── */
+.setLog {
+  max-width: 21rem;
+  margin: 0;
+  padding: 1rem 1.15rem 0.9rem;
+  border-radius: 14px;
+  background: var(--og-iron-soft);
+  border: 1px solid rgba(243, 242, 238, 0.08);
+}
+
+[data-theme='dark'] .setLog {
+  background: #1a1a20;
+}
+
+.setLogName {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.setRows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.setRow {
+  display: grid;
+  grid-template-columns: 1.75rem 4.25rem 1.5rem 2rem 1fr;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(243, 242, 238, 0.07);
+  font-family: var(--og-mono);
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+  animation: setIn 0.35s ease-out both;
+  animation-delay: calc(var(--start) + var(--i) * var(--row));
+}
+
+.setIndex {
+  display: inline-grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 5px;
+  background: rgba(243, 242, 238, 0.08);
+  font-size: 0.8rem;
+  color: var(--og-on-iron-dim);
+}
+
+.setLoad small,
+.setTotalValue small {
+  margin-left: 0.2em;
+  font-size: 0.7em;
+  color: var(--og-on-iron-dim);
+}
+
+.setTimes {
+  color: var(--og-on-iron-dim);
+  text-align: center;
+}
+
+.setReps {
+  text-align: left;
+}
+
+.setTick {
+  justify-self: end;
+  grid-column: 5;
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: #ff6b3d;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: tick 0.3s ease-out forwards;
+  animation-delay: calc(var(--start) + var(--i) * var(--row) + var(--tick));
+}
+
+.setTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 0.7rem;
+}
+
+.setTotalLabel {
+  color: var(--og-on-iron-dim);
+  font-size: 0.95rem;
+}
+
+.setTotalValue {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--og-mono);
+  font-weight: 700;
+  font-size: 1.6rem;
+  font-variant-numeric: tabular-nums;
+  color: #ff8a64;
+}
+
+/* Every reading of the counter sits in the same cell; each shows until the next set is ticked. */
+.setReadings {
+  display: inline-grid;
+  justify-items: end;
+}
+
+.setReadings > span {
+  grid-area: 1 / 1;
+  opacity: 0;
+  animation: reading var(--row) linear both;
+  /* Reading 0 is on screen from the start; reading n arrives when set n is ticked. */
+  animation-delay: calc(var(--start) + (var(--i) - 1) * var(--row) + var(--tick));
+}
+
+.setReadings > span:first-child {
+  animation-delay: 0s;
+  animation-duration: calc(var(--start) + var(--tick));
+}
+
+.setReadings > span:last-child {
+  animation-name: finalReading;
+  animation-duration: 0.45s;
+}
+
+@keyframes setIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
-.buttons {
-  display: flex;
+@keyframes tick {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Both start transparent so that, filled backwards, a reading is hidden until its turn. */
+@keyframes reading {
+  0% {
+    opacity: 0;
+  }
+  0.1%,
+  99.9% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes finalReading {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* No motion: the finished log, straight away. */
+@media (prefers-reduced-motion: reduce) {
+  .setRow,
+  .setTick,
+  .setReadings > span {
+    animation: none !important;
+  }
+
+  .setTick {
+    stroke-dashoffset: 0;
+  }
+
+  .setReadings > span:last-child {
+    opacity: 1;
+  }
+}
+
+/* ── Promises ────────────────────────────────────────────────────── */
+.promises {
+  border-bottom: 1px solid var(--og-mat);
+}
+
+.promiseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.promise {
+  padding: 3rem 2rem 2.75rem;
+}
+
+.promise:first-child {
+  padding-left: 0;
+}
+
+.promise + .promise {
+  border-left: 1px solid var(--og-mat);
+}
+
+.promiseTitle {
+  margin: 0 0 0.6rem;
+  font-size: 1.55rem;
+  font-weight: 800;
+  font-stretch: 74%;
+}
+
+.promise p {
+  margin: 0;
+  color: var(--og-steel);
+  max-width: 30ch;
+}
+
+/* ── Chapters ────────────────────────────────────────────────────── */
+.chapter {
+  padding: clamp(4rem, 9vw, 7.5rem) 0;
+}
+
+.chapter + .chapter {
+  border-top: 1px solid var(--og-mat);
+}
+
+.chapterGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
   align-items: center;
+}
+
+.chapterFlip .chapterCopy {
+  order: 2;
+}
+
+.chapterTitle {
+  margin: 0 0 1rem;
+  font-size: clamp(2.3rem, 4.6vw, 3.6rem);
+  font-weight: 830;
+  font-stretch: 66%;
+  line-height: 0.98;
+  max-width: 15ch;
+  text-wrap: balance;
+}
+
+.chapterLead {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--og-steel);
+  max-width: 34rem;
+  margin-bottom: 1.75rem;
+}
+
+.points {
+  margin: 0;
+  max-width: 34rem;
+}
+
+.points > div {
+  padding: 0.95rem 0;
+  border-top: 1px solid var(--og-mat);
+}
+
+.points dt {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.15rem;
+}
+
+.points dd {
+  margin: 0;
+  color: var(--og-steel);
+}
+
+.more {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-weight: 700;
+  color: var(--og-plate);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+.more:hover {
+  color: var(--og-plate-deep);
+}
+
+.chapterPhones {
+  display: flex;
   justify-content: center;
-  gap: 1rem;
+  align-items: flex-start;
+}
+
+.chapterPhones > * {
+  max-width: 280px;
+}
+
+.chapterPhonesPair {
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.chapterPhonesPair > * {
+  max-width: 250px;
+}
+
+/* The second phone of a pair sits lower: two screens, one after the other. */
+.chapterPhonesPair > *:nth-child(2) {
+  margin-top: 4rem;
+}
+
+/* ── Not yet ─────────────────────────────────────────────────────── */
+.notYet {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  border-top: 1px solid var(--og-mat);
+  background: var(--og-paper);
+}
+
+.notYetHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 2.5rem;
+}
+
+.notYetTitle {
+  margin: 0;
+  font-size: clamp(2.3rem, 4.6vw, 3.6rem);
+  font-weight: 830;
+  font-stretch: 66%;
+  line-height: 0.98;
+}
+
+.notYetHead p {
+  margin: 0;
+  color: var(--og-steel);
+  font-size: 1.1rem;
+}
+
+/* Dashed: these are outlines of features, not features. */
+.notYetList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.notYetList li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem 1.25rem 1.4rem;
+  border: 1.5px dashed var(--ifm-color-emphasis-300);
+  border-radius: 14px;
+}
+
+.notYetList strong {
+  font-size: 1.15rem;
+}
+
+.notYetList span {
+  color: var(--og-steel);
+}
+
+/* ── Closing ─────────────────────────────────────────────────────── */
+.closing {
+  background: var(--og-iron);
+  color: var(--og-on-iron);
+  padding: clamp(4rem, 9vw, 7rem) 0;
+}
+
+[data-theme='dark'] .closing {
+  background: #0f0f13;
+  border-top: 1px solid var(--og-mat);
+}
+
+.closingTitle {
+  margin: 0 0 1rem;
+  color: var(--og-on-iron);
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-weight: 860;
+  font-stretch: 62%;
+  line-height: 0.92;
+  max-width: 13ch;
+  text-wrap: balance;
+}
+
+.closingInner > p {
+  max-width: 34rem;
+  font-size: 1.15rem;
+  color: var(--og-on-iron-dim);
+}
+
+/* ── Narrow screens ──────────────────────────────────────────────── */
+@media (max-width: 996px) {
+  .heroGrid,
+  .chapterGrid,
+  .notYetHead {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroCopy {
+    padding-bottom: 0;
+  }
+
+  .heroPhones {
+    height: 400px;
+  }
+
+  .heroPhoneFront {
+    width: 240px;
+    right: auto;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-72%);
+  }
+
+  .heroPhoneBack {
+    width: 220px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-12%);
+  }
+
+  .chapterFlip .chapterCopy {
+    order: 0;
+  }
+
+  .promiseGrid,
+  .notYetList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .promise,
+  .promise:first-child {
+    padding: 1.75rem 0;
+  }
+
+  .promise + .promise {
+    border-left: none;
+    border-top: 1px solid var(--og-mat);
+  }
+}
+
+@media (max-width: 520px) {
+  .chapterPhonesPair > * {
+    max-width: none;
+    flex: 1 1 0;
+  }
+
+  .chapterPhonesPair > *:nth-child(2) {
+    margin-top: 2rem;
+  }
+
+  .heroActions > * {
+    flex: 1 1 100%;
+    justify-content: center;
+    text-align: center;
+  }
 }
