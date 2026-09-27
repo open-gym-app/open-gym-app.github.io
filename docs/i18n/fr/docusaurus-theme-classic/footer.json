@@ -1,0 +1,54 @@
+{
+  "link.title.Use it": {
+    "message": "L’utiliser",
+    "description": "The title of the footer links column with title=Use it in the footer"
+  },
+  "link.title.Build it": {
+    "message": "Le développer",
+    "description": "The title of the footer links column with title=Build it in the footer"
+  },
+  "link.title.Project": {
+    "message": "Projet",
+    "description": "The title of the footer links column with title=Project in the footer"
+  },
+  "link.item.label.Getting started": {
+    "message": "Premiers pas (en anglais)",
+    "description": "The label of footer link with label=Getting started linking to /docs/intro"
+  },
+  "link.item.label.Logging a workout": {
+    "message": "Noter une séance (en anglais)",
+    "description": "The label of footer link with label=Logging a workout linking to /docs/guide/logging"
+  },
+  "link.item.label.Backup & restore": {
+    "message": "Sauvegarde & restauration (en anglais)",
+    "description": "The label of footer link with label=Backup & restore linking to /docs/guide/backup"
+  },
+  "link.item.label.FAQ": {
+    "message": "FAQ (en anglais)",
+    "description": "The label of footer link with label=FAQ linking to /docs/faq"
+  },
+  "link.item.label.Architecture": {
+    "message": "Architecture",
+    "description": "The label of footer link with label=Architecture linking to /docs/developers/architecture"
+  },
+  "link.item.label.Data model": {
+    "message": "Modèle de données",
+    "description": "The label of footer link with label=Data model linking to /docs/developers/data-model"
+  },
+  "link.item.label.Contributing": {
+    "message": "Contribuer",
+    "description": "The label of footer link with label=Contributing linking to /docs/developers/contributing"
+  },
+  "link.item.label.Source code": {
+    "message": "Code source",
+    "description": "The label of footer link with label=Source code linking to https://github.com/open-gym-app/open-gym"
+  },
+  "link.item.label.Report a problem": {
+    "message": "Signaler un problème",
+    "description": "The label of footer link with label=Report a problem linking to https://github.com/open-gym-app/open-gym/issues"
+  },
+  "link.item.label.Privacy policy": {
+    "message": "Politique de confidentialité",
+    "description": "The label of footer link with label=Privacy policy linking to /privacy"
+  }
+}

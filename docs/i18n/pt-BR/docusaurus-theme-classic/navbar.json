@@ -1,0 +1,18 @@
+{
+  "item.label.Guide": {
+    "message": "Guia",
+    "description": "Navbar item with label Guide"
+  },
+  "item.label.Developers": {
+    "message": "Desenvolvimento",
+    "description": "Navbar item with label Developers"
+  },
+  "item.label.Privacy": {
+    "message": "Privacidade",
+    "description": "Navbar item with label Privacy"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

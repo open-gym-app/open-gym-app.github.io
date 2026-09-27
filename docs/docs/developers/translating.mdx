@@ -1,0 +1,62 @@
+---
+title: Translating
+description: The languages the app ships in, and how to add or improve one.
+---
+
+# Translating
+
+<AppName /> ships in four languages. Translations use the vocabulary lifters actually use, which
+is why each language has a glossary. The full reference is
+<RepoLink path="docs/TRANSLATION.md" />.
+
+| Language | Resource directory | Address |
+| --- | --- | --- |
+| English | `values/` | the source text |
+| French | `values-fr/` | *vous* |
+| Spanish | `values-es/` | *tú*, one Spanish for Spain and Latin America |
+| Brazilian Portuguese | `values-pt-rBR/` | *você* |
+
+## How strings are organised
+
+Each module owns the strings it draws, so every language has one `strings.xml` per module,
+mirroring `values/` section by section. The English file carries the comments explaining each
+string; translations carry only the text, so a diff against `values/` lines up.
+
+Nothing is hard-coded: a string in Kotlin source fails review. Plurals use `<plurals>`, and
+numbers, dates and units go through the locale-aware formatters in `:core:ui`, never
+through string concatenation.
+
+## The check
+
+```bash
+make translations-check              # report missing or stray keys, per module and language
+make translations-check LOCALE=fr    # one language
+make translations-check STRICT=1     # fail instead of report, to claim a language is complete
+```
+
+CI runs the report on every pull request. A new English string does not block its pull request
+on a translation; it shows up in the report until someone translates it.
+
+## Terms that must not drift
+
+A gym term is translated one way throughout the app, or the same set reads as three different
+things on three screens. A few examples from the glossaries:
+
+| English | French | Spanish | Portuguese |
+| --- | --- | --- | --- |
+| set | série | serie | série |
+| workout | séance | entrenamiento | treino |
+| streak | enchaînement | racha | sequência |
+| template | modèle | plantilla | modelo |
+| plate | disque | disco | anilha |
+
+French is the trap here: *série* is the set, so a streak cannot be a *série* of days.
+
+## Adding a language
+
+1. Open an issue proposing the language and its register (formal or informal address).
+2. Add `values-<locale>/strings.xml` to each module, following the English file's order.
+3. Add the locale to `localeFilters` in `app/build.gradle.kts` and the glossary to
+   `docs/TRANSLATION.md`.
+4. Run `make translations-check STRICT=1 LOCALE=<locale>` and walk every screen on a device
+   in that language, at twice the font size: translations run longer than English.

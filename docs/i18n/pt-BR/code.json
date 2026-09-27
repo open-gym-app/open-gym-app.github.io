@@ -1,0 +1,638 @@
+{
+  "home.hero.log.label": {
+    "message": "Exemplo: três séries de supino, 60 kg × 10, 70 kg × 8 e 75 kg × 6, somando 1.610 kg."
+  },
+  "home.hero.log.exercise": {
+    "message": "Supino"
+  },
+  "home.hero.log.volume": {
+    "message": "Volume"
+  },
+  "home.install.play": {
+    "message": "Disponível no Google Play"
+  },
+  "home.install.soon": {
+    "message": "Em breve no Google Play"
+  },
+  "home.hero.title": {
+    "message": "Registre o trabalho. Veja a soma crescer."
+  },
+  "home.hero.lead": {
+    "message": "O {appName} é um diário de treino para Android. Séries, recordes, progresso e um pouco de jogo: tudo no seu celular e em nenhum outro lugar."
+  },
+  "home.hero.source": {
+    "message": "Ver o código-fonte"
+  },
+  "home.hero.facts": {
+    "message": "Grátis. Sem conta. Sem anúncios. Android 8 ou superior."
+  },
+  "home.hero.phone.home": {
+    "message": "A tela inicial: nível, esta semana e o quadro de missões."
+  },
+  "home.hero.phone.session": {
+    "message": "Um treino em andamento: supino, três séries marcadas e a quarta com a meta."
+  },
+  "home.promise.local.title": {
+    "message": "Nada sai do seu celular"
+  },
+  "home.promise.local.body": {
+    "message": "O app nem pede acesso à internet. Seu histórico fica no aparelho, e você decide se ele vai para algum outro lugar."
+  },
+  "home.promise.free.title": {
+    "message": "Sem conta, sem anúncios"
+  },
+  "home.promise.free.body": {
+    "message": "Abra e comece a registrar. Não há cadastro, nem assinatura, nem nada para te vender."
+  },
+  "home.promise.open.title": {
+    "message": "Código aberto"
+  },
+  "home.promise.open.body": {
+    "message": "Licenciado sob a GPL v3. Cada linha está {link}: leia, compile, melhore."
+  },
+  "home.promise.open.link": {
+    "message": "no GitHub"
+  },
+  "home.log.title": {
+    "message": "Feito para o minuto entre as séries"
+  },
+  "home.log.lead": {
+    "message": "Carga, repetições e esforço, um toque por série. O resto sai do caminho até você precisar."
+  },
+  "home.log.target.term": {
+    "message": "Uma meta para cada série"
+  },
+  "home.log.target.detail": {
+    "message": "O que você fez da última vez aparece ao lado de cada série, com a carga para tentar em seguida, ajustada ao seu objetivo e à sua experiência. Nada é registrado até você aceitar."
+  },
+  "home.log.rest.term": {
+    "message": "Um timer de descanso pontual"
+  },
+  "home.log.rest.detail": {
+    "message": "Começa quando você marca uma série e vibra no segundo exato, mesmo com a tela desligada."
+  },
+  "home.log.kinds.term": {
+    "message": "Todo tipo de série"
+  },
+  "home.log.kinds.detail": {
+    "message": "Aquecimento, drop set, séries até a falha e bi-sets, com RPE quando você quiser."
+  },
+  "home.log.plate.term": {
+    "message": "Uma calculadora de anilhas para a sua academia"
+  },
+  "home.log.plate.detail": {
+    "message": "Diga quais anilhas a sua academia tem e ela monta a barra para você, lado a lado."
+  },
+  "home.log.phone.rest": {
+    "message": "O timer de descanso em contagem regressiva acima da tabela de séries."
+  },
+  "home.log.phone.plate": {
+    "message": "A calculadora de anilhas montando 100 kg numa barra de 20 kg."
+  },
+  "home.log.more": {
+    "message": "Como registrar um treino"
+  },
+  "home.progress.title": {
+    "message": "Veja cada quilo somar"
+  },
+  "home.progress.lead": {
+    "message": "Termine um treino e os números já estão lá: volume, recordes e o que você tem treinado, em uma semana ou em anos."
+  },
+  "home.progress.records.term": {
+    "message": "Recordes pessoais, encontrados para você"
+  },
+  "home.progress.records.detail": {
+    "message": "Série mais pesada, mais repetições, melhor volume e 1RM estimado, para cada exercício."
+  },
+  "home.progress.charts.term": {
+    "message": "Gráficos para cada exercício"
+  },
+  "home.progress.charts.detail": {
+    "message": "Dos últimos sete dias até todo o histórico, com cada treino a um toque."
+  },
+  "home.progress.muscles.term": {
+    "message": "Os músculos que você realmente treina"
+  },
+  "home.progress.muscles.detail": {
+    "message": "Um mapa do corpo com as séries de cada músculo, e um calendário sombreado pelo volume do dia."
+  },
+  "home.progress.body.term": {
+    "message": "Seu corpo, também"
+  },
+  "home.progress.body.detail": {
+    "message": "Peso, gordura corporal e medidas, em gráficos ao lado do seu treino."
+  },
+  "home.progress.phone.stats": {
+    "message": "A tela de progresso: volume acumulado, treinos por semana, recordes e músculos treinados."
+  },
+  "home.progress.phone.exercise": {
+    "message": "Progresso no supino: 1RM estimado e volume por treino ao longo de três meses."
+  },
+  "home.progress.more": {
+    "message": "Tudo o que ele acompanha"
+  },
+  "home.play.title": {
+    "message": "Um motivo para voltar"
+  },
+  "home.play.lead": {
+    "message": "O difícil é a constância, então o app transforma isso num pequeno jogo. Ele nunca atrapalha o registro."
+  },
+  "home.play.xp.term": {
+    "message": "XP e níveis"
+  },
+  "home.play.xp.detail": {
+    "message": "Cada série, treino e recorde rende XP, de Novato até Lenda."
+  },
+  "home.play.quests.term": {
+    "message": "Missões semanais e mensais"
+  },
+  "home.play.quests.detail": {
+    "message": "Treine três vezes, bata um recorde, mova vinte toneladas. Elas se renovam, então sempre há outra."
+  },
+  "home.play.streak.term": {
+    "message": "Sequências que perdoam um dia perdido"
+  },
+  "home.play.streak.detail": {
+    "message": "Três salvamentos por mês mantêm sua sequência viva mesmo com um dia sem treino."
+  },
+  "home.play.loot.term": {
+    "message": "Itens e medalhas"
+  },
+  "home.play.loot.detail": {
+    "message": "Um treino concluído pode render de tudo, de um bloco de magnésio a uma coroa de ferro, e as conquistas são suas para sempre."
+  },
+  "home.play.phone.levelup": {
+    "message": "O fim de um treino: nível 4 alcançado, 285 XP ganhos."
+  },
+  "home.play.phone.quests": {
+    "message": "O diário de missões: nível 13, uma sequência de seis dias e as missões da semana."
+  },
+  "home.play.more": {
+    "message": "Como funcionam o XP e as missões"
+  },
+  "home.library.title": {
+    "message": "Comece pelo que você conhece"
+  },
+  "home.library.lead": {
+    "message": "O app traz uma biblioteca de 873 exercícios, com os músculos que cada um trabalha e como executá-lo. Adicione os seus em segundos."
+  },
+  "home.library.search.term": {
+    "message": "Busque e filtre"
+  },
+  "home.library.search.detail": {
+    "message": "Por nome, músculo ou equipamento, da barra ao elástico."
+  },
+  "home.library.templates.term": {
+    "message": "Modelos"
+  },
+  "home.library.templates.detail": {
+    "message": "Crie um, ou salve um treino concluído como modelo, e repita com um toque."
+  },
+  "home.library.notes.term": {
+    "message": "Notas onde você precisa"
+  },
+  "home.library.notes.detail": {
+    "message": "A regulagem do banco num exercício, como foi um treino. Elas estarão lá da próxima vez."
+  },
+  "home.library.phone.library": {
+    "message": "A biblioteca de exercícios agrupada por músculo, com seus recordes ao lado de cada exercício."
+  },
+  "home.library.more": {
+    "message": "Exercícios e modelos"
+  },
+  "home.data.title": {
+    "message": "Seus dados, do seu jeito"
+  },
+  "home.data.lead": {
+    "message": "Anos de treino merecem mais do que um servidor que você não controla. Tudo fica no seu celular, e você pode levar tudo quando quiser."
+  },
+  "home.data.export.term": {
+    "message": "Exporte e restaure"
+  },
+  "home.data.export.detail": {
+    "message": "Cada treino, modelo, recorde e configuração num único arquivo JSON aberto, e um celular novo pronto em segundos."
+  },
+  "home.data.auto.term": {
+    "message": "Backup semanal, sozinho"
+  },
+  "home.data.auto.detail": {
+    "message": "Enquanto o celular carrega à noite. Os três mais recentes são mantidos."
+  },
+  "home.data.delete.term": {
+    "message": "Excluir é excluir"
+  },
+  "home.data.delete.detail": {
+    "message": "Uma única configuração apaga tudo, para sempre. Não sobra cópia em nenhum outro lugar."
+  },
+  "home.data.phone.backup": {
+    "message": "A tela de backup: 184 treinos no aparelho, exportação, backup automático semanal e restauração."
+  },
+  "home.data.more": {
+    "message": "Ler a política de privacidade"
+  },
+  "home.everyone.title": {
+    "message": "Feito para todas as mãos"
+  },
+  "home.everyone.lead": {
+    "message": "Cada tela é verificada com o TalkBack e com o dobro do tamanho de fonte antes de ser lançada."
+  },
+  "home.everyone.a11y.term": {
+    "message": "Acessível por padrão"
+  },
+  "home.everyone.a11y.detail": {
+    "message": "Os gráficos são lidos como frases, o timer de descanso fala, e cada controle é grande o bastante para um polegar cheio de magnésio."
+  },
+  "home.everyone.lang.term": {
+    "message": "Quatro idiomas"
+  },
+  "home.everyone.lang.detail": {
+    "message": "Inglês, francês, espanhol e português do Brasil, com as palavras que se usam na academia."
+  },
+  "home.everyone.units.term": {
+    "message": "Suas unidades, seu tema"
+  },
+  "home.everyone.units.detail": {
+    "message": "Quilos ou libras, claro ou escuro. Troque quando quiser: nada do que você registrou muda."
+  },
+  "home.everyone.phone.dark": {
+    "message": "A tela de progresso no modo escuro."
+  },
+  "home.everyone.more": {
+    "message": "Acessibilidade e idiomas"
+  },
+  "home.next.market.title": {
+    "message": "Marketplace"
+  },
+  "home.next.market.body": {
+    "message": "Compartilhe modelos e desafios, e experimente os de outras pessoas."
+  },
+  "home.next.map.title": {
+    "message": "Mapa de academias"
+  },
+  "home.next.map.body": {
+    "message": "Encontre academias e equipamentos perto de você."
+  },
+  "home.next.health.title": {
+    "message": "Conexão Saúde"
+  },
+  "home.next.health.body": {
+    "message": "Sincronize peso e gordura corporal com a central de saúde do Android. Desativado até você ativar."
+  },
+  "home.next.title": {
+    "message": "Ainda não existe"
+  },
+  "home.next.lead": {
+    "message": "Planejado, não prometido. Já têm uma linha acinzentada nas Configurações, para que nada mude de lugar quando chegarem."
+  },
+  "home.next.more": {
+    "message": "Ver o roadmap"
+  },
+  "home.closing.title": {
+    "message": "Seu próximo treino começa aqui."
+  },
+  "home.closing.body": {
+    "message": "O {appName} é grátis. Não há período de teste, e nada fica bloqueado atrás de um pagamento."
+  },
+  "home.closing.guide": {
+    "message": "Ler o guia"
+  },
+  "home.meta.title": {
+    "message": "{appName}: um diário de treino privado para Android"
+  },
+  "home.meta.description": {
+    "message": "Diário de treino gratuito e de código aberto para Android. Registre séries, acompanhe recordes e progresso, ganhe XP. Sem conta, sem anúncios e sem permissão de internet."
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "Esta página deu erro.",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "Voltar para o topo",
+    "description": "The ARIA label for the back to top button"
+  },
+  "theme.blog.archive.title": {
+    "message": "Arquivo",
+    "description": "The page & hero title of the blog archive page"
+  },
+  "theme.blog.archive.description": {
+    "message": "Arquivo",
+    "description": "The page & hero description of the blog archive page"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "Navegação da página de listagem do blog",
+    "description": "The ARIA label for the blog pagination"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "Publicações mais recentes",
+    "description": "The label used to navigate to the newer blog posts page (previous page)"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "Publicações mais antigas",
+    "description": "The label used to navigate to the older blog posts page (next page)"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "Navegação da página de publicação do blog",
+    "description": "The ARIA label for the blog posts pagination"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "Publicação mais recente",
+    "description": "The blog post button label to navigate to the newer/previous post"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "Publicação mais antiga",
+    "description": "The blog post button label to navigate to the older/next post"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "Ver todas as etiquetas",
+    "description": "The label of the link targeting the tag list page"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "modo do sistema",
+    "description": "The name for the system color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "modo claro",
+    "description": "The name for the light color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "modo escuro",
+    "description": "The name for the dark color mode"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "Mudar entre modo claro e escuro ({mode} está ativo)",
+    "description": "The ARIA label for the color mode toggle"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Trilha",
+    "description": "The ARIA label for the breadcrumbs"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "Páginas de documento",
+    "description": "The ARIA label for the docs pagination"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "Anterior",
+    "description": "The label used to navigate to the previous doc"
+  },
+  "theme.docs.paginator.next": {
+    "message": "Próxima",
+    "description": "The label used to navigate to the next doc"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "Um documento marcado|{count} documentos marcados",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} com \"{tagName}\"",
+    "description": "The title of the page for a docs tag"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Versão: {versionLabel}"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "Esta é uma documentação não lançada da versão {versionLabel} para {siteTitle}.",
+    "description": "The label used to tell the user that he's browsing an unreleased doc version"
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "Esta é a documentação para {siteTitle} {versionLabel}, que não é mais mantida ativamente.",
+    "description": "The label used to tell the user that he's browsing an unmaintained doc version"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "Para a documentação atualizada, consulte a {latestVersionLink} ({versionLabel}).",
+    "description": "The label used to tell the user to check the latest version"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "versão mais recente",
+    "description": "The label used for the latest version suggestion link label"
+  },
+  "theme.common.editThisPage": {
+    "message": "Editar esta página",
+    "description": "The link label to edit the current page"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "Link direto para {heading}",
+    "description": "Title for link to heading"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": " em {date}",
+    "description": "The words used to describe on which date a page has been last updated"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": " por {user}",
+    "description": "The words used to describe by who the page has been last updated"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "Última atualização{atDate}{byUser}",
+    "description": "The sentence used to display when a page has been last updated, and by who"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Versões",
+    "description": "The label for the navbar versions dropdown on mobile view"
+  },
+  "theme.NotFound.title": {
+    "message": "Página não encontrada",
+    "description": "The title of the 404 page"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "Etiquetas:",
+    "description": "The label alongside a tag list"
+  },
+  "theme.admonition.caution": {
+    "message": "cuidado",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.admonition.danger": {
+    "message": "perigo",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "informação",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.note": {
+    "message": "observação",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "dica",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.warning": {
+    "message": "aviso",
+    "description": "The default label used for the Warning admonition (:::warning)"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Fechar",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Navegação das publicações recentes do blog",
+    "description": "The ARIA label for recent posts in the blog sidebar"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "Expandir a categoria '{label}'",
+    "description": "The ARIA label to expand the sidebar category"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "Recolher a categoria '{label}'",
+    "description": "The ARIA label to collapse the sidebar category"
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "(opens in new tab)",
+    "description": "The ARIA label for the external link icon"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "Navegação principal",
+    "description": "The ARIA label for the main navigation"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Línguas",
+    "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.NotFound.p1": {
+    "message": "Não foi possível encontrar o que você está procurando.",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "Por favor, entre em contato com o dono do site que ligou você à URL original e informe que o link está quebrado.",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "Nesta página",
+    "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.blog.post.readMore": {
+    "message": "Ler mais",
+    "description": "The label used in blog post item excerpts to link to full blog posts"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Ler mais sobre {title}",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "Um minuto para ler|{readingTime} min para ler",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "Copiar",
+    "description": "The copy button label on code blocks"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "Copiado",
+    "description": "The copied button label on code blocks"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "Copiar código para a área de transferência",
+    "description": "The ARIA label for copy code blocks button"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "Alternar quebra de linha",
+    "description": "The title attribute for toggle word wrapping button of code block lines"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "Página Inicial",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "Recolher painel lateral",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "Recolher painel lateral",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "Painel lateral de documentos",
+    "description": "The ARIA label for the sidebar navigation"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "Fechar painel de navegação",
+    "description": "The ARIA label for close button of mobile sidebar"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "Alternar painel de navegação",
+    "description": "The ARIA label for hamburger menu button of mobile navigation"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← Voltar para o menu principal",
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Expandir a seleção",
+    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Recolher a seleção",
+    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "Expandir painel lateral",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "Expandir painel lateral",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.blog.post.plurals": {
+    "message": "Uma publicação|{count} publicações",
+    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} com a etiqueta \"{tagName}\"",
+    "description": "The title of the page for a blog tag"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}",
+    "description": "The title of the page for a blog author"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "Autores",
+    "description": "The title of the authors page"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "Ver todos os autores",
+    "description": "The label of the link targeting the blog authors page"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "Este autor ainda não escreveu nenhuma publicação.",
+    "description": "The text for authors with 0 blog post"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "Página não listada",
+    "description": "The unlisted content banner title"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "Esta página não está listada. Mecanismos de busca não irão indexá-la, e somente usuários que possuam o link direto poderão acessá-la",
+    "description": "The unlisted content banner message"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "Página de rascunho",
+    "description": "The draft content banner title"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "Esta página é um rascunho. Ela estará visível apenas no desenvolvimento e será excluída da compilação de produção.",
+    "description": "The draft content banner message"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "1 item|{count} itens",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Tentar novamente",
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Pular para o conteúdo principal",
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Etiquetas",
+    "description": "The title of the tag list page"
+  },
+  "home.library.phone.templates": {
+    "message": "Cinco modelos, cada um com o número de exercícios, a duração e a categoria."
+  },
+  "home.everyone.phone.session": {
+    "message": "Um treino em andamento no modo escuro."
+  }
+}

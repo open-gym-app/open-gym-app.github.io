@@ -1,61 +1,39 @@
-# Contributing to OpenGym
+# Contributing to the website
 
-Thanks for your interest in contributing. This is a community-driven project and all contributions are welcome.
+Thanks for helping. This repository is only the website; the app itself, and its own
+contribution guide, are at <https://github.com/open-gym-app/open-gym>.
 
-## Ways to contribute
+## What goes where
 
-- **Bug reports** — open an issue with steps to reproduce and expected vs actual behavior
-- **Feature requests** — open an issue describing the use case and why it fits the project
-- **Documentation** — improve or add pages under `docs/docs/`
-- **Code** — fix bugs or implement approved features (see below)
+- **A mistake or a gap in the guide:** edit the page under `docs/docs/guide/` (every page has an
+  *Edit this page* link) and open a pull request.
+- **Something the app does differently from what a page says:** the app is right. Fix the page,
+  and mention the app's pull request that changed the behaviour.
+- **The privacy policy:** do not edit the pages here. Change `release/PRIVACY*.md` in the app
+  repository, then regenerate (see the README).
+- **Developer reference:** the long-form documentation lives next to the code in the app's
+  `docs/` directory. The developer pages here summarise it and link to it. Keep them short,
+  and fix the source first.
+- **Translations:** the landing page and the privacy policy are translated into French, Spanish
+  and Brazilian Portuguese. Use the app's glossary in its `docs/TRANSLATION.md`, so a word on
+  this site matches the word in the app.
 
-## Before you start coding
+## Writing
 
-1. Check existing issues and PRs to avoid duplicate work.
-2. For anything beyond a trivial fix, open an issue first to align on approach.
-3. One feature or fix per PR — keep diffs reviewable.
+- Write for someone holding the app, not someone reading its code: name things by what they
+  show on screen (**Start from template**, <kbd>Settings</kbd>), not by class names.
+- Say only what the current app does. Planned work goes on the roadmap page, marked as planned.
+- Never hard-code the app's name, organisation or repositories: use `<AppName />` and the other
+  components listed in the README, so a rename stays a one-line change.
 
-## Development setup
-
-### Documentation site
+## Before opening a pull request
 
 ```bash
 cd docs
-npm install
-npm start        # live-reloads at http://localhost:3000
-npm run build    # production build
+npm run build      # fails on any broken link or anchor
+npm run typecheck
 ```
 
-Diagrams are maintained as draw.io files in `docs/static/diagrams/`. Open them with [draw.io](https://app.diagrams.net/) or the VS Code extension (`hediet.vscode-drawio`). Export updated diagrams as PNG alongside the source file.
+Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/), for example
+`docs(guide): explain drop sets`.
 
-### Android app
-
-> The Android source lives in a separate repository. Link TBD.
-
-## Code standards
-
-- **Kotlin** — follow the [Kotlin coding conventions](https://kotlinlang.org/docs/coding-conventions.html)
-- **Architecture** — MVVM + Clean Architecture; keep data / domain / presentation layers separate
-- **Tests** — unit tests for domain logic, integration tests for Room DAOs
-- **No third-party analytics** — user data stays on device
-
-## Commit messages
-
-Use [Conventional Commits](https://www.conventionalcommits.org/):
-
-```
-feat(session): add resume token to persist mid-session state
-fix(db): enforce foreign key pragma on connection open
-docs(schema): add gym map tables to ERD
-```
-
-## Pull request checklist
-
-- [ ] Lint and tests pass locally
-- [ ] New public API or behavior is documented
-- [ ] DB schema changes include a Room migration
-- [ ] No hardcoded strings — use resource files
-
-## License
-
-By contributing you agree that your changes will be licensed under the project's license.

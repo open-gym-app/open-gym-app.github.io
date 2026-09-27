@@ -1,0 +1,68 @@
+---
+title: FAQ
+description: Short answers to the questions people ask first.
+---
+
+# Frequently asked questions
+
+### Is it really free?
+
+Yes. There is no trial, no subscription and nothing to unlock. <AppName /> is open source under
+the GNU GPL v3, made by volunteers.
+
+### Do I need an account?
+
+No. There is nothing to sign up for. You open the app and start logging.
+
+### Does it work offline?
+
+It only works offline. The app does not ask Android for internet access, so it never connects
+to anything. Everything works the same in a basement gym with no signal.
+
+### Where is my data?
+
+On your phone, in the app's private storage. Nobody else has a copy: not us, not Google, not
+an analytics company. The [privacy policy](/privacy) has the details.
+
+### What happens if I lose my phone?
+
+Your log goes with it, unless you have a backup somewhere else. Export one now and then and
+save a copy off the phone. See [Backup and restore](guide/backup).
+
+### Can I move my data to a new phone?
+
+Yes: export a backup on the old phone, and restore it on the new one.
+[Here is how](guide/backup#moving-to-a-new-phone).
+
+### Can I get my data out to use elsewhere?
+
+Yes. The backup is a plain JSON file in a [documented format](developers/export-format): one
+array per table, with readable names. A spreadsheet or a script can read it.
+
+### Is there an iPhone version?
+
+No. <AppName /> is built for Android only.
+
+### Does it sync with Health Connect, Google Fit or a watch?
+
+Not yet. A Health Connect sync is planned: see the [roadmap](roadmap).
+
+### Can I log cardio?
+
+Yes. The library includes cardio exercises, and records track the longest distance and best
+pace for them. More outdoor cardio and swimming exercises are on the way.
+
+### How is my one-rep max estimated?
+
+From your best set, with the Epley formula by default, or Brzycki if you prefer. Change it in
+<kbd>Settings</kbd> › <kbd>1RM formula</kbd>.
+
+### I found a bug, or I have an idea.
+
+<NewIssueLink>Open an issue</NewIssueLink> on GitHub. Say what you did, what you expected,
+and what happened instead. Screenshots help.
+
+### Can I help?
+
+Gladly. Code, translations, testing on your phone, or just telling us what is confusing: see
+[Contributing](developers/contributing).

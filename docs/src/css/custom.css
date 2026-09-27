@@ -1,266 +1,381 @@
-/* OpenGym — design tokens matched to the wireframe system */
+/*
+ * The site wears the app's own design system: the same chalk ground, the same iron for the
+ * live-session header, the same single red accent, and mono for numbers (never for labels).
+ * Archivo's width axis does the display work — condensed and heavy for headlines, the way
+ * weights are stamped on a plate — and its normal width sets the body.
+ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-
-/* ── Light ─────────────────────────────────────────────────────── */
+/* ── Tokens ──────────────────────────────────────────────────────── */
 :root {
-  /* Accent — burnt orange, single accent per design system */
-  --ifm-color-primary:          #d24727;
-  --ifm-color-primary-dark:     #bc3f21;
-  --ifm-color-primary-darker:   #b13b1f;
-  --ifm-color-primary-darkest:  #91301a;
-  --ifm-color-primary-light:    #d85b3b;
-  --ifm-color-primary-lighter:  #db6442;
+  --og-chalk: #f8f7f3;
+  --og-paper: #ffffff;
+  --og-iron: #1d1d22;
+  --og-iron-soft: #2a2a30;
+  --og-ink: #1a1a1c;
+  --og-steel: #5c5c63;
+  --og-mat: #e4e2dc;
+  --og-plate: #d24727;
+  --og-plate-deep: #b13b1f;
+  --og-blush: #f6dfd6;
+  --og-on-iron: #f3f2ee;
+  --og-on-iron-dim: #a9a9b0;
+
+  --og-display: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --og-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  --ifm-color-primary: #d24727;
+  --ifm-color-primary-dark: #bd4023;
+  --ifm-color-primary-darker: #b13b1f;
+  --ifm-color-primary-darkest: #91301a;
+  --ifm-color-primary-light: #d85b3b;
+  --ifm-color-primary-lighter: #db6442;
   --ifm-color-primary-lightest: #e37b5d;
 
-  /* Surfaces */
-  --ifm-background-color:         #fafaf7;
-  --ifm-background-surface-color: #ffffff;
+  --ifm-background-color: var(--og-chalk);
+  --ifm-background-surface-color: var(--og-paper);
+  --ifm-font-color-base: var(--og-ink);
+  --ifm-font-color-secondary: var(--og-steel);
+  --ifm-heading-color: var(--og-ink);
 
-  /* Typography */
-  --ifm-font-family-base:
-    'Inter Tight', 'Inter', system-ui, -apple-system, sans-serif;
-  --ifm-font-family-monospace:
-    'JetBrains Mono', 'IBM Plex Mono', ui-monospace, Menlo, monospace;
-  --ifm-font-size-base:     14px;
-  --ifm-line-height-base:   1.55;
-  --ifm-font-color-base:    #1a1a1a;
-  --ifm-font-color-secondary: #5a5a5a;
+  --ifm-font-family-base: var(--og-display);
+  --ifm-heading-font-family: var(--og-display);
+  --ifm-font-family-monospace: var(--og-mono);
+  --ifm-font-size-base: 100%;
+  --ifm-line-height-base: 1.6;
+  --ifm-heading-font-weight: 750;
+  --ifm-heading-line-height: 1.15;
 
-  /* Borders */
-  --ifm-color-emphasis-300: #c8c8c8;
-  --ifm-color-emphasis-200: #e2e2e2;
-  --ifm-toc-border-color:   #e2e2e2;
-  --ifm-hr-border-color:    #c8c8c8;
+  --ifm-color-emphasis-200: var(--og-mat);
+  --ifm-color-emphasis-300: #cfccc4;
+  --ifm-toc-border-color: var(--og-mat);
+  --ifm-hr-border-color: var(--og-mat);
 
-  /* Navbar */
-  --ifm-navbar-background-color: #fafaf7;
-  --ifm-navbar-shadow:           0 1px 0 0 #e2e2e2;
-  --ifm-navbar-height:           52px;
-  --ifm-navbar-link-color:       #1a1a1a;
-  --ifm-navbar-link-hover-color: #d24727;
+  --ifm-navbar-background-color: rgba(248, 247, 243, 0.88);
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-height: 60px;
+  --ifm-navbar-link-color: var(--og-ink);
+  --ifm-navbar-link-hover-color: var(--og-plate);
 
-  /* Sidebar */
-  --ifm-menu-color:                #5a5a5a;
-  --ifm-menu-color-active:         #d24727;
-  --ifm-menu-color-background-active: #f6dfd6;
+  --ifm-menu-color: var(--og-steel);
+  --ifm-menu-color-active: var(--og-plate-deep);
+  --ifm-menu-color-background-active: var(--og-blush);
 
-  /* Footer */
-  --ifm-footer-background-color: #1a1a1a;
-  --ifm-footer-color:            #8a8a8a;
-  --ifm-footer-link-color:       #b0b0ad;
-  --ifm-footer-link-hover-color: #d24727;
+  --ifm-footer-background-color: var(--og-iron);
+  --ifm-footer-color: var(--og-on-iron-dim);
+  --ifm-footer-link-color: var(--og-on-iron);
+  --ifm-footer-link-hover-color: #ff8a64;
+  --ifm-footer-title-color: var(--og-on-iron);
 
-  /* Code */
-  --ifm-code-font-size: 92%;
-  --ifm-code-background: #ededea;
-  --docusaurus-highlighted-code-line-bg: rgba(210, 71, 39, 0.06);
+  --ifm-code-font-size: 88%;
+  --ifm-code-background: #efede7;
+  --docusaurus-highlighted-code-line-bg: rgba(210, 71, 39, 0.08);
 
-  /* Cards / boxes */
-  --ifm-card-background-color: #ffffff;
-  --ifm-global-radius: 6px;
-  --ifm-global-border-width: 1px;
-
-  /* Table of contents */
-  --ifm-toc-link-color: #8a8a8a;
+  --ifm-card-background-color: var(--og-paper);
+  --ifm-global-radius: 10px;
+  --ifm-toc-link-color: var(--og-steel);
+  --ifm-table-border-width: 0;
+  --ifm-table-border-color: var(--og-mat);
+  --ifm-table-head-background: transparent;
+  --ifm-table-stripe-background: transparent;
+  --ifm-table-cell-padding: 0.6rem 0.75rem 0.6rem 0;
+  --ifm-link-decoration: none;
+  --ifm-link-hover-decoration: underline;
 }
 
-/* ── Dark ──────────────────────────────────────────────────────── */
 [data-theme='dark'] {
-  --ifm-color-primary:          #ff6b3d;
-  --ifm-color-primary-dark:     #f05a28;
-  --ifm-color-primary-darker:   #e55220;
-  --ifm-color-primary-darkest:  #c03f12;
-  --ifm-color-primary-light:    #ff7d54;
-  --ifm-color-primary-lighter:  #ff8760;
-  --ifm-color-primary-lightest: #ffa07a;
+  --og-chalk: #15151a;
+  --og-paper: #1d1d22;
+  --og-ink: #ececea;
+  --og-steel: #a3a3aa;
+  --og-mat: #2e2e35;
+  --og-plate: #ff6b3d;
+  --og-plate-deep: #ff8a64;
+  --og-blush: #3a2218;
 
-  --ifm-background-color:         #15151a;
-  --ifm-background-surface-color: #1d1d22;
+  --ifm-color-primary: #ff6b3d;
+  --ifm-color-primary-dark: #ff5a26;
+  --ifm-color-primary-darker: #ff511b;
+  --ifm-color-primary-darkest: #e63c06;
+  --ifm-color-primary-light: #ff7c54;
+  --ifm-color-primary-lighter: #ff855f;
+  --ifm-color-primary-lightest: #ff9f82;
 
-  --ifm-font-color-base:          #ececea;
-  --ifm-font-color-secondary:     #b0b0ad;
-
-  --ifm-color-emphasis-300: #3a3a38;
-  --ifm-color-emphasis-200: #2a2a28;
-  --ifm-toc-border-color:   #3a3a38;
-  --ifm-hr-border-color:    #3a3a38;
-
-  --ifm-navbar-background-color: #1d1d22;
-  --ifm-navbar-shadow:           0 1px 0 0 #3a3a38;
-  --ifm-navbar-link-color:       #ececea;
-  --ifm-navbar-link-hover-color: #ff6b3d;
-
-  --ifm-menu-color:                  #b0b0ad;
-  --ifm-menu-color-active:           #ff6b3d;
-  --ifm-menu-color-background-active: #3a2218;
-
-  --ifm-footer-background-color: #0e0e12;
-  --ifm-footer-color:            #7a7a77;
-  --ifm-footer-link-color:       #b0b0ad;
-  --ifm-footer-link-hover-color: #ff6b3d;
-
-  --ifm-code-background: #25252b;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 107, 61, 0.08);
-
-  --ifm-card-background-color: #1d1d22;
-  --ifm-toc-link-color: #7a7a77;
+  --ifm-color-emphasis-300: #3c3c44;
+  --ifm-navbar-background-color: rgba(21, 21, 26, 0.86);
+  --ifm-footer-background-color: #0f0f13;
+  --ifm-code-background: #25252c;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 107, 61, 0.1);
 }
 
-/* ── Global ────────────────────────────────────────────────────── */
+/* ── Global ──────────────────────────────────────────────────────── */
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Navbar — minimal, ruled */
-.navbar {
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-}
-.navbar__title {
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-}
-.navbar__link {
-  font-size: 13px;
-  font-weight: 500;
+body {
+  background: var(--og-chalk);
+  font-feature-settings: 'ss01';
 }
 
-/* Hero banner */
-.hero.hero--primary {
-  background: var(--ifm-background-color);
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-}
-.hero__title {
-  color: var(--ifm-font-color-base);
-  font-size: 32px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-.hero__subtitle {
-  color: var(--ifm-font-color-secondary);
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-top: 8px;
-}
-
-/* Buttons */
-.button--secondary {
-  background: var(--ifm-color-primary);
-  border-color: var(--ifm-color-primary);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 500;
-  border-radius: 6px;
-}
-.button--secondary:hover {
-  background: var(--ifm-color-primary-dark);
-  border-color: var(--ifm-color-primary-dark);
-  color: #fff;
-}
-.button--outline.button--secondary {
-  background: transparent;
-  border-color: var(--ifm-color-emphasis-300);
-  color: var(--ifm-font-color-base);
-}
-.button--outline.button--secondary:hover {
-  background: var(--ifm-code-background);
-  color: var(--ifm-font-color-base);
-}
-
-/* Sidebar */
-.menu__link {
-  font-size: 13px;
+:focus-visible {
+  outline: 2px solid var(--og-plate);
+  outline-offset: 3px;
   border-radius: 4px;
 }
-.menu__link--active {
-  font-weight: 500;
+
+::selection {
+  background: var(--og-blush);
+  color: var(--og-ink);
 }
 
-/* Docs content */
-.markdown h1 {
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  padding-bottom: 10px;
-}
-.markdown h2 {
-  font-size: 17px;
-  font-weight: 600;
+/* Headings: condensed and heavy, set tight. */
+h1,
+h2,
+h3 {
+  font-stretch: 78%;
   letter-spacing: -0.005em;
+  text-wrap: balance;
 }
+
+h4,
+h5,
+h6 {
+  font-stretch: 100%;
+}
+
+/* ── Navbar ──────────────────────────────────────────────────────── */
+.navbar {
+  backdrop-filter: saturate(1.4) blur(12px);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  border-bottom: 1px solid var(--og-mat);
+}
+
+.navbar__title {
+  font-weight: 800;
+  font-stretch: 82%;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.navbar__link {
+  font-weight: 550;
+  font-size: 0.95rem;
+}
+
+.navbar__link--active {
+  color: var(--og-plate);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────── */
+.button {
+  font-weight: 650;
+  border-radius: 999px;
+  letter-spacing: 0;
+}
+
+/* ── Docs ────────────────────────────────────────────────────────── */
+.theme-doc-markdown {
+  font-size: 1.05rem;
+  max-width: 44rem;
+}
+
+.markdown h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3rem);
+  font-weight: 820;
+  font-stretch: 72%;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.25rem;
+}
+
+.markdown h2 {
+  font-size: 1.75rem;
+  font-weight: 780;
+  margin-top: 2.75rem;
+}
+
 .markdown h3 {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 720;
+  font-stretch: 90%;
 }
 
-/* Tables — ruled */
-.markdown table {
-  border-collapse: collapse;
-  font-size: 13px;
-}
-.markdown th {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ifm-font-color-secondary);
-  font-weight: 500;
-  background: var(--ifm-code-background);
-  border-bottom: 1px solid var(--ifm-color-emphasis-300);
-}
-.markdown td {
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  vertical-align: top;
+.markdown > p:first-of-type,
+.markdown header + p {
+  font-size: 1.2rem;
   line-height: 1.5;
+  color: var(--og-steel);
 }
 
-/* Code blocks */
-code {
-  font-family: var(--ifm-font-family-monospace);
-  background: var(--ifm-code-background);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 3px;
-  font-size: 92%;
-  padding: 1px 5px;
+.markdown a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
 }
-pre code {
-  border: none;
+
+.markdown a:hover {
+  text-decoration-color: currentColor;
+}
+
+.markdown table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.markdown thead tr {
+  border-bottom: 2px solid var(--og-ink);
+}
+
+.markdown th {
   background: transparent;
-  padding: 0;
-}
-.theme-code-block code {
-  padding: var(--ifm-pre-padding);
+  text-align: left;
+  font-weight: 700;
+  border: none;
 }
 
-/* Footer */
+.markdown td {
+  border: none;
+  border-bottom: 1px solid var(--og-mat);
+  vertical-align: top;
+}
+
+.markdown tr {
+  background: transparent !important;
+  border-top: none;
+}
+
+.markdown th,
+.markdown td {
+  padding: 0.6rem 0.75rem 0.6rem 0;
+}
+
+code {
+  border: none;
+  border-radius: 5px;
+  padding: 0.1em 0.35em;
+}
+
+.theme-code-block {
+  border: 1px solid var(--og-mat);
+  box-shadow: none;
+}
+
+/* Keyboard-style path through the app's menus: <kbd>Settings</kbd> › <kbd>Backup</kbd>. */
+kbd {
+  font-family: var(--og-display);
+  font-size: 0.9em;
+  font-weight: 600;
+  background: var(--og-paper);
+  border: 1px solid var(--og-mat);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  box-shadow: none;
+  padding: 0.05em 0.45em;
+  color: var(--og-ink);
+}
+
+.alert {
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.menu__link {
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.menu__list-item-collapsible .menu__link,
+.menu__caret {
+  font-weight: 650;
+}
+
+.table-of-contents__link--active {
+  color: var(--og-plate);
+}
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+/* Infima sets its own navy on .footer--dark, so the tokens are restated here. */
+.footer--dark {
+  --ifm-footer-background-color: #141417;
+  --ifm-footer-color: var(--og-on-iron-dim);
+  --ifm-footer-link-color: var(--og-on-iron);
+  --ifm-footer-title-color: var(--og-on-iron);
+}
+
 .footer {
-  font-size: 12px;
+  padding: 3.5rem 0 2.5rem;
+  text-align: center;
 }
+
+.footer__col {
+  margin-bottom: 1.5rem;
+}
+
+/* A column's title is its heading: larger and heavier than the links it introduces. */
 .footer__title {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #7a7a77;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 780;
+  font-stretch: 82%;
+  margin-bottom: 0.75rem;
 }
+
+.footer__items,
+.footer__item {
+  text-align: center;
+}
+
+.footer__item {
+  padding: 0.25rem 0;
+}
+
+/* Links read as links at rest, not only under a pointer. */
 .footer__link-item {
-  font-size: 12px;
+  display: inline-block;
+  font-size: 1rem;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(243, 242, 238, 0.4);
 }
 
-/* Breadcrumbs */
-.breadcrumbs__item--active .breadcrumbs__link {
-  color: var(--ifm-font-color-secondary);
-  font-weight: 400;
+.footer__link-item:hover,
+.footer__link-item:focus-visible {
+  color: var(--ifm-footer-link-hover-color);
+  text-decoration-color: currentColor;
 }
 
-/* Pagination */
-.pagination-nav__label {
-  font-size: 13px;
-  font-weight: 500;
+.footer__copyright {
+  font-size: 0.875rem;
+  color: var(--og-on-iron-dim);
+  margin-top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Wide diagrams keep their natural size and scroll sideways instead of shrinking to illegible. */
+.docusaurus-mermaid-container {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid var(--og-mat);
+  border-radius: 12px;
+  background: var(--og-paper);
+}
+
+.docusaurus-mermaid-container svg {
+  max-width: none !important;
 }

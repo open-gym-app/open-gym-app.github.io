@@ -1,0 +1,39 @@
+/* A single screen sits centred in the text column, its caption centred under it. */
+.figure {
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 240px;
+}
+
+.figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  text-align: center;
+  color: var(--og-steel);
+}
+
+/* Two or three screens side by side, centred as a group; they wrap two-up on a phone. */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem 2rem;
+  margin: 2rem 0;
+}
+
+.row .figure {
+  margin: 0;
+  flex: 0 1 220px;
+}
+
+@media (max-width: 420px) {
+  .row {
+    gap: 1.25rem 1rem;
+  }
+
+  .row .figure {
+    flex-basis: calc(50% - 0.5rem);
+  }
+}

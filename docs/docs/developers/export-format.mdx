@@ -1,0 +1,84 @@
+---
+title: Export format
+description: The JSON document the app writes when you back up, and reads when you restore.
+---
+
+# Export format
+
+A backup is one JSON document holding the whole database and the user's settings. It is the
+only copy of anyone's training history that ever leaves a phone, so its format is a
+specification pinned by tests, not an implementation detail. Exported files are named
+`opengym-backup-<date>-<time>.json`. The full specification is
+<RepoLink path="docs/export-schema.md" />.
+
+## The shape
+
+```json
+{
+  "schema_version": 1,
+  "exported_at": 1788686970491,
+  "app_version": "1.0",
+  "preferences": { "unit_system": "METRIC", "theme": "SYSTEM", "…": "…" },
+  "muscle_group": [],
+  "tag": [],
+  "exercise": [],
+  "exercise_muscle_group": [],
+  "exercise_tag": [],
+  "workout_template": [],
+  "template_exercise": [],
+  "template_set": [],
+  "workout_session": [],
+  "session_exercise": [],
+  "workout_set": [],
+  "personal_record": [],
+  "body_measurement": [],
+  "session_xp_claim": [],
+  "session_loot_claim": [],
+  "user_progress": [],
+  "achievement": [],
+  "quest_completion": [],
+  "collected_item": []
+}
+```
+
+- **Every key is always present**, empty arrays included, so every file has the same shape.
+- **Top-level keys are table names, and row keys are column names**, in the order the table
+  declares them. A row in the file and a row in the [schema](data-model) read side by side
+  with no translation.
+- **Units are the schema's**: milligrams, centimetres, seconds, epoch-millisecond UTC
+  timestamps, `0`/`1` booleans. A nullable column is written as `null`, never omitted.
+- **`preferences`** uses the DataStore key names (`default_rest_duration_seconds`,
+  `bar_weight_milligrams`, …). Notification switches and the reminder schedule are left out:
+  they are permissions and alarms that belong to one phone.
+
+## Restoring replaces
+
+An import wipes every table and inserts the document, in parent-before-child order, in one
+transaction. It is not a merge: afterwards the database holds exactly what the file holds.
+Settings are applied last, so the app re-formats once, at the end.
+
+A file is checked before anything is touched. It is refused, and the phone left as it was, if
+it is not valid JSON, is missing a key, was written by a newer `schema_version` than the app
+reads, or references rows it does not contain.
+
+## What is exported, and why
+
+- **`personal_record` is exported rather than recomputed.** Detection rules can change between
+  versions, and a restore must reproduce the user's records, not a plausible re-derivation.
+- **The two claim tables are exported.** They are what stop a restored session from being paid
+  XP or rolled for loot a second time.
+- **The in-progress workout draft is not.** It is device state; the sets it overlaps are real
+  rows and are exported.
+
+## Compatibility
+
+`schema_version` changes only when an older app could no longer read a newer file correctly.
+Adding an optional setting does not bump it: a missing key reads back as the setting's default.
+A value an older build does not recognise, such as a new achievement id, is preserved, not
+rejected.
+
+To check a file by hand:
+
+```bash
+jq '.schema_version, (keys | length), (.workout_session | length)' opengym-backup-2026-09-27-1830.json
+```

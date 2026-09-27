@@ -1,0 +1,108 @@
+---
+title: Logging a workout
+description: Start a session, log sets, rest, and finish.
+---
+
+# Logging a workout
+
+A workout in <AppName /> is a list of exercises, each with a table of sets. You fill the table
+in as you go: weight, reps, and optionally how hard it felt. Everything is saved the moment you
+type it.
+
+## Start a session
+
+From **Home**, tap **Start empty session** to pick exercises as you go, or **Start from
+template** to run a workout you have [saved before](templates). Starting from a template fills
+in the exercises, the sets and the weights you planned; you can still change any of them.
+
+Only one workout runs at a time. If one is already open, the app offers to take you back to
+it, or to discard it and start fresh.
+
+## Log a set
+
+<Screens>
+  <Screen name="session-active" alt="Bench press with three sets ticked and a fourth with its target: 80 kg × 6." caption="The set table. The shaded row is the next set, with its target." />
+  <Screen name="session-resting" alt="The rest timer at 1:23 across the top of the workout." caption="Resting: the timer takes over the header." />
+</Screens>
+
+Each row of the table is one set. Type the weight and the reps, and tick the row to complete
+it. The **Prev** column shows what you did in that set last time, so you do not have to
+remember.
+
+- **Effort.** Tap the RPE cell to record how hard the set was, on the usual 1–10 scale. Tap the
+  value again to clear it.
+- **Set types.** Tap the set number to mark a set as a warm-up (**W**), a drop set (**D**), a
+  set to failure (**F**) or an interval (**I**). Warm-up sets do not count towards records.
+- **Corrections.** Tap a completed set to change it. Delete a set and you get a moment to
+  **Undo**.
+
+### The next target
+
+Under the set you are about to do, the app suggests a **target**: a weight and a rep count,
+with the reason in plain words. It follows a simple rule, called double progression: keep the
+weight and add reps until every set reaches the top of your rep range, then add weight and go
+back to the bottom. If you fell short last time, it suggests taking some weight off.
+
+| Last time | Target |
+| --- | --- |
+| Every set at the top of the range | More weight, back to the bottom of the range |
+| Every set inside the range | Same weight, one more rep |
+| A set under the range | 10% lighter, bottom of the range |
+
+Your [goal](../intro#the-first-launch) decides the range, and your experience decides how quickly
+the weight goes up. The target is only a suggestion: nothing is written to your log until you
+type it or accept it.
+
+## Rest between sets
+
+Ticking a set starts the rest timer. It counts down in the header, and you can add or take
+off time, pause it or skip it. The length comes from the exercise if you gave it one, and from
+**Default rest timer** in <kbd>Settings</kbd> otherwise.
+
+If you lock the phone or switch apps, the timer keeps going. When the rest is over the phone
+buzzes and a notification says so, even with the screen off. You can turn that alert off
+under <kbd>Settings</kbd> › <kbd>Rest timer alerts</kbd>.
+
+## Shape the workout as you go
+
+- **Add** more exercises from the library at the bottom of the workout.
+- **Swap** an exercise for another with the arrows next to its name, or **remove** it with the
+  cross. An exercise with logged sets has to have them deleted first, so nothing is lost by
+  accident.
+- **Reorder** exercises by dragging the handle beside **Exercise 1**, **Exercise 2**…
+- **Superset** two exercises by linking them: you do them back to back, and the rest timer
+  waits until the pair is done.
+- **Rename** the session by tapping its name at the top.
+
+## Warm-up and cool-down
+
+When you start a workout, the app can suggest a short warm-up for the muscles it trains, above the
+exercises, and a cool-down below them. Tap **Add to session** to put the moves into the workout, or **Not
+now** to fold the card away. If you would rather never see them, turn off **Warm-up
+suggestions** in <kbd>Settings</kbd>.
+
+<Screen name="session-warmup" alt="A warm-up card: arm circles, band pull-apart and a bench press ramp-up at 40 and 60 kg." caption="A warm-up for a push day, with ramp-up sets worked out from your working weight." />
+
+## Pause, leave, come back
+
+The pause button in the header stops the workout clock. You can leave the app at any time,
+even in the middle of a set: the workout is saved as you go, and Home offers to **Resume** it
+when you come back. If a workout sits open with nothing logged, a quiet notification reminds
+you it is still running.
+
+## Finish
+
+Tap **End** when you are done. You need at least one logged set; if you did not train after
+all, **discard** the workout instead and it is gone.
+
+<Screens>
+  <Screen name="session-summary" alt="The session summary: 4,820 kg of volume, 17 sets, 5 exercises and new personal records." caption="The summary after a workout." />
+  <Screen name="session-levelup" alt="Level up to level 4 with 285 XP earned." caption="Some workouts end with a level-up." />
+</Screens>
+
+The summary shows what the session added up to: total volume, sets, exercises and muscles
+worked, the personal records you broke, and the [XP you earned](quests). From here you can add
+a note about how it felt, rename the session, or **Save as template** to run it again later.
+
+Every finished workout lands in **Sessions** › **History**, where you can search by name or
+note and filter by date.
