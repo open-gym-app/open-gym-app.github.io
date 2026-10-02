@@ -31,6 +31,7 @@ const sidebars: SidebarsConfig = {
     'developers/data-model',
     'developers/export-format',
     'developers/translating',
+    'developers/brand',
     'developers/contributing',
   ],
 };
