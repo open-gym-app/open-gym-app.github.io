@@ -41,11 +41,11 @@
   },
   "link.item.label.Source code": {
     "message": "Code source",
-    "description": "The label of footer link with label=Source code linking to https://github.com/open-gym-app/open-gym"
+    "description": "The label of footer link with label=Source code linking to https://github.com/open-gym-app/titan"
   },
   "link.item.label.Report a problem": {
     "message": "Signaler un problème",
-    "description": "The label of footer link with label=Report a problem linking to https://github.com/open-gym-app/open-gym/issues"
+    "description": "The label of footer link with label=Report a problem linking to https://github.com/open-gym-app/titan/issues"
   },
   "link.item.label.Privacy policy": {
     "message": "Politique de confidentialité",

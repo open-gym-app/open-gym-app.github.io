@@ -5,7 +5,7 @@ description: The Room schema, its storage conventions, and how it changes withou
 
 # Data model
 
-Everything <AppName /> knows lives in one SQLite database, `open-gym.db`, accessed through
+Everything <AppName /> knows lives in one SQLite database, `titan.db`, accessed through
 Room in `:core:data`, plus a small Preferences DataStore for settings. There is no server
 side: this schema is the whole system of record.
 
@@ -15,7 +15,7 @@ the map.
 ## The schema
 
 The diagram is generated from the schema Room exports
-(<RepoLink path="core/data/schemas/com.opengym.core.data.db.OpenGymDatabase/1.json" />) by
+(<RepoLink path="core/data/schemas/com.titan.core.data.db.TitanDatabase/1.json" />) by
 `scripts/schema-to-mermaid.py` in this site's repository, so it matches what ships. Edges are
 labelled with the foreign key and what happens to the child row when its parent is deleted.
 Tables with no foreign key (`body_measurement`, `user_progress`, `achievement`,
@@ -96,8 +96,8 @@ path should crash at startup rather than silently wipe years of data.
 
 A schema change therefore always comes with:
 
-1. the entity change and a `version` bump in `OpenGymDatabase`;
-2. a `Migration` added to `OpenGymDatabase.MIGRATIONS`;
+1. the entity change and a `version` bump in `TitanDatabase`;
+2. a `Migration` added to `TitanDatabase.MIGRATIONS`;
 3. the new schema JSON that KSP exports, committed next to the old ones, which are never edited;
 4. a `MigrationFixture` in `DatabaseMigrationTest` that seeds rows at the old version and
    asserts they survive the upgrade.

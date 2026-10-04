@@ -5,7 +5,7 @@ The policy's source of truth is `release/PRIVACY*.md` in the app repository (#45
 turns those four files into the four pages this site serves at /privacy, /fr/privacy,
 /es/privacy and /pt-BR/privacy, so the published text can never drift from the reviewed one:
 
-    python3 scripts/sync-privacy.py ../../open-gym/release
+    python3 scripts/sync-privacy.py ../../titan/release
 
 Run it whenever a PRIVACY file changes, and commit the result. `--check` exits non-zero if the
 pages are out of date instead of writing them.

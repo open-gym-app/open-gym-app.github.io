@@ -6,7 +6,7 @@ block for docs/developers/data-model.mdx, so the diagram on the site is generate
 the app actually ships rather than drawn by hand.
 
     python3 scripts/schema-to-mermaid.py \
-        ../../open-gym/core/data/schemas/com.opengym.core.data.db.OpenGymDatabase/1.json
+        ../../titan/core/data/schemas/com.titan.core.data.db.TitanDatabase/1.json
 
 Paste the output between the ```mermaid fences on that page. By default only the tables and
 their foreign keys are drawn, which is what fits on a page; `--columns` adds every column.

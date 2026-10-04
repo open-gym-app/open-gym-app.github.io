@@ -8,7 +8,7 @@ description: The JSON document the app writes when you back up, and reads when y
 A backup is one JSON document holding the whole database and the user's settings. It is the
 only copy of anyone's training history that ever leaves a phone, so its format is a
 specification pinned by tests, not an implementation detail. Exported files are named
-`opengym-backup-<date>-<time>.json`. The full specification is
+`titan-backup-<date>-<time>.json`. The full specification is
 <RepoLink path="docs/export-schema.md" />.
 
 ## The shape
@@ -80,5 +80,5 @@ rejected.
 To check a file by hand:
 
 ```bash
-jq '.schema_version, (keys | length), (.workout_session | length)' opengym-backup-2026-09-27-1830.json
+jq '.schema_version, (keys | length), (.workout_session | length)' titan-backup-2026-09-27-1830.json
 ```

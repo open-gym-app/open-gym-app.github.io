@@ -1,7 +1,7 @@
-# OpenGym website
+# Titan website
 
 The source of <https://open-gym-app.github.io>: the landing page, the user guide, the developer
-documentation and the privacy policy of [OpenGym](https://github.com/open-gym-app/open-gym), a
+documentation and the privacy policy of [Titan](https://github.com/open-gym-app/titan), a
 free and open-source training log for Android.
 
 It is a [Docusaurus](https://docusaurus.io) site in `docs/`, published to GitHub Pages by
@@ -54,8 +54,8 @@ The source of truth is `release/PRIVACY*.md` in the app repository, reviewed wit
 code (#45). This site publishes it word for word. After any change there:
 
 ```bash
-python3 docs/scripts/sync-privacy.py ../open-gym/release          # regenerate the four pages
-python3 docs/scripts/sync-privacy.py ../open-gym/release --check  # or just verify them
+python3 docs/scripts/sync-privacy.py ../titan/release          # regenerate the four pages
+python3 docs/scripts/sync-privacy.py ../titan/release --check  # or just verify them
 ```
 
 The Play Store listing links to `https://open-gym-app.github.io/privacy`, so that path must never
@@ -92,7 +92,7 @@ exports:
 
 ```bash
 python3 docs/scripts/schema-to-mermaid.py \
-  ../open-gym/core/data/schemas/com.opengym.core.data.db.OpenGymDatabase/1.json
+  ../titan/core/data/schemas/com.titan.core.data.db.TitanDatabase/1.json
 ```
 
 Paste the output between the `mermaid` fences, and do it again with every schema version.
