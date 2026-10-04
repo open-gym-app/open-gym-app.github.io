@@ -87,12 +87,24 @@ def wordmark(fill, x0, y0):
         d.append(f(xs)); xs += w + 12
     return f'<path fill-rule="evenodd" d="{" ".join(d)}" fill="{fill}"/>', xs - 12
 
-def lockup(dark=True):
+def lockup_art(dark=True):  # the lockup's drawing and its right edge, without a frame
     txt = CREAM if dark else INK
     wm, end = wordmark(txt, 280, 84)
     under = f'<rect x="280" y="176" width="{end-280}" height="10" rx="2" fill="{ORANGE}"/>'
-    inner = mascot() + wm + under
+    return mascot() + wm + under, end
+
+def lockup(dark=True):
+    inner, end = lockup_art(dark)
     return svg(inner, f"0 0 {int(end)+24} 256", bg=INK if dark else None, title="Titan logo")
+
+# GitHub's social preview: 1280x640, opaque, with a 40 px border it may crop. The lockup is
+# centred on its drawn extent (x 13..580, the sticker band to the wordmark; y 14..251, the
+# rays to the feet), not on its viewBox, which is padded unevenly.
+def banner(dark=True):
+    inner, _ = lockup_art(dark)
+    s, cx, cy = 1.8, 296.5, 132.5
+    g = f'<g transform="translate({640 - cx * s:g} {320 - cy * s:g}) scale({s:g})">{inner}</g>'
+    return svg(g, "0 0 1280 640", bg=INK if dark else CREAM, title="Titan banner")
 
 files = {
     "titan-mascot.svg": svg(mascot()),
@@ -102,6 +114,8 @@ files = {
     "titan-head.svg": svg(f'<g transform="translate(0 38)">{head()}</g>'),
     "titan-lockup-dark.svg": lockup(True),
     "titan-lockup-light.svg": lockup(False),
+    "titan-banner-dark.svg": banner(True),
+    "titan-banner-light.svg": banner(False),
 }
 for n, c in files.items():
     (SVG / n).write_text(c)

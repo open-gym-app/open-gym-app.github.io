@@ -20,12 +20,15 @@ EXPORTS = {
     "titan-head.svg": (512,),
     "titan-lockup-dark.svg": (256, 512),
     "titan-lockup-light.svg": (256, 512),
+    "titan-banner-dark.svg": (640,),  # GitHub social preview, 1280x640
+    "titan-banner-light.svg": (640,),
     "titan-play-icon.svg": (512,),  # Play Store listing icon
     "titan-favicon.svg": (16, 32, 48, 64, 180, 192, 512),
 }
 
-# Play rejects a listing icon with an alpha channel, even a fully opaque one.
-OPAQUE = {"titan-play-icon-512.png"}
+# Play rejects a listing icon with an alpha channel, even a fully opaque one; the banners are
+# opaque so no viewer's background shows through.
+OPAQUE = {"titan-play-icon-512.png", "titan-banner-dark-640.png", "titan-banner-light-640.png"}
 
 # Copies the site itself serves. The app's README loads img/logo.png from the live site, so
 # that path stays.

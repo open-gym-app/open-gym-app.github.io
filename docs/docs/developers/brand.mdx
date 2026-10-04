@@ -30,6 +30,7 @@ This site serves every file: the SVGs under `/brand/svg/`, and PNG exports at co
 | [`titan-mascot-mono-black.svg`](pathname:///brand/svg/titan-mascot-mono-black.svg) | One-colour jobs: print, stamps, embroidery, laser. |
 | [`titan-head.svg`](pathname:///brand/svg/titan-head.svg) | The head only, for small spaces where the body would turn to mush. |
 | [`titan-lockup-light.svg`](pathname:///brand/svg/titan-lockup-light.svg), [`titan-lockup-dark.svg`](pathname:///brand/svg/titan-lockup-dark.svg) | Mascot and wordmark, for headers and the README. |
+| [`titan-banner-dark-640.png`](pathname:///brand/png/titan-banner-dark-640.png), [`titan-banner-light-640.png`](pathname:///brand/png/titan-banner-light-640.png) | The lockup centred on an opaque 1280×640 field: GitHub's social preview and other link cards. SVGs alongside. |
 | [`titan-icon.svg`](pathname:///brand/svg/titan-icon.svg) and its layers | The launcher icon on its 108-unit adaptive grid: the mascot's head with the cartoon taken out. |
 | [`titan-favicon.svg`](pathname:///brand/svg/titan-favicon.svg), [`favicon.ico`](pathname:///brand/favicon.ico) | Web favicon (16, 32 and 48 px in the `.ico`). |
 | [`titan-play-icon.svg`](pathname:///brand/svg/titan-play-icon.svg), [`titan-play-icon-512.png`](pathname:///brand/png/titan-play-icon-512.png) | The Play Store listing icon: square, opaque, no alpha channel. |
@@ -111,7 +112,7 @@ generated files: the next run overwrites them. From that directory, with the app
 next to this repository:
 
 ```bash
-python3 mascot.py                          # static/brand/svg/: mascot, head, lockups
+python3 mascot.py                          # static/brand/svg/: mascot, head, lockups, banners
 python3 icon.py --app ../../../../titan    # static/brand/svg/: icon, favicon, Play icon; the app's drawables
 python3 export.py --app ../../../../titan  # static/brand/png/, favicons, the site's logo; the app's Play icon
 ```
