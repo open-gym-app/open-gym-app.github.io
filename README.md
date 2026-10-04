@@ -28,6 +28,7 @@ npm run build && npm run serve   # every locale, exactly as deployed
 | `docs/i18n/<locale>/code.json` | The landing page's translations (French, Spanish, Brazilian Portuguese). |
 | `docs/static/img/screens/` | Phone screenshots, exported from the app's own previews. |
 | `docs/scripts/` | The generators for the privacy pages, the screenshots and the data-model diagram. |
+| `docs/scripts/brand/`, `docs/static/brand/` | The brand kit: the scripts that draw the mascot, the logo and the app icon, and the files they write. See the Brand page (`docs/docs/developers/brand.mdx`). |
 
 ## Renaming the app
 
@@ -39,8 +40,9 @@ and translations through an `{appName}` placeholder. Then:
 - rename this repository to `<new-org>.github.io` if the organisation changes, since GitHub Pages
   serves an organisation site from the root only under that name;
 - regenerate the privacy pages from the renamed app repository (below);
-- replace `docs/static/img/logo.png` and `favicon.png` if the logo changes. The app's README
-  loads `img/logo.png` from this site, so keep that path.
+- if the logo changes, edit the scripts in `docs/scripts/brand/` and rerun them: `export.py`
+  writes `docs/static/img/logo.png`, `favicon.png` and `favicon.ico` along with the rest of the
+  kit. The app's README loads `img/logo.png` from this site, so keep that path.
 
 After `npm run write-translations`, delete the `title` and `logo.alt` keys from
 `i18n/*/docusaurus-theme-classic/navbar.json` and `copyright` from `footer.json`. They are

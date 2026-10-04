@@ -1,0 +1,71 @@
+/* Brand artwork sits centred in the text column, each on the background it was drawn for. */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.figure {
+  margin: 0;
+  max-width: 100%;
+}
+
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--og-mat);
+}
+
+.tile img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+}
+
+/* Fixed brand colours, not theme tokens: these tiles must not flip with the site's theme. */
+.cream {
+  background: #fafaf7;
+}
+
+.ink {
+  background: #1a1a1a;
+}
+
+.figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  text-align: center;
+  color: var(--og-steel);
+}
+
+.swatch {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 9rem;
+}
+
+.chip {
+  display: block;
+  width: 100%;
+  height: 4.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--og-mat);
+}
+
+.swatch figcaption {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  font-size: 0.875rem;
+}
