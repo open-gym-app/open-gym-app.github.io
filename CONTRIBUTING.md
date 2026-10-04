@@ -1,7 +1,7 @@
 # Contributing to the website
 
 Thanks for helping. This repository is only the website; the app itself, and its own
-contribution guide, are at <https://github.com/open-gym-app/open-gym>.
+contribution guide, are at <https://github.com/open-gym-app/titan>.
 
 ## What goes where
 

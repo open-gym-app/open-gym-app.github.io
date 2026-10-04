@@ -5,7 +5,7 @@ The screenshots are the app's own Roborazzi preview references, rendered at a ph
 density rather than the 1× the app repository keeps them at. See README.md, "Regenerating the
 screenshots", for the one-line change that renders them that way. Then:
 
-    python3 scripts/export-screens.py ../../open-gym
+    python3 scripts/export-screens.py ../../titan
 
 Every image is written to static/img/screens/<name>.webp at 720 × 1560 (a 393 × 852 dp phone
 at 1.83×): taller previews are cropped from the top, shorter ones padded with their own

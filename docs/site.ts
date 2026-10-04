@@ -1,7 +1,7 @@
 /**
  * Every name the site prints, in one place.
  *
- * The app and its repositories are due to be renamed. Change the values below and rebuild:
+ * To rename the app or its repositories, change the values below and rebuild:
  * the navbar, footer, landing page, privacy policy and every doc page read them from here
  * (docs and MDX pages through the `<AppName />` and `<RepoLink />` components, the React
  * pages and translations through `useSite()`), so no page hard-codes a name.
@@ -11,13 +11,13 @@
  */
 
 /** The product name, exactly as the app's launcher label spells it. */
-export const APP_NAME = 'OpenGym';
+export const APP_NAME = 'Titan';
 
 /** The GitHub organisation that owns both repositories. */
 export const GITHUB_ORG = 'open-gym-app';
 
 /** The app's source repository, inside {@link GITHUB_ORG}. */
-export const APP_REPO = 'open-gym';
+export const APP_REPO = 'titan';
 
 /**
  * This site's repository. A GitHub Pages *user/organisation* site must be named
@@ -26,7 +26,7 @@ export const APP_REPO = 'open-gym';
 export const SITE_REPO = `${GITHUB_ORG}.github.io`;
 
 /** The Android application id, which is what a Play Store link is built from. */
-export const ANDROID_PACKAGE = 'com.opengym.app';
+export const ANDROID_PACKAGE = 'com.titan.app';
 
 /**
  * Set to `true` once the listing is live (#49): every install button turns from a
