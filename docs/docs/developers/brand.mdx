@@ -34,6 +34,7 @@ This site serves every file: the SVGs under `/brand/svg/`, and PNG exports at co
 | [`titan-icon.svg`](pathname:///brand/svg/titan-icon.svg) and its layers | The launcher icon on its 108-unit adaptive grid: the mascot's head with the cartoon taken out. |
 | [`titan-favicon.svg`](pathname:///brand/svg/titan-favicon.svg), [`favicon.ico`](pathname:///brand/favicon.ico) | Web favicon (16, 32 and 48 px in the `.ico`). |
 | [`titan-play-icon.svg`](pathname:///brand/svg/titan-play-icon.svg), [`titan-play-icon-512.png`](pathname:///brand/png/titan-play-icon-512.png) | The Play Store listing icon: square, opaque, no alpha channel. |
+| [`titan-feature-graphic.svg`](pathname:///brand/svg/titan-feature-graphic.svg), [`titan-feature-graphic-500.png`](pathname:///brand/png/titan-feature-graphic-500.png) | The Play Store feature graphic: the dark lockup on an opaque 1024×500 field, well inside the edges that the store crops differently on each surface. |
 
 <Artworks>
   <Artwork name="titan-mascot-no-outline" alt="The mascot without its cream outline." caption="No outline, on light only." />
@@ -101,6 +102,9 @@ Elsewhere:
 - `core/data/src/main/res/drawable/ic_notification.xml`: the 24 dp status-bar glyph on every
   notification.
 - `release/store-assets/titan-play-icon-512.png`: the Play Store listing icon.
+- `fastlane/metadata/android/<locale>/images/icon.png` and `featureGraphic.png`, in each of the
+  four listing locales: the store listing's icon and feature graphic, which Play Publisher and
+  F-Droid read from there.
 
 The adaptive icon itself, `mipmap-anydpi/ic_launcher.xml`, only names those layers, so it is
 written by hand.
@@ -112,9 +116,9 @@ generated files: the next run overwrites them. From that directory, with the app
 next to this repository:
 
 ```bash
-python3 mascot.py                          # static/brand/svg/: mascot, head, lockups, banners
+python3 mascot.py                          # static/brand/svg/: mascot, head, lockups, banners, feature graphic
 python3 icon.py --app ../../../../titan    # static/brand/svg/: icon, favicon, Play icon; the app's drawables
-python3 export.py --app ../../../../titan  # static/brand/png/, favicons, the site's logo; the app's Play icon
+python3 export.py --app ../../../../titan  # static/brand/png/, favicons, the site's logo; the app's store art
 ```
 
 `export.py` needs headless Chromium or Chrome and ImageMagick on the `PATH`. Point the

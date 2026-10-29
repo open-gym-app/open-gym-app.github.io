@@ -106,6 +106,15 @@ def banner(dark=True):
     g = f'<g transform="translate({640 - cx * s:g} {320 - cy * s:g}) scale({s:g})">{inner}</g>'
     return svg(g, "0 0 1280 640", bg=INK if dark else CREAM, title="Titan banner")
 
+# Google Play's feature graphic: 1024x500, opaque, shown behind the listing's header and
+# cropped differently on every surface, so the lockup sits well inside the frame on the dark
+# field and nothing else is drawn. Centred the way the banner is.
+def feature_graphic():
+    inner, _ = lockup_art(True)
+    s, cx, cy = 1.45, 296.5, 132.5
+    g = f'<g transform="translate({512 - cx * s:g} {250 - cy * s:g}) scale({s:g})">{inner}</g>'
+    return svg(g, "0 0 1024 500", bg=INK, title="Titan feature graphic")
+
 files = {
     "titan-mascot.svg": svg(mascot()),
     "titan-mascot-on-dark.svg": svg(mascot(), bg=INK),
@@ -116,6 +125,7 @@ files = {
     "titan-lockup-light.svg": lockup(False),
     "titan-banner-dark.svg": banner(True),
     "titan-banner-light.svg": banner(False),
+    "titan-feature-graphic.svg": feature_graphic(),
 }
 for n, c in files.items():
     (SVG / n).write_text(c)

@@ -23,12 +23,14 @@ EXPORTS = {
     "titan-banner-dark.svg": (640,),  # GitHub social preview, 1280x640
     "titan-banner-light.svg": (640,),
     "titan-play-icon.svg": (512,),  # Play Store listing icon
+    "titan-feature-graphic.svg": (500,),  # Play Store feature graphic, 1024x500
     "titan-favicon.svg": (16, 32, 48, 64, 180, 192, 512),
 }
 
 # Play rejects a listing icon with an alpha channel, even a fully opaque one; the banners are
 # opaque so no viewer's background shows through.
-OPAQUE = {"titan-play-icon-512.png", "titan-banner-dark-640.png", "titan-banner-light-640.png"}
+OPAQUE = {"titan-play-icon-512.png", "titan-feature-graphic-500.png",
+          "titan-banner-dark-640.png", "titan-banner-light-640.png"}
 
 # Copies the site itself serves. The app's README loads img/logo.png from the live site, so
 # that path stays.
@@ -37,10 +39,18 @@ SITE_COPIES = {
     "titan-favicon-64.png": IMG / "favicon.png",
 }
 
-# Copies written into the app checkout given with --app.
-APP_COPIES = {
-    "titan-play-icon-512.png": "release/store-assets/titan-play-icon-512.png",
-}
+# Copies written into the app checkout given with --app: the Play icon where #207 put it, and
+# the listing's icon and feature graphic into each locale of the fastlane tree (#46) that Play
+# Publisher and F-Droid read. One file per locale because both readers look only in the locale's
+# own images/ directory; the art carries no text to translate.
+LISTING_LOCALES = ("en-US", "fr-FR", "es-ES", "pt-BR")
+APP_COPIES = [
+    ("titan-play-icon-512.png", "release/store-assets/titan-play-icon-512.png"),
+    *[(name, f"fastlane/metadata/android/{locale}/images/{dest}")
+      for locale in LISTING_LOCALES
+      for name, dest in (("titan-play-icon-512.png", "icon.png"),
+                         ("titan-feature-graphic-500.png", "featureGraphic.png"))],
+]
 
 def browser():
     if os.environ.get("CHROME"):
@@ -96,7 +106,7 @@ def render():
         print(ico.relative_to(SITE))
 
 def copy(copies, root: Path):
-    for name, dest in copies.items():
+    for name, dest in copies:
         dest = root / dest
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(PNG / name, dest)
@@ -109,6 +119,6 @@ if __name__ == "__main__":
     if args.app and not (args.app / "app/src/main/AndroidManifest.xml").is_file():
         raise SystemExit(f"{args.app} is not a Titan checkout")
     render()
-    copy(SITE_COPIES, SITE)
+    copy(SITE_COPIES.items(), SITE)
     if args.app:
         copy(APP_COPIES, args.app)
