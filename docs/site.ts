@@ -26,7 +26,7 @@ export const APP_REPO = 'titan';
 export const SITE_REPO = `${GITHUB_ORG}.github.io`;
 
 /** The Android application id, which is what a Play Store link is built from. */
-export const ANDROID_PACKAGE = 'com.titan.app';
+export const ANDROID_PACKAGE = 'app.titan.gym';
 
 /**
  * Set to `true` once the listing is live (#49): every install button turns from a

@@ -109,7 +109,7 @@ A schema change therefore always comes with:
 | Settings | Preferences DataStore, `user-preferences` | Small key-value data read on every screen. |
 | An in-progress workout's draft | `files/in-progress-session.json` | UI state that survives process death; the sets themselves are real rows from the moment they are logged. |
 | A half-built template | `files/template-draft.json` | The editor's unsaved work. |
-| Automatic backups | `backups/` in the app's external files directory | Export files, three kept. |
+| Backups, manual and automatic | `files/backups/` below Android 11; `backups/` in the app's external files directory from Android 11 (or `files/backups/` with no external volume) | Export files; three automatic ones kept. Below Android 11 other apps with storage access can read the external files directory, so the backups stay in internal storage there. |
 
 All of it is excluded from Android's cloud backup and device transfer, so a user's data leaves
 the phone only in an [export](export-format) they asked for.

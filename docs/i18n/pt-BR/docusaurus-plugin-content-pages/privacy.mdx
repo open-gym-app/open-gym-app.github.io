@@ -8,7 +8,7 @@ hide_table_of_contents: false
 
 # Política de privacidade do <AppName />
 
-*Em vigor desde 4 de outubro de 2026. Também disponível em [English](pathname:///privacy), [français](pathname:///fr/privacy) e [español](pathname:///es/privacy). Em caso de divergência, prevalece a versão em inglês.*
+*Em vigor desde 12 de novembro de 2026. Também disponível em [English](pathname:///privacy), [français](pathname:///fr/privacy) e [español](pathname:///es/privacy). Em caso de divergência, prevalece a versão em inglês.*
 
 O <AppName /> é um diário de treino para Android. Ele é gratuito, de código aberto e feito por
 voluntários. Esta política cobre o app <AppName /> (<AndroidPackage />) como publicado no Google
@@ -40,9 +40,14 @@ Isso fica no banco de dados e nos arquivos de configuração privados do app, qu
 deixa nenhum outro app ler.
 
 Se você ativar o **Backup automático semanal** (Configurações › Backup e restauração), o app
-também grava, uma vez por semana, um arquivo de backup na própria pasta dele no armazenamento
-compartilhado do aparelho (<AndroidPackage prefix="Android/data/" suffix="/files/backups" />). Ele mantém os três
-mais recentes e exclui os mais antigos. Esses arquivos ficam no celular, e o Android os exclui
+também grava, uma vez por semana, um arquivo de backup na própria pasta de backups dele, a
+mesma em que **Exportar um backup** grava. Ele mantém os três mais recentes e exclui os mais
+antigos. No Android 11 e versões posteriores, que impedem o acesso de outros apps a essa
+pasta, ela fica no armazenamento compartilhado do aparelho
+(<AndroidPackage prefix="Android/data/" suffix="/files/backups" />). No Android 8 a 10, onde outros apps com acesso ao
+armazenamento poderiam ler esse local, a pasta fica no armazenamento interno privado do app, e
+um backup só sai dela quando você usa **Compartilhar** ou **Salvar uma cópia…** em
+Configurações › Backup e restauração. Esses arquivos ficam no celular, e o Android os exclui
 quando você desinstala o app.
 
 ### Dados de saúde
@@ -125,5 +130,4 @@ versão correspondente e exigiria o seu consentimento no app.
 ## Contato
 
 O <AppName /> é desenvolvido de forma aberta. Para qualquer dúvida sobre esta política ou sobre a
-sua privacidade, <NewIssueLink>abra uma issue</NewIssueLink> no
-repositório do projeto no GitHub.
+sua privacidade, escreva para [contact.titan.app@gmail.com](mailto:contact.titan.app@gmail.com).
