@@ -1,6 +1,47 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
-  ]
+    "config:best-practices",
+    ":assignAndReview(BoxBoxJason)",
+    ":combinePatchMinorReleases",
+    ":dependencyDashboard",
+    ":disableRateLimiting",
+    ":enableRenovate",
+    ":enableVulnerabilityAlertsWithAdditionalLabel(security)",
+    ":gitSignOff",
+    ":ignoreModulesAndTests",
+    ":labels(deps,source::bot)",
+    ":rebaseStalePrs",
+    ":semanticCommits",
+    ":semanticCommitScope(deps)",
+    ":semanticCommitType(chore)",
+    "group:all",
+    "helpers:githubDigestChangelogs",
+    "helpers:renovateChangelog",
+    "mergeConfidence:all-badges",
+    "security:openssf-scorecard",
+    "workarounds:all"
+  ],
+  "timezone": "Europe/Paris",
+  "schedule": [
+    "before 6am on monday"
+  ],
+  "minimumReleaseAge": "7 days",
+  "minimumReleaseAgeBehaviour": "timestamp-optional",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "updateInternalDeps": true,
+  "dependencyDashboard": {
+    "autoclose": true,
+    "labels": [
+      "deps",
+      "source::bot"
+    ]
+  },
+  "postUpdateOptions": [
+    "npmDedupe"
+  ],
+  "automerge": true
 }
