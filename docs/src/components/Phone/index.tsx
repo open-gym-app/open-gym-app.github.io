@@ -1,5 +1,5 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
+import cx from '@site/src/lib/cx';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 import styles from './styles.module.css';
@@ -20,7 +20,7 @@ type Props = {
 export default function Phone({screen, alt, className, eager = false}: Props): ReactNode {
   const src = useBaseUrl(`/img/screens/${screen}.webp`);
   return (
-    <div className={clsx(styles.phone, className)}>
+    <div className={cx(styles.phone, className)}>
       <img
         src={src}
         alt={alt}
