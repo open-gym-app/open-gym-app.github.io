@@ -1,5 +1,5 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
+import cx from '@site/src/lib/cx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Translate, {translate} from '@docusaurus/Translate';
@@ -73,13 +73,13 @@ function InstallButton({className}: {className?: string}): ReactNode {
   const {playStorePublished, playStoreUrl} = useSite();
   if (playStorePublished) {
     return (
-      <Link className={clsx('button button--primary button--lg', className)} href={playStoreUrl}>
+      <Link className={cx('button button--primary button--lg', className)} href={playStoreUrl}>
         <Translate id="home.install.play">Get it on Google Play</Translate>
       </Link>
     );
   }
   return (
-    <span className={clsx(styles.soon, className)}>
+    <span className={cx(styles.soon, className)}>
       <Translate id="home.install.soon">Coming soon to Google Play</Translate>
     </span>
   );
@@ -89,7 +89,7 @@ function Hero(): ReactNode {
   const {appName, appRepoUrl} = useSite();
   return (
     <header className={styles.hero}>
-      <div className={clsx('container', styles.heroGrid)}>
+      <div className={cx('container', styles.heroGrid)}>
         <div className={styles.heroCopy}>
           <Heading as="h1" className={styles.heroTitle}>
             <Translate id="home.hero.title">Log the work. Watch it add up.</Translate>
@@ -104,7 +104,7 @@ function Hero(): ReactNode {
           <SetLog />
           <div className={styles.heroActions}>
             <InstallButton />
-            <Link className={clsx('button button--lg', styles.ghost)} href={appRepoUrl}>
+            <Link className={cx('button button--lg', styles.ghost)} href={appRepoUrl}>
               <Translate id="home.hero.source">Read the source</Translate>
             </Link>
           </div>
@@ -177,7 +177,7 @@ function Promises(): ReactNode {
   ];
   return (
     <section className={styles.promises}>
-      <div className={clsx('container', styles.promiseGrid)}>
+      <div className={cx('container', styles.promiseGrid)}>
         {items.map((item, i) => (
           <div key={i} className={styles.promise}>
             <Heading as="h2" className={styles.promiseTitle}>
@@ -203,8 +203,8 @@ type ChapterProps = {
 
 function Chapter({id, title, lead, points, screens, more, flip}: ChapterProps): ReactNode {
   return (
-    <section id={id} className={clsx(styles.chapter, flip && styles.chapterFlip)}>
-      <div className={clsx('container', styles.chapterGrid)}>
+    <section id={id} className={cx(styles.chapter, flip && styles.chapterFlip)}>
+      <div className={cx('container', styles.chapterGrid)}>
         <div className={styles.chapterCopy}>
           <Heading as="h2" className={styles.chapterTitle}>
             {title}
@@ -224,7 +224,7 @@ function Chapter({id, title, lead, points, screens, more, flip}: ChapterProps): 
             </Link>
           )}
         </div>
-        <div className={clsx(styles.chapterPhones, screens.length > 1 && styles.chapterPhonesPair)}>
+        <div className={cx(styles.chapterPhones, screens.length > 1 && styles.chapterPhonesPair)}>
           {screens.map((s) => (
             <Phone key={s.name} screen={s.name} alt={s.alt} />
           ))}
@@ -646,7 +646,7 @@ function Closing(): ReactNode {
   const {appName} = useSite();
   return (
     <section className={styles.closing}>
-      <div className={clsx('container', styles.closingInner)}>
+      <div className={cx('container', styles.closingInner)}>
         <Heading as="h2" className={styles.closingTitle}>
           <Translate id="home.closing.title">Your next session goes here.</Translate>
         </Heading>
@@ -657,7 +657,7 @@ function Closing(): ReactNode {
         </p>
         <div className={styles.heroActions}>
           <InstallButton />
-          <Link className={clsx('button button--lg', styles.ghost)} to="/docs/intro">
+          <Link className={cx('button button--lg', styles.ghost)} to="/docs/intro">
             <Translate id="home.closing.guide">Read the guide</Translate>
           </Link>
         </div>

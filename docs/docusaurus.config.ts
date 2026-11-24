@@ -1,4 +1,4 @@
-import {themes as prismThemes} from 'prism-react-renderer';
+import {darkCodeTheme, lightCodeTheme} from './src/lib/prismThemes';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
@@ -133,8 +133,8 @@ const config: Config = {
       copyright: `${APP_NAME} is free software under the GNU GPL v3.0. No account, no ads, no tracking — this site included.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: lightCodeTheme,
+      darkTheme: darkCodeTheme,
       additionalLanguages: ['kotlin', 'bash', 'json'],
     },
     mermaid: {
