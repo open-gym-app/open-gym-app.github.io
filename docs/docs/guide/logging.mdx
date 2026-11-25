@@ -22,7 +22,7 @@ it, or to discard it and start fresh.
 
 <Screens>
   <Screen name="session-active" alt="Bench press with three sets ticked and a fourth with its target: 80 kg × 6." caption="The set table. The shaded row is the next set, with its target." />
-  <Screen name="session-resting" alt="The rest timer at 1:23 across the top of the workout." caption="Resting: the timer takes over the header." />
+  <Screen name="session-resting" alt="The rest timer at 1:23 across the bottom of the workout." caption="Resting: the countdown stays at the bottom." />
 </Screens>
 
 Each row of the table is one set. Type the weight and the reps, and tick the row to complete
@@ -35,6 +35,24 @@ remember.
   set to failure (**F**) or an interval (**I**). Warm-up sets do not count towards records.
 - **Corrections.** Tap a completed set to change it. Delete a set and you get a moment to
   **Undo**.
+- **The button at the bottom.** **Complete set** ticks the next set from where your thumb already
+  is, whatever you have scrolled to.
+
+### Cardio and holds
+
+Not everything is weight and reps. The two columns follow the exercise:
+
+| Exercise | You log |
+| --- | --- |
+| **Weight & reps**, such as a bench press | A weight and a rep count |
+| **Distance & time**, such as a run or a ride | A distance and a time |
+| **Hold**, such as a plank | A time, and an added weight if there is one |
+
+Type a time as `1.30` for a minute and a half, or `1.05.30` with hours. For a hold, **Start timer**
+runs a stopwatch and fills the time in when you stop it; the set is logged when you tick it.
+
+A cardio set can also carry its climb and your steps: tap the set number and pick **Elevation &
+steps**. Once recorded, they show under the set.
 
 ### The next target
 
@@ -55,8 +73,10 @@ type it or accept it.
 
 ## Rest between sets
 
-Ticking a set starts the rest timer. It counts down in the header, and you can add or take
-off time, pause it or skip it. The length comes from the exercise if you gave it one, and from
+Ticking a set starts the rest timer. It opens over the workout, where you can add or take off 15
+seconds, pause it or skip it. Swipe it away and the countdown carries on at the bottom of the
+screen; tap it there, or tap the workout clock, to bring it back. If you would rather it stayed
+down, turn off <kbd>Settings</kbd> › <kbd>Show rest timer after a set</kbd>. The length comes from the exercise if you gave it one, and from
 **Default rest timer** in <kbd>Settings</kbd> otherwise.
 
 If you lock the phone or switch apps, the timer keeps going. When the rest is over the phone
@@ -92,17 +112,23 @@ you it is still running.
 
 ## Finish
 
-Tap **End** when you are done. You need at least one logged set; if you did not train after
+Tap **End** when you are done. The app tells you how many sets will be saved, and whether any
+exercise has nothing logged yet, before it ends. You need at least one logged set; if you did not train after
 all, **discard** the workout instead and it is gone.
 
 <Screens>
   <Screen name="session-summary" alt="The session summary: 4,820 kg of volume, 17 sets, 5 exercises and new personal records." caption="The summary after a workout." />
-  <Screen name="session-levelup" alt="Level up to level 4 with 285 XP earned." caption="Some workouts end with a level-up." />
+  <Screen name="session-levelup" alt="Level up to level 22 with 240 XP earned: 14 sets, finishing the session, two records and an achievement." caption="Some workouts end with a level-up." />
 </Screens>
 
 The summary shows what the session added up to: total volume, sets, exercises and muscles
 worked, the personal records you broke, and the [XP you earned](quests). From here you can add
 a note about how it felt, rename the session, or **Save as template** to run it again later.
 
+Under **Effort** you can also give the workout one to five stars, and record the **calories** it
+burned. The app fills calories in with an estimate, from the work you logged, your rests and your
+latest [body weight](body) (82 kg if you have never logged one). Treat it as a ballpark; if your
+watch knows better, type its figure over it.
+
 Every finished workout lands in **Sessions** › **History**, where you can search by name or
-note and filter by date.
+note and filter by date. So does a history you [import from another app](import).

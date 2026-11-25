@@ -48,18 +48,20 @@ specification pinned by tests, not an implementation detail. Exported files are 
 - **Units are the schema's**: milligrams, centimetres, seconds, epoch-millisecond UTC
   timestamps, `0`/`1` booleans. A nullable column is written as `null`, never omitted.
 - **`preferences`** uses the DataStore key names (`default_rest_duration_seconds`,
-  `bar_weight_milligrams`, …). Notification switches and the reminder schedule are left out:
+  `bar_weight_milligrams`, `weekly_workout_goal`, `auto_open_rest_timer`, …). Notification switches and the reminder schedule are left out:
   they are permissions and alarms that belong to one phone.
 
 ## Restoring replaces
 
-An import wipes every table and inserts the document, in parent-before-child order, in one
-transaction. It is not a merge: afterwards the database holds exactly what the file holds.
+A restore wipes every exported table and inserts the document, in parent-before-child order, in one
+transaction. It is not a merge: afterwards those tables hold exactly what the file holds. (Adding a
+history from another app is a separate path, which does merge: see
+[Importing](data-model#importing-from-another-app).)
 Settings are applied last, so the app re-formats once, at the end.
 
 A file is checked before anything is touched. It is refused, and the phone left as it was, if
-it is not valid JSON, is missing a key, was written by a newer `schema_version` than the app
-reads, or references rows it does not contain.
+it is not valid JSON, is missing a required key, was written at any `schema_version` but the app's
+own, older included, is larger than 64 MiB, or references rows it does not contain.
 
 ## What is exported, and why
 
@@ -67,6 +69,8 @@ reads, or references rows it does not contain.
   versions, and a restore must reproduce the user's records, not a plausible re-derivation.
 - **The two claim tables are exported.** They are what stop a restored session from being paid
   XP or rolled for loot a second time.
+- **`progress_photo` is not.** A backup is a file people copy to drives and clouds, and an intimate
+  photo should not travel in one by default. A restore leaves the photos on the phone alone.
 - **The in-progress workout draft is not.** It is device state; the sets it overlaps are real
   rows and are exported.
 

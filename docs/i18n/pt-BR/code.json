@@ -12,7 +12,7 @@
     "message": "Disponível no Google Play"
   },
   "home.install.soon": {
-    "message": "Em breve no Google Play"
+    "message": "Em beta fechado no Google Play"
   },
   "home.hero.title": {
     "message": "Registre o trabalho. Veja a soma crescer."
@@ -75,7 +75,7 @@
     "message": "Todo tipo de série"
   },
   "home.log.kinds.detail": {
-    "message": "Aquecimento, drop set, séries até a falha e bi-sets, com RPE quando você quiser."
+    "message": "Aquecimento, drop set, séries até a falha e bi-sets, cardio e isometria, com RPE quando você quiser."
   },
   "home.log.plate.term": {
     "message": "Uma calculadora de anilhas para a sua academia"
@@ -84,7 +84,7 @@
     "message": "Diga quais anilhas a sua academia tem e ela monta a barra para você, lado a lado."
   },
   "home.log.phone.rest": {
-    "message": "O timer de descanso em contagem regressiva acima da tabela de séries."
+    "message": "O timer de descanso em contagem regressiva abaixo da tabela de séries."
   },
   "home.log.phone.plate": {
     "message": "A calculadora de anilhas montando 100 kg numa barra de 20 kg."
@@ -120,7 +120,7 @@
     "message": "Seu corpo, também"
   },
   "home.progress.body.detail": {
-    "message": "Peso, gordura corporal e medidas, em gráficos ao lado do seu treino."
+    "message": "Peso, gordura corporal, medidas e fotos de progresso, ao lado do seu treino."
   },
   "home.progress.phone.stats": {
     "message": "A tela de progresso: volume acumulado, treinos por semana, recordes e músculos treinados."
@@ -150,10 +150,10 @@
     "message": "Treine três vezes, bata um recorde, mova vinte toneladas. Elas se renovam, então sempre há outra."
   },
   "home.play.streak.term": {
-    "message": "Sequências que perdoam um dia perdido"
+    "message": "Sequências que cabem na sua semana"
   },
   "home.play.streak.detail": {
-    "message": "Três salvamentos por mês mantêm sua sequência viva mesmo com um dia sem treino."
+    "message": "Defina uma meta semanal e cumpra. Dias de descanso nunca quebram a sequência, e uma proteção por mês cobre uma semana curta."
   },
   "home.play.loot.term": {
     "message": "Itens e medalhas"
@@ -162,10 +162,10 @@
     "message": "Um treino concluído pode render de tudo, de um bloco de magnésio a uma coroa de ferro, e as conquistas são suas para sempre."
   },
   "home.play.phone.levelup": {
-    "message": "O fim de um treino: nível 4 alcançado, 285 XP ganhos."
+    "message": "O fim de um treino: nível 22 alcançado, 240 XP ganhos."
   },
   "home.play.phone.quests": {
-    "message": "O diário de missões: nível 13, uma sequência de seis dias e as missões da semana."
+    "message": "O diário de missões: nível 40, uma sequência de seis semanas e as missões da semana."
   },
   "home.play.more": {
     "message": "Como funcionam o XP e as missões"
@@ -186,7 +186,7 @@
     "message": "Modelos"
   },
   "home.library.templates.detail": {
-    "message": "Crie um, ou salve um treino concluído como modelo, e repita com um toque."
+    "message": "Comece com 17 modelos prontos, crie os seus, ou salve um treino concluído como modelo."
   },
   "home.library.notes.term": {
     "message": "Notas onde você precisa"
@@ -206,6 +206,12 @@
   "home.data.lead": {
     "message": "Anos de treino merecem mais do que um servidor que você não controla. Tudo fica no seu celular, e você pode levar tudo quando quiser."
   },
+  "home.data.import.term": {
+    "message": "Traga seu histórico"
+  },
+  "home.data.import.detail": {
+    "message": "Importe do Strong, Hevy, FitNotes, JEFIT, Fitbod, StrongLifts ou de uma planilha. Ele é somado ao seu diário, com recordes e XP calculados a partir de cada série."
+  },
   "home.data.export.term": {
     "message": "Exporte e restaure"
   },
@@ -223,6 +229,9 @@
   },
   "home.data.delete.detail": {
     "message": "Uma única configuração apaga tudo, para sempre. Não sobra cópia em nenhum outro lugar."
+  },
+  "home.data.phone.import": {
+    "message": "Importar de outro app: Strong, Hevy, FitNotes, JEFIT, Fitbod, StrongLifts e CSV simples."
   },
   "home.data.phone.backup": {
     "message": "A tela de backup: 184 treinos no aparelho, exportação, backup automático semanal e restauração."

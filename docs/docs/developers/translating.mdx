@@ -34,6 +34,10 @@ make translations-check LOCALE=fr    # one language
 make translations-check STRICT=1     # fail instead of report, to claim a language is complete
 ```
 
+The names of the apps a history is imported from (Strong, Hevy, …) are not translated, and the
+import guides keep those apps' menu labels in English, so the words in the guide are the words on
+the button.
+
 CI runs the report on every pull request. A new English string does not block its pull request
 on a translation; it shows up in the report until someone translates it.
 
@@ -56,7 +60,7 @@ French is the trap here: *série* is the set, so a streak cannot be a *série* o
 
 1. Open an issue proposing the language and its register (formal or informal address).
 2. Add `values-<locale>/strings.xml` to each module, following the English file's order.
-3. Add the locale to `localeFilters` in `app/build.gradle.kts` and the glossary to
-   `docs/TRANSLATION.md`.
+3. Add the locale to `localeFilters` in `app/build.gradle.kts`, to `SHIPPED_LANGUAGES` in
+   `DefaultTemplateCatalogueImpl`, and the glossary to `docs/TRANSLATION.md`.
 4. Run `make translations-check STRICT=1 LOCALE=<locale>` and walk every screen on a device
    in that language, at twice the font size: translations run longer than English.

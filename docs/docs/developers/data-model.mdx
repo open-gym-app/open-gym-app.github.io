@@ -19,7 +19,7 @@ The diagram is generated from the schema Room exports
 `scripts/schema-to-mermaid.py` in this site's repository, so it matches what ships. Edges are
 labelled with the foreign key and what happens to the child row when its parent is deleted.
 Tables with no foreign key (`body_measurement`, `user_progress`, `achievement`,
-`quest_completion`, `collected_item`) stand alone and are left out; the columns of every table
+`quest_completion`, `collected_item`, `progress_photo`) stand alone and are left out; the columns of every table
 are in the schema file.
 
 ```mermaid
@@ -48,7 +48,7 @@ It falls into four groups:
 | --- | --- | --- |
 | **Catalogue** | `exercise`, `muscle_group`, `exercise_muscle_group`, `tag`, `exercise_tag` | The 873 seeded exercises and the user's own, with the muscles they work. |
 | **Plans** | `workout_template`, `template_exercise`, `template_set` | Templates: which exercises, in which order, with which sets. |
-| **History** | `workout_session`, `session_exercise`, `workout_set`, `personal_record`, `body_measurement` | Everything logged. `personal_record` is derived from `workout_set` and cascades with it. |
+| **History** | `workout_session`, `session_exercise`, `workout_set`, `personal_record`, `body_measurement`, `progress_photo` | Everything logged. `personal_record` is derived from `workout_set` and cascades with it. `progress_photo` names an image file, and is the one table never exported. |
 | **Progression** | `user_progress`, `achievement`, `quest_completion`, `collected_item`, `session_xp_claim`, `session_loot_claim` | XP, level, streak, unlocks and loot. The two claim tables make the post-session rewards idempotent. |
 
 ## Storage conventions
@@ -60,11 +60,15 @@ purely a display choice.
 | Concept | Stored as |
 | --- | --- |
 | Weight | milligrams |
-| Distance | centimetres |
+| Distance, elevation gain | centimetres |
 | Body circumference | millimetres |
 | Body fat | percent × 10 |
 | RPE | RPE × 10 |
 | Durations and rest | seconds |
+| Steps | a count |
+| Energy | kilocalories |
+| Workout rating | 1–5 |
+| Heart rate | beats per minute |
 | Timestamps | epoch milliseconds, UTC |
 | Booleans | `0` / `1` |
 
@@ -88,13 +92,38 @@ pinned by commit, into `core/data/src/main/assets/seed/exercises.sql` and one im
 exercise. Every statement is `INSERT OR IGNORE`, so replaying the seed over a populated database
 changes nothing. CI runs `make seed-check` to fail on stale assets.
 
+The 17 default templates are the second step, in the same transaction. They are defined in Kotlin
+(`DefaultTemplates.kt`), so their names come from string resources in the device's language, and they
+reference exercises by name and equipment rather than by id. Once written they are ordinary
+templates: no column marks them.
+
+## Importing from another app
+
+The import from another tracker is the opposite of a [restore](export-format#restoring-replaces):
+
+- **It merges.** The file carries no ids; exercises are matched by name, type and equipment, and
+  nothing on the device is replaced.
+- **It holds the data to what logging holds it to.** `SetValidator` and `BodyMeasurementValidator`
+  run over every row, and what they refuse is counted in the report.
+- **A duplicate is the same millisecond.** A workout that started, or a measurement taken, at the
+  same moment as one on the device is skipped, so importing a file twice is harmless.
+- **Records are derived.** Every workout is replayed through the post-session pipeline in finishing
+  order. If the file reaches further back than sessions already on the device, their records are
+  derived again too; their XP and loot claims, and the streak, are left as they were.
+- **It is one transaction.** A failure or a cancellation leaves the device as it was.
+- **Progress photos are stored after that transaction**, one at a time, for a source that has any.
+  None of the parsers shipped today does.
+
+One import reads at most 32 MiB and 500,000 sets.
+
 ## Migrations
 
 The database is deliberately **not** built with `fallbackToDestructiveMigration`. On a phone
 that holds the only copy of someone's training history, a schema version with no migration
 path should crash at startup rather than silently wipe years of data.
 
-A schema change therefore always comes with:
+While the app is pre-release, version 1 is amended in place instead, since there is no released
+version to migrate from. From the first release on, a schema change always comes with:
 
 1. the entity change and a `version` bump in `TitanDatabase`;
 2. a `Migration` added to `TitanDatabase.MIGRATIONS`;
@@ -109,6 +138,7 @@ A schema change therefore always comes with:
 | Settings | Preferences DataStore, `user-preferences` | Small key-value data read on every screen. |
 | An in-progress workout's draft | `files/in-progress-session.json` | UI state that survives process death; the sets themselves are real rows from the moment they are logged. |
 | A half-built template | `files/template-draft.json` | The editor's unsaved work. |
+| Progress photos | `files/photos/` | Images, re-encoded at most 2048 px on the longer side with no metadata. `progress_photo` holds the file name. Never exported, on purpose. |
 | Backups, manual and automatic | `files/backups/` below Android 11; `backups/` in the app's external files directory from Android 11 (or `files/backups/` with no external volume) | Export files; three automatic ones kept. Below Android 11 other apps with storage access can read the external files directory, so the backups stay in internal storage there. |
 
 All of it is excluded from Android's cloud backup and device transfer, so a user's data leaves

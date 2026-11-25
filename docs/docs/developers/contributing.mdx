@@ -40,6 +40,8 @@ CI runs all of them on every pull request.
 - **A screen change comes with its screenshots.** Re-record them and commit the images.
 - **A schema change comes with a migration and a test** that seeds the old version. See
   [Data model](data-model#migrations).
+- **A new import source comes with fixtures.** The files a parser reads are its specification: see
+  [Importing](architecture#importing-from-another-app).
 - **Nothing may send data off the device.** No analytics, crash reporting or network
   libraries. A change to what the app stores or which permissions it needs is also a change
   to the [privacy policy](/privacy).

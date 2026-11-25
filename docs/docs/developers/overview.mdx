@@ -21,10 +21,10 @@ The source is at <RepoLink />, under the GNU GPL v3.
 | Persistence | Room (SQLite) and Preferences DataStore |
 | Dependency injection | Hilt |
 | Async | Coroutines and Flow |
-| Background work | WorkManager (weekly backup), `AlarmManager` (reminders, rest timer) |
+| Background work | WorkManager (weekly backup, history import), `AlarmManager` (reminders, rest timer) |
 | Navigation | Navigation Compose with type-safe `@Serializable` routes |
 | Tests | JUnit, Robolectric, Compose UI tests, Roborazzi screenshot tests with the Accessibility Test Framework, Macrobenchmark |
-| Android | min SDK 26 (Android 8.0), target and compile SDK 36 |
+| Android | min SDK 26 (Android 8.0), target SDK 36, compile SDK 37 |
 
 ## Where to read next
 
@@ -36,6 +36,7 @@ changes in the same pull request as the thing it describes:
 | <RepoLink path="docs/ARCHITECTURE.md" /> | Modules, the dependency rules and how they are enforced, navigation, dependency injection. Summarised in [Architecture](architecture). |
 | <RepoLink path="docs/PERSISTENCE.md" /> | The schema, migrations, seed data, and every assumption a backup or an analytics query may rely on. Summarised in [Data model](data-model). |
 | <RepoLink path="docs/export-schema.md" /> | The backup file format, as a specification. Summarised in [Export format](export-format). |
+| <RepoLink path="docs/import-csv.md" /> | The plain CSV format an import reads, as a specification, with two example files. Summarised in [Plain CSV format](../guide/import-csv). |
 | <RepoLink path="docs/ACCESSIBILITY.md" /> | What the app promises TalkBack, large fonts and a thumb, and how every build checks it. |
 | <RepoLink path="release/security-audit.md" /> | What the release build exposes (exported components, deep links, storage, permissions, the release pipeline) and the evidence for each control. |
 | <RepoLink path="docs/TRANSLATION.md" /> | The four shipped languages, the translation check and each language's glossary. Summarised in [Translating](translating). |

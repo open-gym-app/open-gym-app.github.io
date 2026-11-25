@@ -34,10 +34,26 @@ save a copy off the phone. See [Backup and restore](guide/backup).
 Yes: export a backup on the old phone, and restore it on the new one.
 [Here is how](guide/backup#moving-to-a-new-phone).
 
+### Can I import my history from another app?
+
+Yes: from Strong, Hevy, FitNotes, JEFIT, Fitbod and StrongLifts, or from any spreadsheet in the
+[plain CSV format](guide/import-csv). It is added to what is on the phone and replaces nothing.
+See [Import from another app](guide/import).
+
+### Will an import overwrite what I have logged?
+
+No. An import only adds, and importing the same file twice adds nothing the second time. Restoring
+a backup is the one that replaces everything.
+
 ### Can I get my data out to use elsewhere?
 
 Yes. The backup is a plain JSON file in a [documented format](developers/export-format): one
 array per table, with readable names. A spreadsheet or a script can read it.
+
+### Are my progress photos in the backup?
+
+No. Progress photos stay on the phone, and never go in a backup or the cloud. See [Progress
+photos](guide/body#progress-photos).
 
 ### Is there an iPhone version?
 
@@ -49,8 +65,10 @@ Not yet. A Health Connect sync is planned: see the [roadmap](roadmap).
 
 ### Can I log cardio?
 
-Yes. The library includes cardio exercises, and records track the longest distance and best
-pace for them. More outdoor cardio and swimming exercises are on the way.
+Yes. Cardio exercises are logged by distance and time, with elevation and steps if you want them,
+and records track the furthest distance, the best pace or speed and the longest time. The library
+has a handful, such as running, cycling and rowing; for anything else, such as swimming, [add your
+own exercise](guide/library#your-own-exercises) measured by distance and time.
 
 ### How is my one-rep max estimated?
 

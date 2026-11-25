@@ -8,7 +8,7 @@ hide_table_of_contents: false
 
 # Política de privacidad de <AppName />
 
-*Vigente desde el 12 de noviembre de 2026. También disponible en [English](pathname:///privacy), [français](pathname:///fr/privacy) y [português (Brasil)](pathname:///pt-BR/privacy). En caso de discrepancia, prevalece la versión en inglés.*
+*Vigente desde el 25 de noviembre de 2026. También disponible en [English](pathname:///privacy), [français](pathname:///fr/privacy) y [português (Brasil)](pathname:///pt-BR/privacy). En caso de discrepancia, prevalece la versión en inglés.*
 
 <AppName /> es un diario de entrenamiento para Android. Es gratuito, de código abierto y lo
 desarrollan voluntarios. Esta política cubre la app <AppName /> (<AndroidPackage />) tal como se
@@ -30,14 +30,14 @@ publica en Google Play y se compila desde su repositorio de código.
 
 | Qué | Ejemplos |
 | --- | --- |
-| Entrenamientos | sesiones, ejercicios, series, pesos, repeticiones, esfuerzo (RPE), descansos, notas |
+| Entrenamientos | sesiones, ejercicios, series, pesos, repeticiones, distancias, tiempos, desnivel, pasos, esfuerzo (RPE), descansos, calorías, tu valoración del entrenamiento, frecuencia cardíaca (solo si un archivo que importas la contiene), notas |
 | Tu biblioteca y tus plantillas | ejercicios personalizados, notas de ejercicios, plantillas de entrenamiento |
-| Datos corporales | peso, porcentaje de grasa, medidas corporales (cintura, brazos, etc.) |
+| Datos corporales | peso, porcentaje de grasa, medidas corporales (cintura, brazos, etc.), fotos de progreso |
 | Progreso | récords, puntos de experiencia, nivel, rachas, misiones, logros, coleccionables |
-| Ajustes | unidades, tema, objetivo, nivel, temporizador de descanso, días y hora de los recordatorios, barra y discos |
+| Ajustes | unidades, tema, objetivo, nivel, objetivo semanal, temporizador de descanso, días y hora de los recordatorios, barra y discos |
 
-Todo ello se guarda en la base de datos y los archivos de ajustes privados de la app, que
-Android no deja leer a ninguna otra app.
+Todo ello se guarda en la base de datos, los archivos de ajustes y la carpeta de fotos privados
+de la app, que Android no deja leer a ninguna otra app.
 
 Si activas la **Copia automática semanal** (Ajustes › Copia de seguridad y restauración), la
 app también escribe una vez por semana un archivo de copia en su propia carpeta de copias, la
@@ -50,14 +50,30 @@ interno privado de la app, y una copia solo sale de ella cuando usas **Compartir
 **Guardar una copia…** en Ajustes › Copia de seguridad y restauración. Esos archivos se quedan
 en el teléfono, y Android los borra cuando desinstalas la app.
 
+### Fotos de progreso
+
+Las fotos de progreso son opcionales. **Hacer una foto** abre tu app de cámara, y **Elegir de
+la galería** abre el selector de Android, que solo le da a <AppName /> la imagen que eliges. <AppName /> no
+solicita ningún permiso de cámara ni de almacenamiento. Guarda su propia copia de la imagen en
+su almacenamiento privado, sin los metadatos que añade una cámara, como el lugar donde se hizo.
+De esos metadatos solo lee la fecha y la orientación de la imagen. La imagen de tu galería no
+se modifica, y tu app de cámara puede guardar su propia copia.
+
+Las fotos de progreso nunca forman parte de una copia de seguridad, y la app no tiene forma de
+enviarlas a ningún sitio. Puedes borrar cada una en la app.
+
 ### Datos de salud
 
-El peso, la grasa corporal y las medidas corporales son datos de salud. <AppName /> los usa para
-una sola cosa: mostrarte tus propios registros y su evolución. Nunca se transmiten, venden,
-comparten ni usan con fines publicitarios. <AppName /> no lee ni escribe nada en Health Connect ni
-en ningún otro servicio de salud. Si una versión futura añade la sincronización con Health
-Connect, esta política se actualizará antes de publicarla, y la sincronización estará
-desactivada hasta que tú la actives.
+El peso, la grasa corporal, las medidas corporales, las fotos de progreso, las calorías y la
+frecuencia cardíaca son datos de salud. <AppName /> los usa solo para dos cosas: mostrarte tus
+propios registros y su evolución y, con tu peso, estimar las calorías que quemaste en un
+entrenamiento. <AppName /> no mide la frecuencia cardíaca: solo la guarda si un archivo que
+importas la contiene, no la muestra y no la usa para nada más que tus propias copias de
+seguridad. Los datos de salud nunca se transmiten, venden, comparten ni usan con fines
+publicitarios. <AppName /> no lee ni escribe nada en Health Connect ni en ningún otro servicio de
+salud. Si una versión futura añade la sincronización con Health Connect, esta política se
+actualizará antes de publicarla, y la sincronización estará desactivada hasta que tú la
+actives.
 
 ## Qué no hace la app
 
@@ -71,27 +87,34 @@ desactivada hasta que tú la actives.
   informes de fallos, publicidad ni rastreo. La lista completa de bibliotecas está en la app,
   en Ajustes › Acerca de › Licencias de código abierto.
 - **No hace copias en la nube.** La app excluye sus datos de la copia de seguridad automática
-  de Android en Google Drive y de la transferencia entre dispositivos, así que tu historial no
-  se copia fuera del teléfono sin que lo sepas.
+  de Android en Google Drive y de la transferencia entre dispositivos, así que tu historial y
+  tus fotos no se copian fuera del teléfono sin que lo sepas.
 - **No hay cuenta ni identificador publicitario.** La app no sabe quién eres.
 
 ## Cuándo salen tus datos del teléfono
 
 Solo cuando tú lo pides. **Exportar una copia de seguridad** (Ajustes › Copia de seguridad y
-restauración) escribe todos tus datos, datos corporales incluidos, en un archivo JSON. Después
-eliges guardar una copia en algún sitio o compartirla con otra app. Desde ese momento, esa
-copia queda en manos del servicio al que la enviaste, bajo sus propias condiciones. El archivo
-no está cifrado: guárdalo en un lugar de confianza.
+restauración) escribe todos tus datos, datos corporales incluidos pero sin tus fotos de
+progreso, en un archivo JSON. Después eliges guardar una copia en algún sitio o compartirla
+con otra app. Desde ese momento, esa copia queda en manos del servicio al que la enviaste,
+bajo sus propias condiciones. El archivo no está cifrado: guárdalo en un lugar de confianza.
 
-**Restaurar** lee un archivo de copia que tú eliges y sustituye con él los datos del teléfono.
-No se envía nada.
+**Restaurar** lee un archivo de copia que tú eliges y sustituye con él los datos del teléfono,
+salvo tus fotos de progreso, que no toca. No se envía nada.
+
+**Importar desde otra app** (Ajustes › Importar desde otra app) lee un archivo que tú eliges,
+exportado de otra app o creado por ti, y añade su contenido a tus datos. <AppName /> no inicia sesión
+en la otra app, no modifica el archivo y no envía nada. Conserva el permiso de Android para
+leer ese único archivo hasta que cierras el resultado de la importación, o empiezas otra, para
+que una importación interrumpida se pueda repetir.
 
 ## Notificaciones
 
 Los recordatorios de entrenamiento, el aviso de fin de descanso, la nota de entrenamiento sin
-terminar y las notificaciones de nivel y recompensas se crean en el teléfono. Ninguna se envía
-desde un servidor. Puedes desactivar cada una en Ajustes › Notificaciones o en los ajustes de
-Android.
+terminar, las notificaciones de nivel y recompensas y el progreso de una importación se crean
+en el teléfono. Ninguna se envía desde un servidor. Puedes desactivar cada una en Ajustes ›
+Notificaciones o en los ajustes de Android, salvo el progreso de una importación, que solo está
+en los ajustes de Android.
 
 ## Permisos
 
@@ -101,16 +124,19 @@ Android.
 | `SCHEDULE_EXACT_ALARM` (Android 12 o inferior) / `USE_EXACT_ALARM` | Para terminar un descanso al segundo exacto y lanzar un recordatorio a la hora que elegiste. |
 | `RECEIVE_BOOT_COMPLETED` | Para volver a programar los recordatorios y la copia semanal después de reiniciar el teléfono. |
 | `VIBRATE` | Para vibrar al terminar un descanso. |
-| `WAKE_LOCK`, `FOREGROUND_SERVICE`, `ACCESS_NETWORK_STATE` | Los añade la biblioteca de planificación de tareas de Android (WorkManager), que ejecuta la copia semanal. Ninguno da acceso a la red. |
+| `FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_DATA_SYNC` | Para que una importación desde otra app siga en marcha, con una notificación, mientras haces otra cosa. «Data sync» es el nombre que Android da a este tipo de tarea: ninguno da acceso a la red, y no se envía nada. |
+| `WAKE_LOCK`, `ACCESS_NETWORK_STATE` | Los añade la biblioteca de planificación de tareas de Android (WorkManager), que ejecuta la copia semanal y la importación. Ninguno da acceso a la red. |
 | <AndroidPackage suffix=".DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> | Lo añade la biblioteca AndroidX core. Impide que otras apps envíen mensajes internos a la app. |
 
 ## Borrar tus datos
 
-- **Ajustes › Eliminar todos los datos** borra todo lo que la app ha guardado y devuelve cada
-  ajuste a su valor predeterminado. No se puede deshacer.
-- **Desinstalar la app** también lo borra todo, copias automáticas incluidas.
-- **Los archivos exportados** que guardaste o compartiste están fuera de la app. Bórralos allí
-  donde los pusiste.
+- **Ajustes › Eliminar todos los datos** borra todo lo que la app ha guardado, fotos de
+  progreso incluidas, y devuelve cada ajuste a su valor predeterminado. No se puede
+  deshacer.
+- **Desinstalar la app** también lo borra todo, copias automáticas y fotos de progreso
+  incluidas.
+- **Los archivos exportados** que guardaste o compartiste, y **los archivos que
+  importaste**, están fuera de la app. Bórralos allí donde los pusiste.
 
 Como no tenemos ninguna copia de tus datos, no hay nada que debamos borrar ni ninguna
 solicitud que tengas que enviarnos.

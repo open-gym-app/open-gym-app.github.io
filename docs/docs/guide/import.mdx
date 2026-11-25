@@ -1,0 +1,100 @@
+---
+title: Import from another app
+description: Bring your whole history from Strong, Hevy, FitNotes, JEFIT, Fitbod, StrongLifts or a spreadsheet.
+---
+
+# Import from another app
+
+Coming from another tracker? Bring your history with you. <AppName /> reads the files that
+Strong, Hevy, FitNotes, JEFIT, Fitbod and StrongLifts export, and a [plain CSV](import-csv) you
+can make from any other app or spreadsheet.
+
+Open it from <kbd>Settings</kbd> › <kbd>Import from another app</kbd>, or tap **Import my
+history** on the last screen of the [first launch](../intro#the-first-launch).
+
+<Screens>
+  <Screen name="import-choose" alt="Import from another app: Strong, Hevy, FitNotes, JEFIT, Fitbod, StrongLifts and Plain CSV, each with what it brings." caption="Pick the app your history is in." />
+  <Screen name="import-guide" alt="The Strong guide: three steps to export the file, what comes across, and a button to choose the file." caption="Each app has its own short guide." />
+</Screens>
+
+:::tip[An import adds, it never replaces]
+Everything already on your phone stays. That is the opposite of
+[restoring a backup](backup#restore), which replaces it all.
+:::
+
+## How it works
+
+1. **Export a file** from your old app and save it on the phone, or somewhere the phone can
+   reach. The steps for each app are [below](#export-from-your-app).
+2. In <AppName />, pick the app, tap **Choose file** and select the file.
+3. **Wait, or leave.** The import runs in the background with a progress notification, so you
+   can leave the screen. A long history can take a few minutes.
+4. **Read the report**: what was added, which exercises were matched or created, what was left
+   out, and what your history earned.
+
+<Screens>
+  <Screen name="import-writing" alt="An import in progress: saving workouts, with a progress bar and a cancel button." caption="It keeps going if you leave." />
+  <Screen name="import-report" alt="The import report: workouts and sets added, exercises matched and created, and the records and XP earned." caption="The report at the end." />
+</Screens>
+
+If a workout is in progress, the app asks first: saving sets has to wait while an import runs.
+
+## Export from your app
+
+Menus in other apps change; these are the steps the app itself shows. Some apps export more than
+one file: import each on its own.
+
+| App | How to export | What comes across | What does not |
+| --- | --- | --- | --- |
+| **Strong** | *Settings* › *Export Strong Data* (*Export Data* on Android) | Workouts, with their sets, rests and notes | Templates, measurements and supersets, which the export does not hold |
+| **Hevy** | *Profile* › *Settings* › *Export & Import Data*, then *Export Workouts*, and *Export Measurements* for body measurements | Workouts, supersets and body measurements. The workouts export from Hevy's website works too | Routines and progress photos, which are in neither file |
+| **FitNotes** | *Settings* › *Spreadsheet Export*, for your workouts and, if you use it, your body tracker | Workouts and body tracker entries | Routines, workout comments and times of day. A `.fitnotes` backup file cannot be imported |
+| **JEFIT** | *Settings* › *Export Data*: one file for the whole account | Workouts, routines (as [templates](templates)), body stats and custom exercises | Program schedules |
+| **Fitbod** | *Log* tab › settings menu › *Export Workout Data*. The Android app has no export: ask Fitbod's support for your workout data | Workouts and their sets | Recommendations and muscle recovery |
+| **StrongLifts** | *Settings* › *Export Data*. If it is behind the paywall, use *Contact Support* and they email you the same file | Workouts and body weight | The program's next weights: <AppName /> [suggests its own](logging#the-next-target) |
+| **Plain CSV** | Any spreadsheet, or a file converted from another app. See [the format](import-csv) | Workouts, or body measurements | Templates and progress photos |
+
+## What happens to your data
+
+- **Exercises are matched by name**, and by equipment when the file says what it was, so your
+  imported bench press and the one you log tomorrow share one set of records. Anything that
+  matches nothing becomes a [custom exercise](library#your-own-exercises), which the report
+  suggests you review.
+- **Records are worked out again** from your sets, with the same rules as a workout you log
+  here. They can differ from what the other app showed.
+- **XP, achievements, quests and loot are earned too**, workout by workout, in the order you
+  trained.
+- **Your streak only moves forward.** Imported weeks older than your current streak do not
+  extend it, and an achievement you already have keeps the date you first earned it.
+- **A workout without a duration** is given two minutes per set.
+- **Assisted exercises keep their reps, not the assistance.** There is no field for the help a
+  machine or a band gives.
+
+## Importing the same file twice
+
+That is safe. A workout that started at the same moment as one already on the phone is the same
+workout, and it is skipped. So is a body measurement taken at the same moment, or a template of
+the same name that plans the same exercises. You can export again later and import only what is
+new.
+
+## Cancelling, and when something goes wrong
+
+Your history goes in all at once or not at all. If you cancel while workouts are being saved, or
+the import fails, nothing is imported and the phone is as it was.
+
+| What you see | What it means |
+| --- | --- |
+| **This file is not a … export** | You picked the wrong app or the wrong file. Check both. |
+| **It could not be read** | The file is damaged. Export it again. |
+| **Too large**, or **too many sets** | One import reads a file up to 32 MB, and up to 500,000 sets. |
+| **It holds nothing … can import** | The file was read, but there was nothing to add from it. |
+| **Your phone refused to save** | Usually full storage. Free some space and try again. |
+| **The import did not finish** | The app was closed part way. Run it again with the same file: it adds only what is missing. |
+
+Single sets or workouts the app cannot use, such as a thousand-tonne squat or a workout dated in
+the future, are skipped and counted in the report.
+
+## It stays on your phone
+
+The app reads the file you picked and nothing else. It does not sign in to your old app, and like
+everything in <AppName /> it needs no internet connection.
