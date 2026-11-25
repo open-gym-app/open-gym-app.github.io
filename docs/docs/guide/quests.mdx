@@ -10,7 +10,7 @@ the way of logging, and none of it costs anything. **Stats** › **Quest log** h
 picture.
 
 <Screens>
-  <Screen name="quests" alt="The quest log: level 13, Steel Forged, 1,240 XP in total, a 6-day streak with two protections left, and 2 of 4 weekly quests done." caption="The quest log." />
+  <Screen name="quests" alt="The quest log: level 40, Steel Forged, 14,853 XP in total, a 6-week streak with no protection left this month, and 2 of 4 weekly quests done." caption="The quest log." />
   <Screen name="achievements" alt="Achievements: the latest medal for a first personal record, and six medals, three still locked." caption="Achievements." />
 </Screens>
 
@@ -20,36 +20,56 @@ Every finished workout earns experience points:
 
 | For | XP |
 | --- | --- |
-| Finishing the session | 25 |
-| Each completed set | 5 |
-| Each personal record | 50 |
+| Finishing a session with at least three working sets | 50 |
+| Each working set, up to 20 a session | 5 |
+| Each personal record beaten, up to five a session | 10 |
 | Each achievement unlocked | 100 |
 
-Every 100 XP is a level. Levels come with titles as you climb, from **Newcomer** through
-**Regular**, **Iron Disciple**, **Steel Forged**, **Relentless** and **Unbreakable** to
-**Legend**. The workout summary shows what you earned and why, and celebrates a level-up.
+Only work pays. Warm-up sets and sets ticked with nothing on them earn nothing, and neither does
+the first figure you ever log for an exercise: a record has to beat an earlier one.
+
+The first levels come quickly and each one costs a little more than the last: level 2 takes 60 XP
+in all, level 10 takes 1,620, and level 100 about a year of training four times a week. Levels come
+with titles as you climb:
+
+| Level | Title |
+| --- | --- |
+| 1 | Newcomer |
+| 10 | Regular |
+| 20 | Iron Disciple |
+| 40 | Steel Forged |
+| 60 | Relentless |
+| 80 | Unbreakable |
+| 100 | Legend |
+
+The workout summary shows what you earned and why, and celebrates a level-up.
 
 ## Quests
 
 Quests are goals that reset, so there is always one in reach. Each is worth XP when you clear
 it.
 
-| This week | This month |
-| --- | --- |
-| Train three times | Train twelve times |
-| Train five times | Break five personal records |
-| Break a personal record | Move 80 tonnes |
-| Move 20 tonnes | |
+| This week | XP | This month | XP |
+| --- | --- | --- | --- |
+| Train three times | 60 | Train twelve times | 250 |
+| Train five times | 100 | Break five personal records | 300 |
+| Break a personal record | 80 | Move 80 tonnes | 280 |
+| Move 20 tonnes | 70 | | |
 
 "Move 20 tonnes" means total volume: every set's weight × reps, added up. Home shows how far
 along you are.
 
 ## Streaks, and saving one
 
-Your streak counts the days in a row you trained. Real life gets in the way, so you have three
-**streak protections** a month: once a streak is at least three days long, missing a single
-day uses a protection instead of breaking it. The summary tells you when one was spent, and
-the quest log shows how many you have left this month.
+Your streak counts the **weeks** in a row you met your weekly goal. The goal is four workouts a
+week until you change it, from one to seven, in <kbd>Settings</kbd> › <kbd>Weekly goal</kbd>. Rest
+days never break a streak, and neither does the week you are in: a week is only judged once it is
+over. Weeks run Monday to Sunday.
+
+Real life gets in the way, so you have one **streak protection** a month: once a streak is at least
+two weeks long, a single week that falls short uses the protection instead of breaking it. Two
+short weeks in a row do break it. The summary tells you when a protection was spent, and the quest
+log shows whether you have one left this month.
 
 ## Loot
 
@@ -73,9 +93,15 @@ you earn it.
 - First workout logged
 - Ten workouts in
 - One hundred workouts
-- A week-long streak
-- A month-long streak
+- A month-long streak (four weeks)
+- A three-month streak (twelve weeks)
 - First personal record
+
+## After an import
+
+A [history imported from another app](import) earns XP, quests, achievements and loot by the same
+rules, workout by workout, in the order you trained. Imported weeks older than your current streak do not
+extend it, and an achievement you already have keeps its date.
 
 ## Turning it down
 

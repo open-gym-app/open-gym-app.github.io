@@ -14,7 +14,7 @@ also means a lost phone is a lost log, unless you keep a backup. <kbd>Settings</
 ## Export a backup
 
 **Export a backup** writes every workout, template, custom exercise, record, measurement,
-reward and setting to one JSON file. When it is done, you choose what happens to it:
+reward and setting to one JSON file. [Progress photos](body#progress-photos) are not in it. When it is done, you choose what happens to it:
 
 - **Save a copy…** to a folder of your choice: your Downloads, an SD card, or a cloud drive
   app you already use;
@@ -51,9 +51,14 @@ Android 11 the backups are in `Android/data/` and a file manager may show them.
   logged since the backup was made, is deleted. The confirmation spells out what will go and
   asks you to type **RESTORE**.
 - It checks the file first. A damaged file, a file from something else, or a backup from a
-  newer version of the app is refused, and nothing on the phone is changed.
+  different version of the format is refused, and nothing on the phone is changed.
+- [Progress photos](body#progress-photos) on the phone are left alone. The file holds none, so
+  none are replaced.
 - Your notification switches and reminder schedule are not in the file: they belong to the
   phone. Set them again after a restore.
+
+Coming from a different app rather than from a backup? That is an
+[import](import), and it adds to your history instead of replacing it.
 
 ## Moving to a new phone
 
@@ -62,6 +67,8 @@ Android 11 the backups are in `Android/data/` and a file manager may show them.
 2. Install <AppName /> on the new phone.
 3. Open <kbd>Settings</kbd> › <kbd>Backup & restore</kbd> › **Choose a backup file**, and pick
    the file.
+
+Progress photos do not move with it: they are only ever on the phone that took them.
 
 ## Why not Google backup?
 

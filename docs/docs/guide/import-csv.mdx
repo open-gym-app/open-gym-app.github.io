@@ -1,0 +1,115 @@
+---
+title: Plain CSV format
+description: The spreadsheet format for importing a history from any other app.
+---
+
+# Plain CSV format
+
+If your app is not in [the list](import#export-from-your-app), convert its data into this format,
+with a spreadsheet or a script, and import it from <kbd>Settings</kbd> › <kbd>Import from another
+app</kbd> › **Plain CSV**.
+
+This page covers what you need to write a file. The full specification, with every corner case, is
+<RepoLink path="docs/import-csv.md" />. There are two example files to start from:
+<RepoLink path="docs/import-csv-workouts.csv">workouts</RepoLink> and
+<RepoLink path="docs/import-csv-measurements.csv">body measurements</RepoLink>.
+
+## Two kinds of file
+
+A **workout file** has one row per set:
+
+```csv
+workout_date,workout_name,exercise,set_type,reps,weight,weight_unit
+2026-11-02 18:30,Push,Bench Press (Barbell),warmup,10,40,kg
+2026-11-02 18:30,Push,Bench Press (Barbell),,5,80,kg
+2026-11-02 18:30,Push,Triceps Pushdown,,12,25,kg
+2026-11-06,Legs,Barbell Squat,,5,100,kg
+```
+
+A **body measurement file** has one row per measurement:
+
+```csv
+measurement_date,weight,body_fat,waist
+2026-10-01,82.4,18.5,86
+2026-11-01,81.2,17.6,84
+```
+
+Import them one at a time. The first row is the header:
+
+- capitals, spaces and hyphens do not matter: `Workout Date` is `workout_date`;
+- columns can come in any order, and only the required ones have to be there;
+- columns not listed here are ignored.
+
+The file can use commas, semicolons, tabs or pipes between columns, and a point or a comma for
+decimals. Put text that contains the separator or a line break in double quotes.
+
+## Workout columns
+
+| Column | What it holds |
+| --- | --- |
+| `workout_date` | **Required.** A date, or a date and time |
+| `exercise` | **Required.** The exercise's name |
+| `workout_time` | The start time, if it is not in the date |
+| `workout_name`, `workout_notes` | Text |
+| `workout_duration` | How long it lasted. A bare number is **minutes** |
+| `workout_calories` | Kilocalories |
+| `workout_rating` | `1` to `5` |
+| `equipment` | `barbell`, `dumbbell`, `machine`, `smith machine`, `cable`, `kettlebell`, `band`, `bodyweight`, `ez bar`, `medicine ball`, `exercise ball`, `foam roll` or `other` |
+| `muscle` | The main muscle, used only when the exercise is new to the app |
+| `exercise_notes` | Notes on the exercise in this workout |
+| `superset` | Any label. Consecutive exercises with the same label are one superset |
+| `set_type` | `normal` (or blank), `warmup`, `drop`, `failure`, `interval` |
+| `reps` | A whole number |
+| `weight`, `weight_unit` | The load, in `kg` or `lb`. Blank or `0` for bodyweight |
+| `duration` | How long the set lasted. A bare number is **seconds** |
+| `distance`, `distance_unit` | In `m`, `km`, `mi` or `ft` |
+| `rpe` | `1` to `10`, halves allowed |
+| `rest` | The rest after the set. A bare number is **seconds** |
+| `avg_heart_rate`, `max_heart_rate` | Beats per minute |
+| `notes` | Notes on the set |
+
+A row counts as a set when it has reps, a weight, a duration or a distance. Rows that share a
+start are one workout, so **give two workouts on the same day a time**. Without one, a workout
+starts at noon.
+
+### Exercise names
+
+A name from the [library](library) always matches; open the exercise in the app to see how it is
+written. Names in the style of Strong and Hevy, `Bench Press (Barbell)`, and names that start with
+the equipment, `Barbell Squat`, are understood too. Anything else becomes a custom exercise.
+
+## Body measurement columns
+
+| Column | What it holds |
+| --- | --- |
+| `measurement_date` | **Required.** A date, or a date and time |
+| `measurement_time` | The time, if it is not in the date |
+| `weight`, `weight_unit` | Body weight, in `kg` or `lb` |
+| `body_fat` | Percent: `18.5` or `18.5%` |
+| `neck`, `shoulders`, `chest`, `waist`, `hips`, `arm`, `forearm`, `thigh`, `calf` | Circumferences. One figure per limb: measure the same side each time |
+| `length_unit` | `cm`, `mm` or `in`, for every circumference on the row |
+| `notes` | Notes on the measurement |
+
+## Units, durations and dates
+
+**Units** can go in the cell for a weight (`80kg`), in the unit column, or in the header:
+`weight (kg)`, `distance_km`, `waist (in)`. With none of them, figures are read in the
+[units you use in the app](settings#appearance).
+
+**Durations** can also be a clock, `1:05:00`, or written out, `1h 5m`. A clock with two parts is
+minutes and seconds.
+
+**Dates** are safest in ISO form: `2026-11-02`, `2026-11-02 18:30`. Dates such as `02/11/2026`
+are read when another date in the file, such as `25/11/2026`, settles which number is the day. If
+none does, those rows are skipped.
+
+## If something is wrong in the file
+
+| Mistake | What happens |
+| --- | --- |
+| The required columns are missing | The file is refused |
+| A unit the app does not read in a header, such as `weight (stone)` | The file is refused |
+| A quote that is never closed | The file is refused |
+| A date that does not read, or no exercise | The row is skipped |
+| Reps, weight, duration or distance that is not a number | The set is skipped and counted in the report |
+| An RPE, a heart rate, a rest, calories or a rating out of range | That value is left out; the set or workout is kept |

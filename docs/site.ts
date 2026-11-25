@@ -29,8 +29,9 @@ export const SITE_REPO = `${GITHUB_ORG}.github.io`;
 export const ANDROID_PACKAGE = 'app.titan.gym';
 
 /**
- * Set to `true` once the listing is live (#49): every install button turns from a
- * "coming soon" note into a link to the Play Store.
+ * Set to `true` once anyone can download the app. It is in a closed beta on Google Play, where
+ * the listing only opens for invited accounts: until then every install button is a "closed
+ * beta" note rather than a link to the Play Store.
  */
 export const PLAY_STORE_PUBLISHED = false;
 

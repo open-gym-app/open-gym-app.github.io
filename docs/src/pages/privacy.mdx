@@ -8,7 +8,7 @@ hide_table_of_contents: false
 
 # <AppName /> privacy policy
 
-*Effective 12 November 2026. Also available in [français](pathname:///fr/privacy), [español](pathname:///es/privacy) and [português (Brasil)](pathname:///pt-BR/privacy).*
+*Effective 25 November 2026. Also available in [français](pathname:///fr/privacy), [español](pathname:///es/privacy) and [português (Brasil)](pathname:///pt-BR/privacy).*
 
 <AppName /> is a workout tracker for Android. It is free, open source, and made by volunteers.
 This policy covers the <AppName /> app (<AndroidPackage />) as published on Google Play and built
@@ -30,14 +30,14 @@ from the source repository.
 
 | What | Examples |
 | --- | --- |
-| Workouts | sessions, exercises, sets, weights, reps, effort (RPE), rest times, notes |
+| Workouts | sessions, exercises, sets, weights, reps, distances, times, elevation, steps, effort (RPE), rest times, calories, your rating of the workout, heart rate (only if a file you import contains it), notes |
 | Your exercise library and templates | custom exercises, notes on exercises, saved workout templates |
-| Body data | body weight, body fat percentage, body measurements (waist, arms, and so on) |
+| Body data | body weight, body fat percentage, body measurements (waist, arms, and so on), progress photos |
 | Progress | personal records, experience points, level, streaks, quests, achievements, collected items |
-| Settings | units, theme, training goal, fitness level, rest timer, reminder days and time, bar and plates |
+| Settings | units, theme, training goal, fitness level, weekly goal, rest timer, reminder days and time, bar and plates |
 
-This is kept in the app's private database and settings files, which Android lets no other
-app read.
+This is kept in the app's private database, settings files and photo folder, which Android
+lets no other app read.
 
 If you turn on **Weekly auto-backup** (Settings › Backup & restore), the app also writes a
 backup file once a week into its own backup folder, the one **Export a backup** writes to. It
@@ -49,13 +49,29 @@ instead, and a backup leaves it only when you use **Share** or **Save a copy…*
 Settings › Backup & restore. These files stay on the phone, and Android deletes them when you
 uninstall the app.
 
+### Progress photos
+
+Progress photos are optional. **Take a photo** opens your camera app, and **Choose from
+gallery** opens Android's picker, which gives <AppName /> only the picture you choose. <AppName /> asks for
+no camera or storage permission. It keeps its own copy of the picture in its private storage,
+without the metadata a camera adds, such as where it was taken. Of that metadata it reads only
+the date and which way up the picture is. A picture in your gallery is not changed, and your
+camera app may keep a copy of its own.
+
+Progress photos are never part of a backup, and the app has no way to send them anywhere. You
+can delete each one in the app.
+
 ### Health data
 
-Body weight, body fat and body measurements are health data. <AppName /> uses them for one
-purpose only: to show you your own entries and trends. They are never transmitted, sold,
-shared, or used for advertising. <AppName /> does not read from or write to Health Connect, or
-any other health service. If a future version adds a Health Connect sync, this policy will
-be updated before that version is released, and the sync will be off until you turn it on.
+Body weight, body fat, body measurements, progress photos, calories and heart rate are
+health data. <AppName /> uses them for two purposes only: to show you your own entries and trends,
+and, with your body weight, to estimate the calories a workout burned. <AppName /> does not
+measure heart rate: it keeps it only if a file you import contains it, and only includes it
+in your own backups, without showing it or using it for anything else. Health data is never
+transmitted, sold, shared, or used for advertising. <AppName /> does not read from or write to
+Health Connect, or any other health service. If a future version adds a Health Connect sync,
+this policy will be updated before that version is released, and the sync will be off until
+you turn it on.
 
 ## What the app does not do
 
@@ -69,25 +85,33 @@ be updated before that version is released, and the sync will be off until you t
   tracking libraries are included. The full list of libraries is in the app, under
   Settings › About › Open source licences.
 - **No cloud backup.** The app opts its data out of Android's automatic backup to Google
-  Drive and of device-to-device transfer, so your training history is not copied off the
-  phone behind your back.
+  Drive and of device-to-device transfer, so your training history and your photos are not
+  copied off the phone behind your back.
 - **No account and no advertising identifier.** The app does not know who you are.
 
 ## When your data leaves the phone
 
-Only when you ask it to. **Export a backup** (Settings › Backup & restore) writes all of your
-data, including your body data, to a JSON file. You then choose to save a copy somewhere or
-share it with another app. From that moment the copy is handled by whatever you sent it to,
-under that service's own terms. The file is not encrypted: keep it somewhere you trust.
+Only when you ask it to. **Export a backup** (Settings › Backup & restore) writes all of
+your data, including your body data but not your progress photos, to a JSON file. You then
+choose to save a copy somewhere or share it with another app. From that moment the copy is
+handled by whatever you sent it to, under that service's own terms. The file is not
+encrypted: keep it somewhere you trust.
 
-**Restore** reads a backup file you pick and replaces the data on the phone with it. Nothing
-is uploaded.
+**Restore** reads a backup file you pick and replaces the data on the phone with it, except
+your progress photos, which it leaves alone. Nothing is uploaded.
+
+**Import from another app** (Settings › Import from another app) reads a file you pick, which
+you exported from another app or made yourself, and adds what it holds to your data. <AppName /> does
+not sign in to the other app, does not change the file and uploads nothing. It keeps Android's
+permission to read that one file until you close the result of the import, or start another
+one, so that an interrupted import can be run again.
 
 ## Notifications
 
-Workout reminders, the rest-timer alert, the unfinished-workout note, and level and reward
-notifications are all created on the phone. None is sent from a server. You can turn each
-one off in Settings › Notifications or in Android's settings.
+Workout reminders, the rest-timer alert, the unfinished-workout note, level and reward
+notifications, and the progress of an import are all created on the phone. None is sent from a
+server. You can turn each one off in Settings › Notifications or in Android's settings, except
+the progress of an import, which is in Android's settings only.
 
 ## Permissions
 
@@ -97,16 +121,18 @@ one off in Settings › Notifications or in Android's settings.
 | `SCHEDULE_EXACT_ALARM` (Android 12 and below) / `USE_EXACT_ALARM` | To end a rest timer on the second, and to fire a workout reminder at the time you set. |
 | `RECEIVE_BOOT_COMPLETED` | To schedule your workout reminders and the weekly backup again after the phone restarts. |
 | `VIBRATE` | To buzz when a rest period ends. |
-| `WAKE_LOCK`, `FOREGROUND_SERVICE`, `ACCESS_NETWORK_STATE` | Added by Android's job scheduler library (WorkManager), which runs the weekly backup. None of them grants network access. |
+| `FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_DATA_SYNC` | To keep an import from another app running, with a notification, while you do something else. "Data sync" is Android's name for this kind of work: neither grants network access, and nothing is sent. |
+| `WAKE_LOCK`, `ACCESS_NETWORK_STATE` | Added by Android's job scheduler library (WorkManager), which runs the weekly backup and the import. Neither grants network access. |
 | <AndroidPackage suffix=".DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> | Added by the AndroidX core library. It keeps other apps from sending the app internal messages. |
 
 ## Deleting your data
 
-- **Settings › Delete all data** erases everything the app has stored and resets every
-  setting. It cannot be undone.
-- **Uninstalling the app** deletes everything too, including the automatic backups.
-- **Exported files** you saved or shared are outside the app. Delete them wherever you put
-  them.
+- **Settings › Delete all data** erases everything the app has stored, progress photos
+  included, and resets every setting. It cannot be undone.
+- **Uninstalling the app** deletes everything too, including the automatic backups and
+  the progress photos.
+- **Exported files** you saved or shared, and **files you imported**, are outside the app.
+  Delete them wherever you put them.
 
 Because we hold no copy of your data, there is nothing for us to delete, and no request to
 send.

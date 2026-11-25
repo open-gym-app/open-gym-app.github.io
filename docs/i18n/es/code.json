@@ -12,7 +12,7 @@
     "message": "Disponible en Google Play"
   },
   "home.install.soon": {
-    "message": "Próximamente en Google Play"
+    "message": "En beta cerrada en Google Play"
   },
   "home.hero.title": {
     "message": "Registra el trabajo. Míralo sumar."
@@ -75,7 +75,7 @@
     "message": "Todo tipo de series"
   },
   "home.log.kinds.detail": {
-    "message": "Calentamientos, series descendentes, series al fallo y superseries, con RPE si lo quieres."
+    "message": "Calentamientos, series descendentes, series al fallo y superseries, cardio e isométricos, con RPE si lo quieres."
   },
   "home.log.plate.term": {
     "message": "Una calculadora de discos para tu gimnasio"
@@ -84,7 +84,7 @@
     "message": "Dile qué discos tiene tu gimnasio y carga la barra por ti, lado por lado."
   },
   "home.log.phone.rest": {
-    "message": "El temporizador de descanso en cuenta atrás sobre la tabla de series."
+    "message": "El temporizador de descanso en cuenta atrás bajo la tabla de series."
   },
   "home.log.phone.plate": {
     "message": "La calculadora de discos cargando 100 kg en una barra de 20 kg."
@@ -120,7 +120,7 @@
     "message": "Tu cuerpo, también"
   },
   "home.progress.body.detail": {
-    "message": "Peso, grasa corporal y medidas, en gráficas junto a tu entrenamiento."
+    "message": "Peso, grasa corporal, medidas y fotos de progreso, junto a tu entrenamiento."
   },
   "home.progress.phone.stats": {
     "message": "La pantalla de progreso: volumen acumulado, sesiones por semana, récords y músculos entrenados."
@@ -150,10 +150,10 @@
     "message": "Entrena tres veces, bate un récord, mueve veinte toneladas. Se renuevan, así que siempre hay otra."
   },
   "home.play.streak.term": {
-    "message": "Rachas que perdonan un día perdido"
+    "message": "Rachas que encajan en tu semana"
   },
   "home.play.streak.detail": {
-    "message": "Tres salvadas al mes mantienen viva tu racha pese a un día sin entrenar."
+    "message": "Ponte un objetivo semanal y mantenlo. Los días de descanso nunca rompen la racha, y una protección al mes cubre una semana corta."
   },
   "home.play.loot.term": {
     "message": "Botín y medallas"
@@ -162,10 +162,10 @@
     "message": "Un entrenamiento terminado puede soltar de todo, desde un bloque de magnesio hasta una corona de hierro, y los logros son tuyos para siempre."
   },
   "home.play.phone.levelup": {
-    "message": "El final de un entrenamiento: nivel 4 alcanzado, 285 XP ganados."
+    "message": "El final de un entrenamiento: nivel 22 alcanzado, 240 XP ganados."
   },
   "home.play.phone.quests": {
-    "message": "El registro de misiones: nivel 13, una racha de seis días y las misiones de la semana."
+    "message": "El registro de misiones: nivel 40, una racha de seis semanas y las misiones de la semana."
   },
   "home.play.more": {
     "message": "Cómo funcionan el XP y las misiones"
@@ -186,7 +186,7 @@
     "message": "Plantillas"
   },
   "home.library.templates.detail": {
-    "message": "Crea una, o guarda un entrenamiento terminado como plantilla, y repítelo con un toque."
+    "message": "Empieza con 17 plantillas listas, crea las tuyas, o guarda un entrenamiento terminado como plantilla."
   },
   "home.library.notes.term": {
     "message": "Notas donde las necesitas"
@@ -206,6 +206,12 @@
   "home.data.lead": {
     "message": "Años de entrenamiento merecen algo mejor que un servidor que no controlas. Todo se queda en tu teléfono, y puedes llevártelo cuando quieras."
   },
+  "home.data.import.term": {
+    "message": "Trae tu historial"
+  },
+  "home.data.import.detail": {
+    "message": "Impórtalo desde Strong, Hevy, FitNotes, JEFIT, Fitbod, StrongLifts o una hoja de cálculo. Se añade a tu registro, con sus récords y XP calculados a partir de cada serie."
+  },
   "home.data.export.term": {
     "message": "Exporta y restaura"
   },
@@ -223,6 +229,9 @@
   },
   "home.data.delete.detail": {
     "message": "Un solo ajuste lo borra todo, para siempre. No queda ninguna copia en otro sitio."
+  },
+  "home.data.phone.import": {
+    "message": "Importar desde otra app: Strong, Hevy, FitNotes, JEFIT, Fitbod, StrongLifts y CSV simple."
   },
   "home.data.phone.backup": {
     "message": "La pantalla de copias: 184 sesiones en el dispositivo, exportación, copia automática semanal y restauración."

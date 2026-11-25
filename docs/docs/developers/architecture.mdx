@@ -18,7 +18,7 @@ titan/
 ├── benchmark/       Macrobenchmarks and the Baseline Profile generator
 ├── core/
 │   ├── domain/      business logic: pure Kotlin JVM, no Android dependencies
-│   ├── data/        Room, DataStore, repositories, notifications, backup
+│   ├── data/        Room, DataStore, repositories, notifications, backup, history import
 │   ├── ui/          design system and shared Compose components
 │   └── testing/     screenshot and accessibility test support (test classpath only)
 └── feature/
@@ -27,7 +27,7 @@ titan/
     ├── session/     new session → active session → summary
     ├── history/     the Sessions and Library tabs, templates, plate calculator
     ├── progression/ the Stats tab: records, charts, body, quests
-    └── settings/    settings, backup, reminders, licences
+    └── settings/    settings, backup, import from another app, reminders, licences
 ```
 
 ## Who may depend on whom
@@ -53,7 +53,7 @@ graph TD
 ```
 
 - **`:core:domain` depends on nothing.** It is a plain Kotlin library, so every business rule
-  (PR detection, the next-load engine, XP, streaks, the backup format) is tested on the JVM in
+  (PR detection, the next-load engine, XP, streaks, the backup format, the import parsers) is tested on the JVM in
   milliseconds. It carries a 95% line-coverage floor.
 - **Features never depend on each other.** Each exposes a `NavGraphBuilder` extension and
   reports what happened through lambdas (`onSessionFinished`); `:app` alone decides where that
@@ -79,6 +79,20 @@ the tab bar, so a stray tap can never lose a set in progress.
 Every screen keeps its own state across process death through `SavedStateHandle`, and the
 workout in progress is rebuilt from the database, so killing the app mid-set loses at most the
 field being typed.
+
+## Importing from another app
+
+The import is one engine with a parser per source. A `HistoryParser` in `:core:domain` turns one
+app's file into an `ImportedHistory`; `ImportPlanner` decides what that becomes on this device, and
+`ImportHistoryUseCase` writes it and replays every workout through `SessionCompletionPipeline`, the
+same path a finished workout takes. Everything after the parser is identical for every app.
+
+`:core:data` runs it in a foreground WorkManager worker, because it is one transaction and a
+cancelled collector rolls it back: the screen hands over the request, then only observes. See
+[Importing](data-model#importing-from-another-app) for the rules it holds the data to.
+
+To support another app, write a `HistoryParser` in `importer/<source>/` with its fixtures, and add
+the source to `HistoryImportSource`; a source without a parser does not compile.
 
 ## Design system
 

@@ -80,7 +80,7 @@ function InstallButton({className}: {className?: string}): ReactNode {
   }
   return (
     <span className={cx(styles.soon, className)}>
-      <Translate id="home.install.soon">Coming soon to Google Play</Translate>
+      <Translate id="home.install.soon">In closed beta on Google Play</Translate>
     </span>
   );
 }
@@ -268,7 +268,8 @@ function Chapters(): ReactNode {
             term: <Translate id="home.log.kinds.term">Every kind of set</Translate>,
             detail: (
               <Translate id="home.log.kinds.detail">
-                Warm-ups, drop sets, sets to failure and supersets, with RPE when you want it.
+                Warm-ups, drop sets, sets to failure and supersets, cardio and timed holds, with RPE
+                when you want it.
               </Translate>
             ),
           },
@@ -286,7 +287,7 @@ function Chapters(): ReactNode {
             name: 'session-resting',
             alt: translate({
               id: 'home.log.phone.rest',
-              message: 'The rest timer counting down above the set table.',
+              message: 'The rest timer counting down below the set table.',
             }),
           },
           {
@@ -339,7 +340,7 @@ function Chapters(): ReactNode {
             term: <Translate id="home.progress.body.term">Your body, too</Translate>,
             detail: (
               <Translate id="home.progress.body.detail">
-                Body weight, body fat and tape measurements, charted next to your training.
+                Body weight, body fat, tape measurements and progress photos, next to your training.
               </Translate>
             ),
           },
@@ -390,10 +391,11 @@ function Chapters(): ReactNode {
             ),
           },
           {
-            term: <Translate id="home.play.streak.term">Streaks that forgive a missed day</Translate>,
+            term: <Translate id="home.play.streak.term">Streaks that fit your week</Translate>,
             detail: (
               <Translate id="home.play.streak.detail">
-                Three saves a month keep a streak alive through one missed day.
+                Set a weekly goal and keep it up. Rest days never break a streak, and one save a month
+                covers a short week.
               </Translate>
             ),
           },
@@ -412,14 +414,14 @@ function Chapters(): ReactNode {
             name: 'session-levelup',
             alt: translate({
               id: 'home.play.phone.levelup',
-              message: 'The end of a workout: level 4 reached, 285 XP earned.',
+              message: 'The end of a workout: level 22 reached, 240 XP earned.',
             }),
           },
           {
             name: 'quests',
             alt: translate({
               id: 'home.play.phone.quests',
-              message: 'The quest log: level 13, Steel Forged, a six-day streak and this week\'s quests.',
+              message: 'The quest log: level 40, Steel Forged, a six-week streak and this week\'s quests.',
             }),
           },
         ]}
@@ -448,7 +450,7 @@ function Chapters(): ReactNode {
             term: <Translate id="home.library.templates.term">Templates</Translate>,
             detail: (
               <Translate id="home.library.templates.detail">
-                Build one, or save a finished workout as one, and start it again in one tap.
+                Start from 17 ready-made ones, build your own, or save a finished workout as one.
               </Translate>
             ),
           },
@@ -490,6 +492,15 @@ function Chapters(): ReactNode {
         }
         points={[
           {
+            term: <Translate id="home.data.import.term">Bring your history with you</Translate>,
+            detail: (
+              <Translate id="home.data.import.detail">
+                Import it from Strong, Hevy, FitNotes, JEFIT, Fitbod, StrongLifts or a spreadsheet. It
+                is added to your log, with its records and XP worked out from every set.
+              </Translate>
+            ),
+          },
+          {
             term: <Translate id="home.data.export.term">Export and restore</Translate>,
             detail: (
               <Translate id="home.data.export.detail">
@@ -517,6 +528,13 @@ function Chapters(): ReactNode {
           },
         ]}
         screens={[
+          {
+            name: 'import-choose',
+            alt: translate({
+              id: 'home.data.phone.import',
+              message: 'Import from another app: Strong, Hevy, FitNotes, JEFIT, Fitbod, StrongLifts and plain CSV.',
+            }),
+          },
           {
             name: 'backup',
             alt: translate({

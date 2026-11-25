@@ -20,7 +20,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Your app',
       collapsed: false,
-      items: ['guide/settings', 'guide/reminders', 'guide/backup', 'guide/accessibility'],
+      items: ['guide/settings', 'guide/reminders', 'guide/import', 'guide/import-csv', 'guide/backup', 'guide/accessibility'],
     },
     'faq',
     'roadmap',
